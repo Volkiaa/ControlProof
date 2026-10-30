@@ -1,0 +1,228 @@
+{
+  "$schema": "https://raw.githubusercontent.com/oasis-tcs/sarif-spec/master/Schemata/sarif-schema-2.1.0.json",
+  "runs": [
+    {
+      "results": [],
+      "tool": {
+        "driver": {
+          "informationUri": "https://github.com/synacktiv/octoscan",
+          "name": "octoscan",
+          "rules": [
+            {
+              "defaultConfiguration": {
+                "level": "error"
+              },
+              "fullDescription": {
+                "text": "Check for if statements that are based on a bot identity."
+              },
+              "helpUri": "https://github.com/synacktiv/octoscan?tab=readme-ov-file#rules",
+              "id": "bot-check",
+              "name": "BotCheck",
+              "properties": {
+                "description": "Check for if statements that are based on a bot identity.",
+                "queryURI": "https://github.com/synacktiv/octoscan?tab=readme-ov-file#rules"
+              }
+            },
+            {
+              "defaultConfiguration": {
+                "level": "error"
+              },
+              "fullDescription": {
+                "text": "Checks for credentials in \"services:\" configuration"
+              },
+              "helpUri": "https://github.com/synacktiv/octoscan?tab=readme-ov-file#rules",
+              "id": "credentials",
+              "name": "Credentials",
+              "properties": {
+                "description": "Checks for credentials in \"services:\" configuration",
+                "queryURI": "https://github.com/synacktiv/octoscan?tab=readme-ov-file#rules"
+              }
+            },
+            {
+              "defaultConfiguration": {
+                "level": "error"
+              },
+              "fullDescription": {
+                "text": "Check for dangerous actions."
+              },
+              "helpUri": "https://github.com/synacktiv/octoscan?tab=readme-ov-file#rules",
+              "id": "dangerous-action",
+              "name": "DangerousAction",
+              "properties": {
+                "description": "Check for dangerous actions.",
+                "queryURI": "https://github.com/synacktiv/octoscan?tab=readme-ov-file#rules"
+              }
+            },
+            {
+              "defaultConfiguration": {
+                "level": "error"
+              },
+              "fullDescription": {
+                "text": "Check for workflow that upload artefacts containing sensitive files."
+              },
+              "helpUri": "https://github.com/synacktiv/octoscan?tab=readme-ov-file#rules",
+              "id": "dangerous-artefact",
+              "name": "DangerousArtefact",
+              "properties": {
+                "description": "Check for workflow that upload artefacts containing sensitive files.",
+                "queryURI": "https://github.com/synacktiv/octoscan?tab=readme-ov-file#rules"
+              }
+            },
+            {
+              "defaultConfiguration": {
+                "level": "error"
+              },
+              "fullDescription": {
+                "text": "Check for dangerous checkout."
+              },
+              "helpUri": "https://github.com/synacktiv/octoscan?tab=readme-ov-file#rules",
+              "id": "dangerous-checkout",
+              "name": "DangerousCheckout",
+              "properties": {
+                "description": "Check for dangerous checkout.",
+                "queryURI": "https://github.com/synacktiv/octoscan?tab=readme-ov-file#rules"
+              }
+            },
+            {
+              "defaultConfiguration": {
+                "level": "error"
+              },
+              "fullDescription": {
+                "text": "Check for dangerous write operation on $GITHUB_OUTPUT or $GITHUB_ENV."
+              },
+              "helpUri": "https://github.com/synacktiv/octoscan?tab=readme-ov-file#rules",
+              "id": "dangerous-write",
+              "name": "DangerousWrite",
+              "properties": {
+                "description": "Check for dangerous write operation on $GITHUB_OUTPUT or $GITHUB_ENV.",
+                "queryURI": "https://github.com/synacktiv/octoscan?tab=readme-ov-file#rules"
+              }
+            },
+            {
+              "defaultConfiguration": {
+                "level": "error"
+              },
+              "fullDescription": {
+                "text": "Check for expression injection."
+              },
+              "helpUri": "https://github.com/synacktiv/octoscan?tab=readme-ov-file#rules",
+              "id": "expression-injection",
+              "name": "ExpressionInjection",
+              "properties": {
+                "description": "Check for expression injection.",
+                "queryURI": "https://github.com/synacktiv/octoscan?tab=readme-ov-file#rules"
+              }
+            },
+            {
+              "defaultConfiguration": {
+                "level": "error"
+              },
+              "fullDescription": {
+                "text": "Check for known vulnerabilities."
+              },
+              "helpUri": "https://github.com/synacktiv/octoscan?tab=readme-ov-file#rules",
+              "id": "known-vulnerability",
+              "name": "KnownVulnerability",
+              "properties": {
+                "description": "Check for known vulnerabilities.",
+                "queryURI": "https://github.com/synacktiv/octoscan?tab=readme-ov-file#rules"
+              }
+            },
+            {
+              "defaultConfiguration": {
+                "level": "error"
+              },
+              "fullDescription": {
+                "text": "Check for local actions."
+              },
+              "helpUri": "https://github.com/synacktiv/octoscan?tab=readme-ov-file#rules",
+              "id": "local-action",
+              "name": "LocalAction",
+              "properties": {
+                "description": "Check for local actions.",
+                "queryURI": "https://github.com/synacktiv/octoscan?tab=readme-ov-file#rules"
+              }
+            },
+            {
+              "defaultConfiguration": {
+                "level": "error"
+              },
+              "fullDescription": {
+                "text": "Verify that external actions are pointing to a valid GitHub user or organization."
+              },
+              "helpUri": "https://github.com/synacktiv/octoscan?tab=readme-ov-file#rules",
+              "id": "repo-jacking",
+              "name": "RepoJacking",
+              "properties": {
+                "description": "Verify that external actions are pointing to a valid GitHub user or organization.",
+                "queryURI": "https://github.com/synacktiv/octoscan?tab=readme-ov-file#rules"
+              }
+            },
+            {
+              "defaultConfiguration": {
+                "level": "error"
+              },
+              "fullDescription": {
+                "text": "Checks for GitHub-hosted and preset self-hosted runner labels in \"runs-on:\""
+              },
+              "helpUri": "https://github.com/synacktiv/octoscan?tab=readme-ov-file#rules",
+              "id": "runner-label",
+              "name": "RunnerLabel",
+              "properties": {
+                "description": "Checks for GitHub-hosted and preset self-hosted runner labels in \"runs-on:\"",
+                "queryURI": "https://github.com/synacktiv/octoscan?tab=readme-ov-file#rules"
+              }
+            },
+            {
+              "defaultConfiguration": {
+                "level": "error"
+              },
+              "fullDescription": {
+                "text": "Checks for shell script sources in \"run:\" using shellcheck"
+              },
+              "helpUri": "https://github.com/synacktiv/octoscan?tab=readme-ov-file#rules",
+              "id": "shellcheck",
+              "name": "Shellcheck",
+              "properties": {
+                "description": "Checks for shell script sources in \"run:\" using shellcheck",
+                "queryURI": "https://github.com/synacktiv/octoscan?tab=readme-ov-file#rules"
+              }
+            },
+            {
+              "defaultConfiguration": {
+                "level": "error"
+              },
+              "fullDescription": {
+                "text": "Checks for GitHub Actions workflow syntax"
+              },
+              "helpUri": "https://github.com/synacktiv/octoscan?tab=readme-ov-file#rules",
+              "id": "syntax-check",
+              "name": "SyntaxCheck",
+              "properties": {
+                "description": "Checks for GitHub Actions workflow syntax",
+                "queryURI": "https://github.com/synacktiv/octoscan?tab=readme-ov-file#rules"
+              }
+            },
+            {
+              "defaultConfiguration": {
+                "level": "error"
+              },
+              "fullDescription": {
+                "text": "Check 'ACTIONS_ALLOW_UNSECURE_COMMANDS' env variable."
+              },
+              "helpUri": "https://github.com/synacktiv/octoscan?tab=readme-ov-file#rules",
+              "id": "unsecure-commands",
+              "name": "UnsecureCommands",
+              "properties": {
+                "description": "Check 'ACTIONS_ALLOW_UNSECURE_COMMANDS' env variable.",
+                "queryURI": "https://github.com/synacktiv/octoscan?tab=readme-ov-file#rules"
+              }
+            }
+          ],
+          "version": "(devel)"
+        }
+      }
+    }
+  ],
+  "version": "2.1.0"
+}

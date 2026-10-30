@@ -1,0 +1,9 @@
+a-spire 4c050972d27abb28d88a925aa3fe212c7c619aa9
+a-spire-fixed d6c91e5a912e5d29eab66120985cd2408a8a9a2b
+b-attest 062e7e11aa6116301038484c58beda0d70010b4d
+b-attest-fixed 30e4a80d337fc4cc445bc1549a4c59dfa2e099c5
+b-attest-push-only 03a91c155793143eb2475d8094c2f8f835da62e5
+b-attest-allowlist 2ed887af33690f7daa7c0e063459e2b4e6d8cd2b
+c-data-only 0d22b293b31893875715e5c046c8e80cf8fe29c6
+f-restricted-consumer c393d489e660ca3237717aba10dfb6965ee1e811
+g-unbound-selector 286e9cddf4281fdcf16d77bd2c521172ebac7ed8

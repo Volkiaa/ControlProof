@@ -1,0 +1,1511 @@
+{
+  "$schema": "https://docs.oasis-open.org/sarif/sarif/v2.1.0/os/schemas/sarif-schema-2.1.0.json",
+  "runs": [
+    {
+      "results": [
+        {
+          "codeFlows": [
+            {
+              "threadFlows": [
+                {
+                  "locations": [
+                    {
+                      "importance": "essential",
+                      "location": {
+                        "logicalLocations": [
+                          {
+                            "properties": {
+                              "symbolic": {
+                                "annotation": "action is not pinned to a hash (required by blanket policy)",
+                                "feature_kind": {
+                                  "Subfeature": {
+                                    "after": 0,
+                                    "fragment": {
+                                      "Raw": "actions/upload-artifact@v7"
+                                    }
+                                  }
+                                },
+                                "key": {
+                                  "Local": {
+                                    "verbatim_path": "./.github/workflows/review-capture.yml"
+                                  }
+                                },
+                                "kind": "Primary",
+                                "route": {
+                                  "route": [
+                                    {
+                                      "Key": "jobs"
+                                    },
+                                    {
+                                      "Key": "capture"
+                                    },
+                                    {
+                                      "Key": "steps"
+                                    },
+                                    {
+                                      "Index": 1
+                                    },
+                                    {
+                                      "Key": "uses"
+                                    }
+                                  ]
+                                }
+                              }
+                            }
+                          }
+                        ],
+                        "message": {
+                          "text": "action is not pinned to a hash (required by blanket policy)"
+                        },
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": ".github/workflows/review-capture.yml"
+                          },
+                          "region": {
+                            "endColumn": 41,
+                            "endLine": 17,
+                            "snippet": {
+                              "text": "actions/upload-artifact@v7"
+                            },
+                            "sourceLanguage": "yaml",
+                            "startColumn": 15,
+                            "startLine": 17
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "kind": "fail",
+          "level": "error",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "properties": {
+                    "symbolic": {
+                      "annotation": "action is not pinned to a hash (required by blanket policy)",
+                      "feature_kind": {
+                        "Subfeature": {
+                          "after": 0,
+                          "fragment": {
+                            "Raw": "actions/upload-artifact@v7"
+                          }
+                        }
+                      },
+                      "key": {
+                        "Local": {
+                          "verbatim_path": "./.github/workflows/review-capture.yml"
+                        }
+                      },
+                      "kind": "Primary",
+                      "route": {
+                        "route": [
+                          {
+                            "Key": "jobs"
+                          },
+                          {
+                            "Key": "capture"
+                          },
+                          {
+                            "Key": "steps"
+                          },
+                          {
+                            "Index": 1
+                          },
+                          {
+                            "Key": "uses"
+                          }
+                        ]
+                      }
+                    }
+                  }
+                }
+              ],
+              "message": {
+                "text": "action is not pinned to a hash (required by blanket policy)"
+              },
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": ".github/workflows/review-capture.yml"
+                },
+                "region": {
+                  "endColumn": 41,
+                  "endLine": 17,
+                  "snippet": {
+                    "text": "actions/upload-artifact@v7"
+                  },
+                  "sourceLanguage": "yaml",
+                  "startColumn": 15,
+                  "startLine": 17
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "unpinned action reference: action is not pinned to a hash (required by blanket policy)"
+          },
+          "properties": {
+            "zizmor/confidence": "High",
+            "zizmor/persona": "Regular",
+            "zizmor/severity": "High"
+          },
+          "ruleId": "zizmor/unpinned-uses"
+        },
+        {
+          "codeFlows": [
+            {
+              "threadFlows": [
+                {
+                  "locations": [
+                    {
+                      "importance": "essential",
+                      "location": {
+                        "logicalLocations": [
+                          {
+                            "properties": {
+                              "symbolic": {
+                                "annotation": "this job",
+                                "feature_kind": "KeyOnly",
+                                "key": {
+                                  "Local": {
+                                    "verbatim_path": "./.github/workflows/review-capture.yml"
+                                  }
+                                },
+                                "kind": "Primary",
+                                "route": {
+                                  "route": [
+                                    {
+                                      "Key": "jobs"
+                                    },
+                                    {
+                                      "Key": "capture"
+                                    }
+                                  ]
+                                }
+                              }
+                            }
+                          }
+                        ],
+                        "message": {
+                          "text": "this job"
+                        },
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": ".github/workflows/review-capture.yml"
+                          },
+                          "region": {
+                            "endColumn": 10,
+                            "endLine": 7,
+                            "snippet": {
+                              "text": "capture"
+                            },
+                            "sourceLanguage": "yaml",
+                            "startColumn": 3,
+                            "startLine": 7
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "kind": "review",
+          "level": "note",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "properties": {
+                    "symbolic": {
+                      "annotation": "this job",
+                      "feature_kind": "KeyOnly",
+                      "key": {
+                        "Local": {
+                          "verbatim_path": "./.github/workflows/review-capture.yml"
+                        }
+                      },
+                      "kind": "Primary",
+                      "route": {
+                        "route": [
+                          {
+                            "Key": "jobs"
+                          },
+                          {
+                            "Key": "capture"
+                          }
+                        ]
+                      }
+                    }
+                  }
+                }
+              ],
+              "message": {
+                "text": "this job"
+              },
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": ".github/workflows/review-capture.yml"
+                },
+                "region": {
+                  "endColumn": 10,
+                  "endLine": 7,
+                  "snippet": {
+                    "text": "capture"
+                  },
+                  "sourceLanguage": "yaml",
+                  "startColumn": 3,
+                  "startLine": 7
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "workflow or action definition without a name: this job"
+          },
+          "properties": {
+            "zizmor/confidence": "High",
+            "zizmor/persona": "Pedantic",
+            "zizmor/severity": "Informational"
+          },
+          "ruleId": "zizmor/anonymous-definition"
+        },
+        {
+          "codeFlows": [
+            {
+              "threadFlows": [
+                {
+                  "locations": [
+                    {
+                      "importance": "essential",
+                      "location": {
+                        "logicalLocations": [
+                          {
+                            "properties": {
+                              "symbolic": {
+                                "annotation": "workflow is missing concurrency setting",
+                                "feature_kind": "Normal",
+                                "key": {
+                                  "Local": {
+                                    "verbatim_path": "./.github/workflows/review-capture.yml"
+                                  }
+                                },
+                                "kind": "Primary",
+                                "route": {
+                                  "route": [
+                                    {
+                                      "Key": "on"
+                                    }
+                                  ]
+                                }
+                              }
+                            }
+                          }
+                        ],
+                        "message": {
+                          "text": "workflow is missing concurrency setting"
+                        },
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": ".github/workflows/review-capture.yml"
+                          },
+                          "region": {
+                            "endColumn": 23,
+                            "endLine": 4,
+                            "snippet": {
+                              "text": "on:\n  pull_request_review:\n    types: [submitted]"
+                            },
+                            "sourceLanguage": "yaml",
+                            "startColumn": 1,
+                            "startLine": 2
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "importance": "important",
+                      "location": {
+                        "logicalLocations": [
+                          {
+                            "properties": {
+                              "symbolic": {
+                                "annotation": "job affected by missing workflow concurrency",
+                                "feature_kind": "KeyOnly",
+                                "key": {
+                                  "Local": {
+                                    "verbatim_path": "./.github/workflows/review-capture.yml"
+                                  }
+                                },
+                                "kind": "Related",
+                                "route": {
+                                  "route": [
+                                    {
+                                      "Key": "jobs"
+                                    },
+                                    {
+                                      "Key": "capture"
+                                    }
+                                  ]
+                                }
+                              }
+                            }
+                          }
+                        ],
+                        "message": {
+                          "text": "job affected by missing workflow concurrency"
+                        },
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": ".github/workflows/review-capture.yml"
+                          },
+                          "region": {
+                            "endColumn": 10,
+                            "endLine": 7,
+                            "snippet": {
+                              "text": "capture"
+                            },
+                            "sourceLanguage": "yaml",
+                            "startColumn": 3,
+                            "startLine": 7
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "kind": "fail",
+          "level": "note",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "properties": {
+                    "symbolic": {
+                      "annotation": "workflow is missing concurrency setting",
+                      "feature_kind": "Normal",
+                      "key": {
+                        "Local": {
+                          "verbatim_path": "./.github/workflows/review-capture.yml"
+                        }
+                      },
+                      "kind": "Primary",
+                      "route": {
+                        "route": [
+                          {
+                            "Key": "on"
+                          }
+                        ]
+                      }
+                    }
+                  }
+                }
+              ],
+              "message": {
+                "text": "workflow is missing concurrency setting"
+              },
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": ".github/workflows/review-capture.yml"
+                },
+                "region": {
+                  "endColumn": 23,
+                  "endLine": 4,
+                  "snippet": {
+                    "text": "on:\n  pull_request_review:\n    types: [submitted]"
+                  },
+                  "sourceLanguage": "yaml",
+                  "startColumn": 1,
+                  "startLine": 2
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "insufficient job-level concurrency limits: workflow is missing concurrency setting"
+          },
+          "properties": {
+            "zizmor/confidence": "High",
+            "zizmor/persona": "Pedantic",
+            "zizmor/severity": "Low"
+          },
+          "ruleId": "zizmor/concurrency-limits"
+        },
+        {
+          "codeFlows": [
+            {
+              "threadFlows": [
+                {
+                  "locations": [
+                    {
+                      "importance": "essential",
+                      "location": {
+                        "logicalLocations": [
+                          {
+                            "properties": {
+                              "symbolic": {
+                                "annotation": "workflow_run is almost always used insecurely",
+                                "feature_kind": "Normal",
+                                "key": {
+                                  "Local": {
+                                    "verbatim_path": "./.github/workflows/review-summary.yml"
+                                  }
+                                },
+                                "kind": "Primary",
+                                "route": {
+                                  "route": [
+                                    {
+                                      "Key": "on"
+                                    }
+                                  ]
+                                }
+                              }
+                            }
+                          }
+                        ],
+                        "message": {
+                          "text": "workflow_run is almost always used insecurely"
+                        },
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": ".github/workflows/review-summary.yml"
+                          },
+                          "region": {
+                            "endColumn": 23,
+                            "endLine": 5,
+                            "snippet": {
+                              "text": "on:\n  workflow_run:\n    workflows: [\"Capture review\"]\n    types: [completed]"
+                            },
+                            "sourceLanguage": "yaml",
+                            "startColumn": 1,
+                            "startLine": 2
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "kind": "fail",
+          "level": "error",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "properties": {
+                    "symbolic": {
+                      "annotation": "workflow_run is almost always used insecurely",
+                      "feature_kind": "Normal",
+                      "key": {
+                        "Local": {
+                          "verbatim_path": "./.github/workflows/review-summary.yml"
+                        }
+                      },
+                      "kind": "Primary",
+                      "route": {
+                        "route": [
+                          {
+                            "Key": "on"
+                          }
+                        ]
+                      }
+                    }
+                  }
+                }
+              ],
+              "message": {
+                "text": "workflow_run is almost always used insecurely"
+              },
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": ".github/workflows/review-summary.yml"
+                },
+                "region": {
+                  "endColumn": 23,
+                  "endLine": 5,
+                  "snippet": {
+                    "text": "on:\n  workflow_run:\n    workflows: [\"Capture review\"]\n    types: [completed]"
+                  },
+                  "sourceLanguage": "yaml",
+                  "startColumn": 1,
+                  "startLine": 2
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "use of fundamentally insecure workflow trigger: workflow_run is almost always used insecurely"
+          },
+          "properties": {
+            "zizmor/confidence": "Medium",
+            "zizmor/persona": "Regular",
+            "zizmor/severity": "High"
+          },
+          "ruleId": "zizmor/dangerous-triggers"
+        },
+        {
+          "codeFlows": [
+            {
+              "threadFlows": [
+                {
+                  "locations": [
+                    {
+                      "importance": "essential",
+                      "location": {
+                        "logicalLocations": [
+                          {
+                            "properties": {
+                              "symbolic": {
+                                "annotation": "action is not pinned to a hash (required by blanket policy)",
+                                "feature_kind": {
+                                  "Subfeature": {
+                                    "after": 0,
+                                    "fragment": {
+                                      "Raw": "actions/checkout@v7"
+                                    }
+                                  }
+                                },
+                                "key": {
+                                  "Local": {
+                                    "verbatim_path": "./.github/workflows/review-summary.yml"
+                                  }
+                                },
+                                "kind": "Primary",
+                                "route": {
+                                  "route": [
+                                    {
+                                      "Key": "jobs"
+                                    },
+                                    {
+                                      "Key": "summarize"
+                                    },
+                                    {
+                                      "Key": "steps"
+                                    },
+                                    {
+                                      "Index": 0
+                                    },
+                                    {
+                                      "Key": "uses"
+                                    }
+                                  ]
+                                }
+                              }
+                            }
+                          }
+                        ],
+                        "message": {
+                          "text": "action is not pinned to a hash (required by blanket policy)"
+                        },
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": ".github/workflows/review-summary.yml"
+                          },
+                          "region": {
+                            "endColumn": 34,
+                            "endLine": 15,
+                            "snippet": {
+                              "text": "actions/checkout@v7"
+                            },
+                            "sourceLanguage": "yaml",
+                            "startColumn": 15,
+                            "startLine": 15
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "kind": "fail",
+          "level": "error",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "properties": {
+                    "symbolic": {
+                      "annotation": "action is not pinned to a hash (required by blanket policy)",
+                      "feature_kind": {
+                        "Subfeature": {
+                          "after": 0,
+                          "fragment": {
+                            "Raw": "actions/checkout@v7"
+                          }
+                        }
+                      },
+                      "key": {
+                        "Local": {
+                          "verbatim_path": "./.github/workflows/review-summary.yml"
+                        }
+                      },
+                      "kind": "Primary",
+                      "route": {
+                        "route": [
+                          {
+                            "Key": "jobs"
+                          },
+                          {
+                            "Key": "summarize"
+                          },
+                          {
+                            "Key": "steps"
+                          },
+                          {
+                            "Index": 0
+                          },
+                          {
+                            "Key": "uses"
+                          }
+                        ]
+                      }
+                    }
+                  }
+                }
+              ],
+              "message": {
+                "text": "action is not pinned to a hash (required by blanket policy)"
+              },
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": ".github/workflows/review-summary.yml"
+                },
+                "region": {
+                  "endColumn": 34,
+                  "endLine": 15,
+                  "snippet": {
+                    "text": "actions/checkout@v7"
+                  },
+                  "sourceLanguage": "yaml",
+                  "startColumn": 15,
+                  "startLine": 15
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "unpinned action reference: action is not pinned to a hash (required by blanket policy)"
+          },
+          "properties": {
+            "zizmor/confidence": "High",
+            "zizmor/persona": "Regular",
+            "zizmor/severity": "High"
+          },
+          "ruleId": "zizmor/unpinned-uses"
+        },
+        {
+          "codeFlows": [
+            {
+              "threadFlows": [
+                {
+                  "locations": [
+                    {
+                      "importance": "essential",
+                      "location": {
+                        "logicalLocations": [
+                          {
+                            "properties": {
+                              "symbolic": {
+                                "annotation": "action is not pinned to a hash (required by blanket policy)",
+                                "feature_kind": {
+                                  "Subfeature": {
+                                    "after": 0,
+                                    "fragment": {
+                                      "Raw": "actions/download-artifact@v8"
+                                    }
+                                  }
+                                },
+                                "key": {
+                                  "Local": {
+                                    "verbatim_path": "./.github/workflows/review-summary.yml"
+                                  }
+                                },
+                                "kind": "Primary",
+                                "route": {
+                                  "route": [
+                                    {
+                                      "Key": "jobs"
+                                    },
+                                    {
+                                      "Key": "summarize"
+                                    },
+                                    {
+                                      "Key": "steps"
+                                    },
+                                    {
+                                      "Index": 1
+                                    },
+                                    {
+                                      "Key": "uses"
+                                    }
+                                  ]
+                                }
+                              }
+                            }
+                          }
+                        ],
+                        "message": {
+                          "text": "action is not pinned to a hash (required by blanket policy)"
+                        },
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": ".github/workflows/review-summary.yml"
+                          },
+                          "region": {
+                            "endColumn": 43,
+                            "endLine": 20,
+                            "snippet": {
+                              "text": "actions/download-artifact@v8"
+                            },
+                            "sourceLanguage": "yaml",
+                            "startColumn": 15,
+                            "startLine": 20
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "kind": "fail",
+          "level": "error",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "properties": {
+                    "symbolic": {
+                      "annotation": "action is not pinned to a hash (required by blanket policy)",
+                      "feature_kind": {
+                        "Subfeature": {
+                          "after": 0,
+                          "fragment": {
+                            "Raw": "actions/download-artifact@v8"
+                          }
+                        }
+                      },
+                      "key": {
+                        "Local": {
+                          "verbatim_path": "./.github/workflows/review-summary.yml"
+                        }
+                      },
+                      "kind": "Primary",
+                      "route": {
+                        "route": [
+                          {
+                            "Key": "jobs"
+                          },
+                          {
+                            "Key": "summarize"
+                          },
+                          {
+                            "Key": "steps"
+                          },
+                          {
+                            "Index": 1
+                          },
+                          {
+                            "Key": "uses"
+                          }
+                        ]
+                      }
+                    }
+                  }
+                }
+              ],
+              "message": {
+                "text": "action is not pinned to a hash (required by blanket policy)"
+              },
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": ".github/workflows/review-summary.yml"
+                },
+                "region": {
+                  "endColumn": 43,
+                  "endLine": 20,
+                  "snippet": {
+                    "text": "actions/download-artifact@v8"
+                  },
+                  "sourceLanguage": "yaml",
+                  "startColumn": 15,
+                  "startLine": 20
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "unpinned action reference: action is not pinned to a hash (required by blanket policy)"
+          },
+          "properties": {
+            "zizmor/confidence": "High",
+            "zizmor/persona": "Regular",
+            "zizmor/severity": "High"
+          },
+          "ruleId": "zizmor/unpinned-uses"
+        },
+        {
+          "codeFlows": [
+            {
+              "threadFlows": [
+                {
+                  "locations": [
+                    {
+                      "importance": "essential",
+                      "location": {
+                        "logicalLocations": [
+                          {
+                            "properties": {
+                              "symbolic": {
+                                "annotation": "action is not pinned to a hash (required by blanket policy)",
+                                "feature_kind": {
+                                  "Subfeature": {
+                                    "after": 0,
+                                    "fragment": {
+                                      "Raw": "actions/github-script@v9"
+                                    }
+                                  }
+                                },
+                                "key": {
+                                  "Local": {
+                                    "verbatim_path": "./.github/workflows/review-summary.yml"
+                                  }
+                                },
+                                "kind": "Primary",
+                                "route": {
+                                  "route": [
+                                    {
+                                      "Key": "jobs"
+                                    },
+                                    {
+                                      "Key": "summarize"
+                                    },
+                                    {
+                                      "Key": "steps"
+                                    },
+                                    {
+                                      "Index": 2
+                                    },
+                                    {
+                                      "Key": "uses"
+                                    }
+                                  ]
+                                }
+                              }
+                            }
+                          }
+                        ],
+                        "message": {
+                          "text": "action is not pinned to a hash (required by blanket policy)"
+                        },
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": ".github/workflows/review-summary.yml"
+                          },
+                          "region": {
+                            "endColumn": 39,
+                            "endLine": 26,
+                            "snippet": {
+                              "text": "actions/github-script@v9"
+                            },
+                            "sourceLanguage": "yaml",
+                            "startColumn": 15,
+                            "startLine": 26
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "kind": "fail",
+          "level": "error",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "properties": {
+                    "symbolic": {
+                      "annotation": "action is not pinned to a hash (required by blanket policy)",
+                      "feature_kind": {
+                        "Subfeature": {
+                          "after": 0,
+                          "fragment": {
+                            "Raw": "actions/github-script@v9"
+                          }
+                        }
+                      },
+                      "key": {
+                        "Local": {
+                          "verbatim_path": "./.github/workflows/review-summary.yml"
+                        }
+                      },
+                      "kind": "Primary",
+                      "route": {
+                        "route": [
+                          {
+                            "Key": "jobs"
+                          },
+                          {
+                            "Key": "summarize"
+                          },
+                          {
+                            "Key": "steps"
+                          },
+                          {
+                            "Index": 2
+                          },
+                          {
+                            "Key": "uses"
+                          }
+                        ]
+                      }
+                    }
+                  }
+                }
+              ],
+              "message": {
+                "text": "action is not pinned to a hash (required by blanket policy)"
+              },
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": ".github/workflows/review-summary.yml"
+                },
+                "region": {
+                  "endColumn": 39,
+                  "endLine": 26,
+                  "snippet": {
+                    "text": "actions/github-script@v9"
+                  },
+                  "sourceLanguage": "yaml",
+                  "startColumn": 15,
+                  "startLine": 26
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "unpinned action reference: action is not pinned to a hash (required by blanket policy)"
+          },
+          "properties": {
+            "zizmor/confidence": "High",
+            "zizmor/persona": "Regular",
+            "zizmor/severity": "High"
+          },
+          "ruleId": "zizmor/unpinned-uses"
+        },
+        {
+          "codeFlows": [
+            {
+              "threadFlows": [
+                {
+                  "locations": [
+                    {
+                      "importance": "essential",
+                      "location": {
+                        "logicalLocations": [
+                          {
+                            "properties": {
+                              "symbolic": {
+                                "annotation": "needs an explanatory comment",
+                                "feature_kind": "Normal",
+                                "key": {
+                                  "Local": {
+                                    "verbatim_path": "./.github/workflows/review-summary.yml"
+                                  }
+                                },
+                                "kind": "Primary",
+                                "route": {
+                                  "route": [
+                                    {
+                                      "Key": "jobs"
+                                    },
+                                    {
+                                      "Key": "summarize"
+                                    },
+                                    {
+                                      "Key": "permissions"
+                                    },
+                                    {
+                                      "Key": "actions"
+                                    }
+                                  ]
+                                }
+                              }
+                            }
+                          }
+                        ],
+                        "message": {
+                          "text": "needs an explanatory comment"
+                        },
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": ".github/workflows/review-summary.yml"
+                          },
+                          "region": {
+                            "endColumn": 20,
+                            "endLine": 12,
+                            "snippet": {
+                              "text": "      actions: read"
+                            },
+                            "sourceLanguage": "yaml",
+                            "startColumn": 7,
+                            "startLine": 12
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "kind": "fail",
+          "level": "note",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "properties": {
+                    "symbolic": {
+                      "annotation": "needs an explanatory comment",
+                      "feature_kind": "Normal",
+                      "key": {
+                        "Local": {
+                          "verbatim_path": "./.github/workflows/review-summary.yml"
+                        }
+                      },
+                      "kind": "Primary",
+                      "route": {
+                        "route": [
+                          {
+                            "Key": "jobs"
+                          },
+                          {
+                            "Key": "summarize"
+                          },
+                          {
+                            "Key": "permissions"
+                          },
+                          {
+                            "Key": "actions"
+                          }
+                        ]
+                      }
+                    }
+                  }
+                }
+              ],
+              "message": {
+                "text": "needs an explanatory comment"
+              },
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": ".github/workflows/review-summary.yml"
+                },
+                "region": {
+                  "endColumn": 20,
+                  "endLine": 12,
+                  "snippet": {
+                    "text": "      actions: read"
+                  },
+                  "sourceLanguage": "yaml",
+                  "startColumn": 7,
+                  "startLine": 12
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "permissions without explanatory comments: needs an explanatory comment"
+          },
+          "properties": {
+            "zizmor/confidence": "High",
+            "zizmor/persona": "Pedantic",
+            "zizmor/severity": "Low"
+          },
+          "ruleId": "zizmor/undocumented-permissions"
+        },
+        {
+          "codeFlows": [
+            {
+              "threadFlows": [
+                {
+                  "locations": [
+                    {
+                      "importance": "essential",
+                      "location": {
+                        "logicalLocations": [
+                          {
+                            "properties": {
+                              "symbolic": {
+                                "annotation": "this job",
+                                "feature_kind": "KeyOnly",
+                                "key": {
+                                  "Local": {
+                                    "verbatim_path": "./.github/workflows/review-summary.yml"
+                                  }
+                                },
+                                "kind": "Primary",
+                                "route": {
+                                  "route": [
+                                    {
+                                      "Key": "jobs"
+                                    },
+                                    {
+                                      "Key": "summarize"
+                                    }
+                                  ]
+                                }
+                              }
+                            }
+                          }
+                        ],
+                        "message": {
+                          "text": "this job"
+                        },
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": ".github/workflows/review-summary.yml"
+                          },
+                          "region": {
+                            "endColumn": 12,
+                            "endLine": 8,
+                            "snippet": {
+                              "text": "summarize"
+                            },
+                            "sourceLanguage": "yaml",
+                            "startColumn": 3,
+                            "startLine": 8
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "kind": "review",
+          "level": "note",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "properties": {
+                    "symbolic": {
+                      "annotation": "this job",
+                      "feature_kind": "KeyOnly",
+                      "key": {
+                        "Local": {
+                          "verbatim_path": "./.github/workflows/review-summary.yml"
+                        }
+                      },
+                      "kind": "Primary",
+                      "route": {
+                        "route": [
+                          {
+                            "Key": "jobs"
+                          },
+                          {
+                            "Key": "summarize"
+                          }
+                        ]
+                      }
+                    }
+                  }
+                }
+              ],
+              "message": {
+                "text": "this job"
+              },
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": ".github/workflows/review-summary.yml"
+                },
+                "region": {
+                  "endColumn": 12,
+                  "endLine": 8,
+                  "snippet": {
+                    "text": "summarize"
+                  },
+                  "sourceLanguage": "yaml",
+                  "startColumn": 3,
+                  "startLine": 8
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "workflow or action definition without a name: this job"
+          },
+          "properties": {
+            "zizmor/confidence": "High",
+            "zizmor/persona": "Pedantic",
+            "zizmor/severity": "Informational"
+          },
+          "ruleId": "zizmor/anonymous-definition"
+        },
+        {
+          "codeFlows": [
+            {
+              "threadFlows": [
+                {
+                  "locations": [
+                    {
+                      "importance": "essential",
+                      "location": {
+                        "logicalLocations": [
+                          {
+                            "properties": {
+                              "symbolic": {
+                                "annotation": "workflow is missing concurrency setting",
+                                "feature_kind": "Normal",
+                                "key": {
+                                  "Local": {
+                                    "verbatim_path": "./.github/workflows/review-summary.yml"
+                                  }
+                                },
+                                "kind": "Primary",
+                                "route": {
+                                  "route": [
+                                    {
+                                      "Key": "on"
+                                    }
+                                  ]
+                                }
+                              }
+                            }
+                          }
+                        ],
+                        "message": {
+                          "text": "workflow is missing concurrency setting"
+                        },
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": ".github/workflows/review-summary.yml"
+                          },
+                          "region": {
+                            "endColumn": 23,
+                            "endLine": 5,
+                            "snippet": {
+                              "text": "on:\n  workflow_run:\n    workflows: [\"Capture review\"]\n    types: [completed]"
+                            },
+                            "sourceLanguage": "yaml",
+                            "startColumn": 1,
+                            "startLine": 2
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "importance": "important",
+                      "location": {
+                        "logicalLocations": [
+                          {
+                            "properties": {
+                              "symbolic": {
+                                "annotation": "job affected by missing workflow concurrency",
+                                "feature_kind": "KeyOnly",
+                                "key": {
+                                  "Local": {
+                                    "verbatim_path": "./.github/workflows/review-summary.yml"
+                                  }
+                                },
+                                "kind": "Related",
+                                "route": {
+                                  "route": [
+                                    {
+                                      "Key": "jobs"
+                                    },
+                                    {
+                                      "Key": "summarize"
+                                    }
+                                  ]
+                                }
+                              }
+                            }
+                          }
+                        ],
+                        "message": {
+                          "text": "job affected by missing workflow concurrency"
+                        },
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": ".github/workflows/review-summary.yml"
+                          },
+                          "region": {
+                            "endColumn": 12,
+                            "endLine": 8,
+                            "snippet": {
+                              "text": "summarize"
+                            },
+                            "sourceLanguage": "yaml",
+                            "startColumn": 3,
+                            "startLine": 8
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "kind": "fail",
+          "level": "note",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "properties": {
+                    "symbolic": {
+                      "annotation": "workflow is missing concurrency setting",
+                      "feature_kind": "Normal",
+                      "key": {
+                        "Local": {
+                          "verbatim_path": "./.github/workflows/review-summary.yml"
+                        }
+                      },
+                      "kind": "Primary",
+                      "route": {
+                        "route": [
+                          {
+                            "Key": "on"
+                          }
+                        ]
+                      }
+                    }
+                  }
+                }
+              ],
+              "message": {
+                "text": "workflow is missing concurrency setting"
+              },
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": ".github/workflows/review-summary.yml"
+                },
+                "region": {
+                  "endColumn": 23,
+                  "endLine": 5,
+                  "snippet": {
+                    "text": "on:\n  workflow_run:\n    workflows: [\"Capture review\"]\n    types: [completed]"
+                  },
+                  "sourceLanguage": "yaml",
+                  "startColumn": 1,
+                  "startLine": 2
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "insufficient job-level concurrency limits: workflow is missing concurrency setting"
+          },
+          "properties": {
+            "zizmor/confidence": "High",
+            "zizmor/persona": "Pedantic",
+            "zizmor/severity": "Low"
+          },
+          "ruleId": "zizmor/concurrency-limits"
+        }
+      ],
+      "tool": {
+        "driver": {
+          "downloadUri": "https://github.com/zizmorcore/zizmor",
+          "informationUri": "https://docs.zizmor.sh",
+          "name": "zizmor",
+          "rules": [
+            {
+              "help": {
+                "markdown": "`unpinned-uses`: unpinned action reference\n\nDocs: <https://docs.zizmor.sh/audits/#unpinned-uses>",
+                "text": "unpinned action reference"
+              },
+              "helpUri": "https://docs.zizmor.sh/audits/#unpinned-uses",
+              "id": "zizmor/unpinned-uses",
+              "name": "unpinned-uses",
+              "properties": {
+                "tags": [
+                  "security"
+                ]
+              }
+            },
+            {
+              "help": {
+                "markdown": "`anonymous-definition`: workflow or action definition without a name\n\nDocs: <https://docs.zizmor.sh/audits/#anonymous-definition>",
+                "text": "workflow or action definition without a name"
+              },
+              "helpUri": "https://docs.zizmor.sh/audits/#anonymous-definition",
+              "id": "zizmor/anonymous-definition",
+              "name": "anonymous-definition",
+              "properties": {
+                "tags": [
+                  "security"
+                ]
+              }
+            },
+            {
+              "help": {
+                "markdown": "`concurrency-limits`: insufficient job-level concurrency limits\n\nDocs: <https://docs.zizmor.sh/audits/#concurrency-limits>",
+                "text": "insufficient job-level concurrency limits"
+              },
+              "helpUri": "https://docs.zizmor.sh/audits/#concurrency-limits",
+              "id": "zizmor/concurrency-limits",
+              "name": "concurrency-limits",
+              "properties": {
+                "tags": [
+                  "security"
+                ]
+              }
+            },
+            {
+              "help": {
+                "markdown": "`dangerous-triggers`: use of fundamentally insecure workflow trigger\n\nDocs: <https://docs.zizmor.sh/audits/#dangerous-triggers>",
+                "text": "use of fundamentally insecure workflow trigger"
+              },
+              "helpUri": "https://docs.zizmor.sh/audits/#dangerous-triggers",
+              "id": "zizmor/dangerous-triggers",
+              "name": "dangerous-triggers",
+              "properties": {
+                "tags": [
+                  "security"
+                ]
+              }
+            },
+            {
+              "help": {
+                "markdown": "`undocumented-permissions`: permissions without explanatory comments\n\nDocs: <https://docs.zizmor.sh/audits/#undocumented-permissions>",
+                "text": "permissions without explanatory comments"
+              },
+              "helpUri": "https://docs.zizmor.sh/audits/#undocumented-permissions",
+              "id": "zizmor/undocumented-permissions",
+              "name": "undocumented-permissions",
+              "properties": {
+                "tags": [
+                  "security"
+                ]
+              }
+            }
+          ],
+          "semanticVersion": "1.30.1",
+          "version": "1.30.1"
+        }
+      }
+    }
+  ],
+  "version": "2.1.0"
+}

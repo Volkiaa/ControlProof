@@ -1,0 +1,15 @@
+{
+  "fixture": "B-push-only",
+  "title": "Attest formatting artifact controls the push destination without a ref checkout",
+  "reference": null,
+  "variant_of": "B",
+  "control_id": "CP-CICD-002",
+  "status": "FAIL",
+  "confidence": "confirmed-static",
+  "severity": "high",
+  "guard_adequacy": "syntactic-only",
+  "prerequisites": [],
+  "producer": ".github/workflows/format.yml",
+  "consumer": ".github/workflows/format-push.yml",
+  "rationale": "A fork author can rewrite format.yml so head-ref is main, which passes the charset-only guard; the consumer checks out the default branch, applies the attacker's patch and pushes it to main with contents: write, without ever checking out the artifact-controlled ref."
+}

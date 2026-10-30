@@ -1,0 +1,789 @@
+{
+  "$schema": "https://docs.oasis-open.org/sarif/sarif/v2.1.0/os/schemas/sarif-schema-2.1.0.json",
+  "runs": [
+    {
+      "results": [
+        {
+          "codeFlows": [
+            {
+              "threadFlows": [
+                {
+                  "locations": [
+                    {
+                      "importance": "essential",
+                      "location": {
+                        "logicalLocations": [
+                          {
+                            "properties": {
+                              "symbolic": {
+                                "annotation": "action is not pinned to a hash (required by blanket policy)",
+                                "feature_kind": {
+                                  "Subfeature": {
+                                    "after": 0,
+                                    "fragment": {
+                                      "Raw": "actions/checkout@v7"
+                                    }
+                                  }
+                                },
+                                "key": {
+                                  "Local": {
+                                    "verbatim_path": "./.github/workflows/build-site.yml"
+                                  }
+                                },
+                                "kind": "Primary",
+                                "route": {
+                                  "route": [
+                                    {
+                                      "Key": "jobs"
+                                    },
+                                    {
+                                      "Key": "build"
+                                    },
+                                    {
+                                      "Key": "steps"
+                                    },
+                                    {
+                                      "Index": 0
+                                    },
+                                    {
+                                      "Key": "uses"
+                                    }
+                                  ]
+                                }
+                              }
+                            }
+                          }
+                        ],
+                        "message": {
+                          "text": "action is not pinned to a hash (required by blanket policy)"
+                        },
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": ".github/workflows/build-site.yml"
+                          },
+                          "region": {
+                            "endColumn": 34,
+                            "endLine": 13,
+                            "snippet": {
+                              "text": "actions/checkout@v7"
+                            },
+                            "sourceLanguage": "yaml",
+                            "startColumn": 15,
+                            "startLine": 13
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "kind": "fail",
+          "level": "error",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "properties": {
+                    "symbolic": {
+                      "annotation": "action is not pinned to a hash (required by blanket policy)",
+                      "feature_kind": {
+                        "Subfeature": {
+                          "after": 0,
+                          "fragment": {
+                            "Raw": "actions/checkout@v7"
+                          }
+                        }
+                      },
+                      "key": {
+                        "Local": {
+                          "verbatim_path": "./.github/workflows/build-site.yml"
+                        }
+                      },
+                      "kind": "Primary",
+                      "route": {
+                        "route": [
+                          {
+                            "Key": "jobs"
+                          },
+                          {
+                            "Key": "build"
+                          },
+                          {
+                            "Key": "steps"
+                          },
+                          {
+                            "Index": 0
+                          },
+                          {
+                            "Key": "uses"
+                          }
+                        ]
+                      }
+                    }
+                  }
+                }
+              ],
+              "message": {
+                "text": "action is not pinned to a hash (required by blanket policy)"
+              },
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": ".github/workflows/build-site.yml"
+                },
+                "region": {
+                  "endColumn": 34,
+                  "endLine": 13,
+                  "snippet": {
+                    "text": "actions/checkout@v7"
+                  },
+                  "sourceLanguage": "yaml",
+                  "startColumn": 15,
+                  "startLine": 13
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "unpinned action reference: action is not pinned to a hash (required by blanket policy)"
+          },
+          "properties": {
+            "zizmor/confidence": "High",
+            "zizmor/persona": "Regular",
+            "zizmor/severity": "High"
+          },
+          "ruleId": "zizmor/unpinned-uses"
+        },
+        {
+          "codeFlows": [
+            {
+              "threadFlows": [
+                {
+                  "locations": [
+                    {
+                      "importance": "essential",
+                      "location": {
+                        "logicalLocations": [
+                          {
+                            "properties": {
+                              "symbolic": {
+                                "annotation": "action is not pinned to a hash (required by blanket policy)",
+                                "feature_kind": {
+                                  "Subfeature": {
+                                    "after": 0,
+                                    "fragment": {
+                                      "Raw": "actions/upload-artifact@v7"
+                                    }
+                                  }
+                                },
+                                "key": {
+                                  "Local": {
+                                    "verbatim_path": "./.github/workflows/build-site.yml"
+                                  }
+                                },
+                                "kind": "Primary",
+                                "route": {
+                                  "route": [
+                                    {
+                                      "Key": "jobs"
+                                    },
+                                    {
+                                      "Key": "build"
+                                    },
+                                    {
+                                      "Key": "steps"
+                                    },
+                                    {
+                                      "Index": 2
+                                    },
+                                    {
+                                      "Key": "uses"
+                                    }
+                                  ]
+                                }
+                              }
+                            }
+                          }
+                        ],
+                        "message": {
+                          "text": "action is not pinned to a hash (required by blanket policy)"
+                        },
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": ".github/workflows/build-site.yml"
+                          },
+                          "region": {
+                            "endColumn": 41,
+                            "endLine": 19,
+                            "snippet": {
+                              "text": "actions/upload-artifact@v7"
+                            },
+                            "sourceLanguage": "yaml",
+                            "startColumn": 15,
+                            "startLine": 19
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "kind": "fail",
+          "level": "error",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "properties": {
+                    "symbolic": {
+                      "annotation": "action is not pinned to a hash (required by blanket policy)",
+                      "feature_kind": {
+                        "Subfeature": {
+                          "after": 0,
+                          "fragment": {
+                            "Raw": "actions/upload-artifact@v7"
+                          }
+                        }
+                      },
+                      "key": {
+                        "Local": {
+                          "verbatim_path": "./.github/workflows/build-site.yml"
+                        }
+                      },
+                      "kind": "Primary",
+                      "route": {
+                        "route": [
+                          {
+                            "Key": "jobs"
+                          },
+                          {
+                            "Key": "build"
+                          },
+                          {
+                            "Key": "steps"
+                          },
+                          {
+                            "Index": 2
+                          },
+                          {
+                            "Key": "uses"
+                          }
+                        ]
+                      }
+                    }
+                  }
+                }
+              ],
+              "message": {
+                "text": "action is not pinned to a hash (required by blanket policy)"
+              },
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": ".github/workflows/build-site.yml"
+                },
+                "region": {
+                  "endColumn": 41,
+                  "endLine": 19,
+                  "snippet": {
+                    "text": "actions/upload-artifact@v7"
+                  },
+                  "sourceLanguage": "yaml",
+                  "startColumn": 15,
+                  "startLine": 19
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "unpinned action reference: action is not pinned to a hash (required by blanket policy)"
+          },
+          "properties": {
+            "zizmor/confidence": "High",
+            "zizmor/persona": "Regular",
+            "zizmor/severity": "High"
+          },
+          "ruleId": "zizmor/unpinned-uses"
+        },
+        {
+          "codeFlows": [
+            {
+              "threadFlows": [
+                {
+                  "locations": [
+                    {
+                      "importance": "essential",
+                      "location": {
+                        "logicalLocations": [
+                          {
+                            "properties": {
+                              "symbolic": {
+                                "annotation": "does not set persist-credentials: false",
+                                "feature_kind": "Normal",
+                                "key": {
+                                  "Local": {
+                                    "verbatim_path": "./.github/workflows/publish-site.yml"
+                                  }
+                                },
+                                "kind": "Primary",
+                                "route": {
+                                  "route": [
+                                    {
+                                      "Key": "jobs"
+                                    },
+                                    {
+                                      "Key": "publish"
+                                    },
+                                    {
+                                      "Key": "steps"
+                                    },
+                                    {
+                                      "Index": 1
+                                    }
+                                  ]
+                                }
+                              }
+                            }
+                          }
+                        ],
+                        "message": {
+                          "text": "does not set persist-credentials: false"
+                        },
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": ".github/workflows/publish-site.yml"
+                          },
+                          "region": {
+                            "endColumn": 22,
+                            "endLine": 25,
+                            "snippet": {
+                              "text": "name: Checkout pages\n        uses: actions/checkout@v7\n        with:\n          ref: gh-pages\n          path: pages"
+                            },
+                            "sourceLanguage": "yaml",
+                            "startColumn": 9,
+                            "startLine": 21
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "kind": "fail",
+          "level": "note",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "properties": {
+                    "symbolic": {
+                      "annotation": "does not set persist-credentials: false",
+                      "feature_kind": "Normal",
+                      "key": {
+                        "Local": {
+                          "verbatim_path": "./.github/workflows/publish-site.yml"
+                        }
+                      },
+                      "kind": "Primary",
+                      "route": {
+                        "route": [
+                          {
+                            "Key": "jobs"
+                          },
+                          {
+                            "Key": "publish"
+                          },
+                          {
+                            "Key": "steps"
+                          },
+                          {
+                            "Index": 1
+                          }
+                        ]
+                      }
+                    }
+                  }
+                }
+              ],
+              "message": {
+                "text": "does not set persist-credentials: false"
+              },
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": ".github/workflows/publish-site.yml"
+                },
+                "region": {
+                  "endColumn": 22,
+                  "endLine": 25,
+                  "snippet": {
+                    "text": "name: Checkout pages\n        uses: actions/checkout@v7\n        with:\n          ref: gh-pages\n          path: pages"
+                  },
+                  "sourceLanguage": "yaml",
+                  "startColumn": 9,
+                  "startLine": 21
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "credential persistence through GitHub Actions artifacts: does not set persist-credentials: false"
+          },
+          "properties": {
+            "zizmor/confidence": "Low",
+            "zizmor/persona": "Regular",
+            "zizmor/severity": "Low"
+          },
+          "ruleId": "zizmor/artipacked"
+        },
+        {
+          "codeFlows": [
+            {
+              "threadFlows": [
+                {
+                  "locations": [
+                    {
+                      "importance": "essential",
+                      "location": {
+                        "logicalLocations": [
+                          {
+                            "properties": {
+                              "symbolic": {
+                                "annotation": "action is not pinned to a hash (required by blanket policy)",
+                                "feature_kind": {
+                                  "Subfeature": {
+                                    "after": 0,
+                                    "fragment": {
+                                      "Raw": "dawidd6/action-download-artifact@v27"
+                                    }
+                                  }
+                                },
+                                "key": {
+                                  "Local": {
+                                    "verbatim_path": "./.github/workflows/publish-site.yml"
+                                  }
+                                },
+                                "kind": "Primary",
+                                "route": {
+                                  "route": [
+                                    {
+                                      "Key": "jobs"
+                                    },
+                                    {
+                                      "Key": "publish"
+                                    },
+                                    {
+                                      "Key": "steps"
+                                    },
+                                    {
+                                      "Index": 0
+                                    },
+                                    {
+                                      "Key": "uses"
+                                    }
+                                  ]
+                                }
+                              }
+                            }
+                          }
+                        ],
+                        "message": {
+                          "text": "action is not pinned to a hash (required by blanket policy)"
+                        },
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": ".github/workflows/publish-site.yml"
+                          },
+                          "region": {
+                            "endColumn": 51,
+                            "endLine": 15,
+                            "snippet": {
+                              "text": "dawidd6/action-download-artifact@v27"
+                            },
+                            "sourceLanguage": "yaml",
+                            "startColumn": 15,
+                            "startLine": 15
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "kind": "fail",
+          "level": "error",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "properties": {
+                    "symbolic": {
+                      "annotation": "action is not pinned to a hash (required by blanket policy)",
+                      "feature_kind": {
+                        "Subfeature": {
+                          "after": 0,
+                          "fragment": {
+                            "Raw": "dawidd6/action-download-artifact@v27"
+                          }
+                        }
+                      },
+                      "key": {
+                        "Local": {
+                          "verbatim_path": "./.github/workflows/publish-site.yml"
+                        }
+                      },
+                      "kind": "Primary",
+                      "route": {
+                        "route": [
+                          {
+                            "Key": "jobs"
+                          },
+                          {
+                            "Key": "publish"
+                          },
+                          {
+                            "Key": "steps"
+                          },
+                          {
+                            "Index": 0
+                          },
+                          {
+                            "Key": "uses"
+                          }
+                        ]
+                      }
+                    }
+                  }
+                }
+              ],
+              "message": {
+                "text": "action is not pinned to a hash (required by blanket policy)"
+              },
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": ".github/workflows/publish-site.yml"
+                },
+                "region": {
+                  "endColumn": 51,
+                  "endLine": 15,
+                  "snippet": {
+                    "text": "dawidd6/action-download-artifact@v27"
+                  },
+                  "sourceLanguage": "yaml",
+                  "startColumn": 15,
+                  "startLine": 15
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "unpinned action reference: action is not pinned to a hash (required by blanket policy)"
+          },
+          "properties": {
+            "zizmor/confidence": "High",
+            "zizmor/persona": "Regular",
+            "zizmor/severity": "High"
+          },
+          "ruleId": "zizmor/unpinned-uses"
+        },
+        {
+          "codeFlows": [
+            {
+              "threadFlows": [
+                {
+                  "locations": [
+                    {
+                      "importance": "essential",
+                      "location": {
+                        "logicalLocations": [
+                          {
+                            "properties": {
+                              "symbolic": {
+                                "annotation": "action is not pinned to a hash (required by blanket policy)",
+                                "feature_kind": {
+                                  "Subfeature": {
+                                    "after": 0,
+                                    "fragment": {
+                                      "Raw": "actions/checkout@v7"
+                                    }
+                                  }
+                                },
+                                "key": {
+                                  "Local": {
+                                    "verbatim_path": "./.github/workflows/publish-site.yml"
+                                  }
+                                },
+                                "kind": "Primary",
+                                "route": {
+                                  "route": [
+                                    {
+                                      "Key": "jobs"
+                                    },
+                                    {
+                                      "Key": "publish"
+                                    },
+                                    {
+                                      "Key": "steps"
+                                    },
+                                    {
+                                      "Index": 1
+                                    },
+                                    {
+                                      "Key": "uses"
+                                    }
+                                  ]
+                                }
+                              }
+                            }
+                          }
+                        ],
+                        "message": {
+                          "text": "action is not pinned to a hash (required by blanket policy)"
+                        },
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": ".github/workflows/publish-site.yml"
+                          },
+                          "region": {
+                            "endColumn": 34,
+                            "endLine": 22,
+                            "snippet": {
+                              "text": "actions/checkout@v7"
+                            },
+                            "sourceLanguage": "yaml",
+                            "startColumn": 15,
+                            "startLine": 22
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "kind": "fail",
+          "level": "error",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "properties": {
+                    "symbolic": {
+                      "annotation": "action is not pinned to a hash (required by blanket policy)",
+                      "feature_kind": {
+                        "Subfeature": {
+                          "after": 0,
+                          "fragment": {
+                            "Raw": "actions/checkout@v7"
+                          }
+                        }
+                      },
+                      "key": {
+                        "Local": {
+                          "verbatim_path": "./.github/workflows/publish-site.yml"
+                        }
+                      },
+                      "kind": "Primary",
+                      "route": {
+                        "route": [
+                          {
+                            "Key": "jobs"
+                          },
+                          {
+                            "Key": "publish"
+                          },
+                          {
+                            "Key": "steps"
+                          },
+                          {
+                            "Index": 1
+                          },
+                          {
+                            "Key": "uses"
+                          }
+                        ]
+                      }
+                    }
+                  }
+                }
+              ],
+              "message": {
+                "text": "action is not pinned to a hash (required by blanket policy)"
+              },
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": ".github/workflows/publish-site.yml"
+                },
+                "region": {
+                  "endColumn": 34,
+                  "endLine": 22,
+                  "snippet": {
+                    "text": "actions/checkout@v7"
+                  },
+                  "sourceLanguage": "yaml",
+                  "startColumn": 15,
+                  "startLine": 22
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "unpinned action reference: action is not pinned to a hash (required by blanket policy)"
+          },
+          "properties": {
+            "zizmor/confidence": "High",
+            "zizmor/persona": "Regular",
+            "zizmor/severity": "High"
+          },
+          "ruleId": "zizmor/unpinned-uses"
+        }
+      ],
+      "tool": {
+        "driver": {
+          "downloadUri": "https://github.com/zizmorcore/zizmor",
+          "informationUri": "https://docs.zizmor.sh",
+          "name": "zizmor",
+          "rules": [
+            {
+              "help": {
+                "markdown": "`unpinned-uses`: unpinned action reference\n\nDocs: <https://docs.zizmor.sh/audits/#unpinned-uses>",
+                "text": "unpinned action reference"
+              },
+              "helpUri": "https://docs.zizmor.sh/audits/#unpinned-uses",
+              "id": "zizmor/unpinned-uses",
+              "name": "unpinned-uses",
+              "properties": {
+                "tags": [
+                  "security"
+                ]
+              }
+            },
+            {
+              "help": {
+                "markdown": "`artipacked`: credential persistence through GitHub Actions artifacts\n\nDocs: <https://docs.zizmor.sh/audits/#artipacked>",
+                "text": "credential persistence through GitHub Actions artifacts"
+              },
+              "helpUri": "https://docs.zizmor.sh/audits/#artipacked",
+              "id": "zizmor/artipacked",
+              "name": "artipacked",
+              "properties": {
+                "tags": [
+                  "security"
+                ]
+              }
+            }
+          ],
+          "semanticVersion": "1.30.1",
+          "version": "1.30.1"
+        }
+      }
+    }
+  ],
+  "version": "2.1.0"
+}

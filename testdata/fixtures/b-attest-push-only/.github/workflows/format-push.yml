@@ -1,0 +1,44 @@
+name: Push formatting
+on:
+  workflow_run:
+    workflows: ["Format"]
+    types: [completed]
+permissions: {}
+jobs:
+  push:
+    if: github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-latest
+    permissions:
+      actions: read
+      contents: write
+    steps:
+      - name: Download result
+        uses: actions/download-artifact@v8
+        with:
+          name: format-result
+          path: ${{ runner.temp }}/format-result
+          run-id: ${{ github.event.workflow_run.id }}
+          github-token: ${{ github.token }}
+      - name: Read target
+        id: target
+        run: |
+          ref=$(cat "$RUNNER_TEMP/format-result/head-ref")
+          if ! printf '%s' "$ref" | grep -Eq '^[A-Za-z0-9._/-]+$'; then
+            echo "rejected target ref" >&2
+            exit 1
+          fi
+          printf 'ref=%s\n' "$ref" >> "$GITHUB_OUTPUT"
+      - name: Checkout
+        uses: actions/checkout@v7
+      - name: Apply and push
+        env:
+          TARGET_REF: ${{ steps.target.outputs.ref }}
+        run: |
+          git apply "$RUNNER_TEMP/format-result/format.patch"
+          if git diff --quiet; then
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -am "Apply formatting"
+          git push origin "HEAD:refs/heads/$TARGET_REF"
