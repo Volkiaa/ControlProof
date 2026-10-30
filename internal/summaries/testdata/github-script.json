@@ -1,0 +1,69 @@
+[
+  {
+    "uses": "actions/github-script@v9",
+    "action": "actions/github-script",
+    "major": 9,
+    "kind": "github-script",
+    "opaque": false,
+    "summary": {
+      "action": "actions/github-script",
+      "kind": "github-script",
+      "min_major": 6,
+      "max_major": 9,
+      "provenance": "https://github.com/actions/github-script/blob/v9/action.yml (reviewed 2026-10-30)"
+    },
+    "inputs": {
+      "github-token": {
+        "value": "${{ secrets.SCRIPT_TOKEN }}",
+        "pos": {
+          "file": "testdata/github-script.yml",
+          "line": 10,
+          "col": 25
+        },
+        "dynamic": true
+      },
+      "result-encoding": {
+        "value": "string",
+        "pos": {
+          "file": "testdata/github-script.yml",
+          "line": 11,
+          "col": 28
+        }
+      },
+      "script": {
+        "value": "core.info('${{ github.sha }}')",
+        "pos": {
+          "file": "testdata/github-script.yml",
+          "line": 9,
+          "col": 19
+        },
+        "dynamic": true
+      }
+    }
+  },
+  {
+    "uses": "actions/github-script@v6",
+    "action": "actions/github-script",
+    "major": 6,
+    "kind": "github-script",
+    "opaque": false,
+    "summary": {
+      "action": "actions/github-script",
+      "kind": "github-script",
+      "min_major": 6,
+      "max_major": 9,
+      "provenance": "https://github.com/actions/github-script/blob/v9/action.yml (reviewed 2026-10-30)"
+    },
+    "inputs": {
+      "result-encoding": {
+        "value": "json",
+        "pos": {
+          "file": "testdata/github-script.yml",
+          "line": 12,
+          "col": 9
+        },
+        "default": true
+      }
+    }
+  }
+]

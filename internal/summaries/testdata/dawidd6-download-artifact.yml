@@ -1,0 +1,26 @@
+name: Download artifact with dawidd6
+on: push
+jobs:
+  download:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: dawidd6/action-download-artifact@v27
+        with:
+          run_id: ${{ github.event.workflow_run.id }}
+          workflow: build-site.yml
+          workflow_search: true
+          branch: main
+          ref: refs/heads/main
+          commit: ${{ github.sha }}
+          pr: '42'
+          event: workflow_run
+          workflow_conclusion: failure
+          allow_forks: false
+          search_artifacts: true
+          name: site
+          name_is_regexp: true
+          repo: octo/site
+          path: ./inbound
+          merge_multiple: true
+          github_token: ${{ secrets.SITE_TOKEN }}
+      - uses: dawidd6/action-download-artifact@v2

@@ -1,0 +1,15 @@
+name: Checkout
+on: push
+jobs:
+  checkout:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          repository: octo/scripts
+          ref: ${{ github.head_ref }}
+          path: scripts
+          persist-credentials: false
+          sparse-checkout: .github/scripts
+          token: ${{ secrets.CHECKOUT_TOKEN }}
+      - uses: actions/checkout@v4

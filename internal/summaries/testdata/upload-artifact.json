@@ -1,0 +1,77 @@
+[
+  {
+    "uses": "actions/upload-artifact@v7",
+    "action": "actions/upload-artifact",
+    "major": 7,
+    "kind": "upload-artifact",
+    "opaque": false,
+    "summary": {
+      "action": "actions/upload-artifact",
+      "kind": "upload-artifact",
+      "min_major": 4,
+      "max_major": 7,
+      "provenance": "https://github.com/actions/upload-artifact/blob/v7/action.yml (reviewed 2026-10-30)"
+    },
+    "inputs": {
+      "include-hidden-files": {
+        "value": "true",
+        "pos": {
+          "file": "testdata/upload-artifact.yml",
+          "line": 11,
+          "col": 33
+        }
+      },
+      "name": {
+        "value": "build-${{ github.sha }}",
+        "pos": {
+          "file": "testdata/upload-artifact.yml",
+          "line": 9,
+          "col": 17
+        },
+        "dynamic": true
+      },
+      "path": {
+        "value": "dist/",
+        "pos": {
+          "file": "testdata/upload-artifact.yml",
+          "line": 10,
+          "col": 17
+        }
+      }
+    }
+  },
+  {
+    "uses": "actions/upload-artifact@v4",
+    "action": "actions/upload-artifact",
+    "major": 4,
+    "kind": "upload-artifact",
+    "opaque": false,
+    "summary": {
+      "action": "actions/upload-artifact",
+      "kind": "upload-artifact",
+      "min_major": 4,
+      "max_major": 7,
+      "provenance": "https://github.com/actions/upload-artifact/blob/v7/action.yml (reviewed 2026-10-30)"
+    },
+    "inputs": {
+      "include-hidden-files": {
+        "value": "false",
+        "pos": {
+          "file": "testdata/upload-artifact.yml",
+          "line": 12,
+          "col": 9
+        },
+        "default": true
+      },
+      "name": {
+        "value": "artifact",
+        "pos": {
+          "file": "testdata/upload-artifact.yml",
+          "line": 12,
+          "col": 9
+        },
+        "default": true
+      }
+    }
+  }
+]
