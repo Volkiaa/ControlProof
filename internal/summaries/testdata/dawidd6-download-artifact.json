@@ -1,0 +1,254 @@
+[
+  {
+    "uses": "dawidd6/action-download-artifact@v27",
+    "action": "dawidd6/action-download-artifact",
+    "major": 27,
+    "kind": "dawidd6-download-artifact",
+    "opaque": false,
+    "summary": {
+      "action": "dawidd6/action-download-artifact",
+      "kind": "dawidd6-download-artifact",
+      "min_major": 2,
+      "max_major": 27,
+      "provenance": "https://github.com/dawidd6/action-download-artifact/blob/v27/action.yml (reviewed 2026-10-30)"
+    },
+    "inputs": {
+      "allow_forks": {
+        "value": "false",
+        "pos": {
+          "file": "testdata/dawidd6-download-artifact.yml",
+          "line": 18,
+          "col": 24
+        }
+      },
+      "branch": {
+        "value": "main",
+        "pos": {
+          "file": "testdata/dawidd6-download-artifact.yml",
+          "line": 12,
+          "col": 19
+        }
+      },
+      "commit": {
+        "value": "${{ github.sha }}",
+        "pos": {
+          "file": "testdata/dawidd6-download-artifact.yml",
+          "line": 14,
+          "col": 19
+        },
+        "dynamic": true
+      },
+      "event": {
+        "value": "workflow_run",
+        "pos": {
+          "file": "testdata/dawidd6-download-artifact.yml",
+          "line": 16,
+          "col": 18
+        }
+      },
+      "github_token": {
+        "value": "${{ secrets.SITE_TOKEN }}",
+        "pos": {
+          "file": "testdata/dawidd6-download-artifact.yml",
+          "line": 25,
+          "col": 25
+        },
+        "dynamic": true
+      },
+      "merge_multiple": {
+        "value": "true",
+        "pos": {
+          "file": "testdata/dawidd6-download-artifact.yml",
+          "line": 24,
+          "col": 27
+        }
+      },
+      "name": {
+        "value": "site",
+        "pos": {
+          "file": "testdata/dawidd6-download-artifact.yml",
+          "line": 20,
+          "col": 17
+        }
+      },
+      "name_is_regexp": {
+        "value": "true",
+        "pos": {
+          "file": "testdata/dawidd6-download-artifact.yml",
+          "line": 21,
+          "col": 27
+        }
+      },
+      "path": {
+        "value": "./inbound",
+        "pos": {
+          "file": "testdata/dawidd6-download-artifact.yml",
+          "line": 23,
+          "col": 17
+        }
+      },
+      "pr": {
+        "value": "42",
+        "pos": {
+          "file": "testdata/dawidd6-download-artifact.yml",
+          "line": 15,
+          "col": 15
+        }
+      },
+      "ref": {
+        "value": "refs/heads/main",
+        "pos": {
+          "file": "testdata/dawidd6-download-artifact.yml",
+          "line": 13,
+          "col": 16
+        }
+      },
+      "repo": {
+        "value": "octo/site",
+        "pos": {
+          "file": "testdata/dawidd6-download-artifact.yml",
+          "line": 22,
+          "col": 17
+        }
+      },
+      "run_id": {
+        "value": "${{ github.event.workflow_run.id }}",
+        "pos": {
+          "file": "testdata/dawidd6-download-artifact.yml",
+          "line": 9,
+          "col": 19
+        },
+        "dynamic": true
+      },
+      "search_artifacts": {
+        "value": "true",
+        "pos": {
+          "file": "testdata/dawidd6-download-artifact.yml",
+          "line": 19,
+          "col": 29
+        }
+      },
+      "workflow": {
+        "value": "build-site.yml",
+        "pos": {
+          "file": "testdata/dawidd6-download-artifact.yml",
+          "line": 10,
+          "col": 21
+        }
+      },
+      "workflow_conclusion": {
+        "value": "failure",
+        "pos": {
+          "file": "testdata/dawidd6-download-artifact.yml",
+          "line": 17,
+          "col": 32
+        }
+      },
+      "workflow_search": {
+        "value": "true",
+        "pos": {
+          "file": "testdata/dawidd6-download-artifact.yml",
+          "line": 11,
+          "col": 28
+        }
+      }
+    }
+  },
+  {
+    "uses": "dawidd6/action-download-artifact@v2",
+    "action": "dawidd6/action-download-artifact",
+    "major": 2,
+    "kind": "dawidd6-download-artifact",
+    "opaque": false,
+    "summary": {
+      "action": "dawidd6/action-download-artifact",
+      "kind": "dawidd6-download-artifact",
+      "min_major": 2,
+      "max_major": 27,
+      "provenance": "https://github.com/dawidd6/action-download-artifact/blob/v27/action.yml (reviewed 2026-10-30)"
+    },
+    "inputs": {
+      "allow_forks": {
+        "value": "true",
+        "pos": {
+          "file": "testdata/dawidd6-download-artifact.yml",
+          "line": 26,
+          "col": 9
+        },
+        "default": true
+      },
+      "github_token": {
+        "value": "${{ github.token }}",
+        "pos": {
+          "file": "testdata/dawidd6-download-artifact.yml",
+          "line": 26,
+          "col": 9
+        },
+        "default": true
+      },
+      "merge_multiple": {
+        "value": "false",
+        "pos": {
+          "file": "testdata/dawidd6-download-artifact.yml",
+          "line": 26,
+          "col": 9
+        },
+        "default": true
+      },
+      "name_is_regexp": {
+        "value": "false",
+        "pos": {
+          "file": "testdata/dawidd6-download-artifact.yml",
+          "line": 26,
+          "col": 9
+        },
+        "default": true
+      },
+      "path": {
+        "value": "./",
+        "pos": {
+          "file": "testdata/dawidd6-download-artifact.yml",
+          "line": 26,
+          "col": 9
+        },
+        "default": true
+      },
+      "repo": {
+        "value": "${{ github.repository }}",
+        "pos": {
+          "file": "testdata/dawidd6-download-artifact.yml",
+          "line": 26,
+          "col": 9
+        },
+        "default": true
+      },
+      "search_artifacts": {
+        "value": "false",
+        "pos": {
+          "file": "testdata/dawidd6-download-artifact.yml",
+          "line": 26,
+          "col": 9
+        },
+        "default": true
+      },
+      "workflow_conclusion": {
+        "value": "success",
+        "pos": {
+          "file": "testdata/dawidd6-download-artifact.yml",
+          "line": 26,
+          "col": 9
+        },
+        "default": true
+      },
+      "workflow_search": {
+        "value": "false",
+        "pos": {
+          "file": "testdata/dawidd6-download-artifact.yml",
+          "line": 26,
+          "col": 9
+        },
+        "default": true
+      }
+    }
+  }
+]

@@ -1,0 +1,17 @@
+name: Download artifact
+on: push
+jobs:
+  download:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v8
+        with:
+          name: review
+          pattern: '*.json'
+          merge-multiple: true
+          path: inbound/${{ github.run_id }}
+          run-id: ${{ github.event.workflow_run.id }}
+          repository: octo/repo
+          github-token: ${{ github.token }}
+          artifact-ids: '123,456'
+      - uses: actions/download-artifact@v4

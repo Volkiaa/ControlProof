@@ -1,0 +1,102 @@
+[
+  {
+    "uses": "actions/checkout@v7",
+    "action": "actions/checkout",
+    "major": 7,
+    "kind": "checkout",
+    "opaque": false,
+    "summary": {
+      "action": "actions/checkout",
+      "kind": "checkout",
+      "min_major": 4,
+      "max_major": 7,
+      "provenance": "https://github.com/actions/checkout/blob/v7/action.yml (reviewed 2026-10-30)"
+    },
+    "inputs": {
+      "path": {
+        "value": "scripts",
+        "pos": {
+          "file": "testdata/checkout.yml",
+          "line": 11,
+          "col": 17
+        }
+      },
+      "persist-credentials": {
+        "value": "false",
+        "pos": {
+          "file": "testdata/checkout.yml",
+          "line": 12,
+          "col": 32
+        }
+      },
+      "ref": {
+        "value": "${{ github.head_ref }}",
+        "pos": {
+          "file": "testdata/checkout.yml",
+          "line": 10,
+          "col": 16
+        },
+        "dynamic": true
+      },
+      "repository": {
+        "value": "octo/scripts",
+        "pos": {
+          "file": "testdata/checkout.yml",
+          "line": 9,
+          "col": 23
+        }
+      },
+      "sparse-checkout": {
+        "value": ".github/scripts",
+        "pos": {
+          "file": "testdata/checkout.yml",
+          "line": 13,
+          "col": 28
+        }
+      },
+      "token": {
+        "value": "${{ secrets.CHECKOUT_TOKEN }}",
+        "pos": {
+          "file": "testdata/checkout.yml",
+          "line": 14,
+          "col": 18
+        },
+        "dynamic": true
+      }
+    }
+  },
+  {
+    "uses": "actions/checkout@v4",
+    "action": "actions/checkout",
+    "major": 4,
+    "kind": "checkout",
+    "opaque": false,
+    "summary": {
+      "action": "actions/checkout",
+      "kind": "checkout",
+      "min_major": 4,
+      "max_major": 7,
+      "provenance": "https://github.com/actions/checkout/blob/v7/action.yml (reviewed 2026-10-30)"
+    },
+    "inputs": {
+      "persist-credentials": {
+        "value": "true",
+        "pos": {
+          "file": "testdata/checkout.yml",
+          "line": 15,
+          "col": 9
+        },
+        "default": true
+      },
+      "repository": {
+        "value": "${{ github.repository }}",
+        "pos": {
+          "file": "testdata/checkout.yml",
+          "line": 15,
+          "col": 9
+        },
+        "default": true
+      }
+    }
+  }
+]

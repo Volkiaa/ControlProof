@@ -1,0 +1,137 @@
+[
+  {
+    "uses": "actions/download-artifact@v8",
+    "action": "actions/download-artifact",
+    "major": 8,
+    "kind": "download-artifact",
+    "opaque": false,
+    "summary": {
+      "action": "actions/download-artifact",
+      "kind": "download-artifact",
+      "min_major": 4,
+      "max_major": 8,
+      "provenance": "https://github.com/actions/download-artifact/blob/v8/action.yml (reviewed 2026-10-30)"
+    },
+    "inputs": {
+      "artifact-ids": {
+        "value": "123,456",
+        "pos": {
+          "file": "testdata/download-artifact.yml",
+          "line": 16,
+          "col": 25
+        }
+      },
+      "github-token": {
+        "value": "${{ github.token }}",
+        "pos": {
+          "file": "testdata/download-artifact.yml",
+          "line": 15,
+          "col": 25
+        },
+        "dynamic": true
+      },
+      "merge-multiple": {
+        "value": "true",
+        "pos": {
+          "file": "testdata/download-artifact.yml",
+          "line": 11,
+          "col": 27
+        }
+      },
+      "name": {
+        "value": "review",
+        "pos": {
+          "file": "testdata/download-artifact.yml",
+          "line": 9,
+          "col": 17
+        }
+      },
+      "path": {
+        "value": "inbound/${{ github.run_id }}",
+        "pos": {
+          "file": "testdata/download-artifact.yml",
+          "line": 12,
+          "col": 17
+        },
+        "dynamic": true
+      },
+      "pattern": {
+        "value": "*.json",
+        "pos": {
+          "file": "testdata/download-artifact.yml",
+          "line": 10,
+          "col": 20
+        }
+      },
+      "repository": {
+        "value": "octo/repo",
+        "pos": {
+          "file": "testdata/download-artifact.yml",
+          "line": 14,
+          "col": 23
+        }
+      },
+      "run-id": {
+        "value": "${{ github.event.workflow_run.id }}",
+        "pos": {
+          "file": "testdata/download-artifact.yml",
+          "line": 13,
+          "col": 19
+        },
+        "dynamic": true
+      }
+    }
+  },
+  {
+    "uses": "actions/download-artifact@v4",
+    "action": "actions/download-artifact",
+    "major": 4,
+    "kind": "download-artifact",
+    "opaque": false,
+    "summary": {
+      "action": "actions/download-artifact",
+      "kind": "download-artifact",
+      "min_major": 4,
+      "max_major": 8,
+      "provenance": "https://github.com/actions/download-artifact/blob/v8/action.yml (reviewed 2026-10-30)"
+    },
+    "inputs": {
+      "merge-multiple": {
+        "value": "false",
+        "pos": {
+          "file": "testdata/download-artifact.yml",
+          "line": 17,
+          "col": 9
+        },
+        "default": true
+      },
+      "path": {
+        "value": "",
+        "pos": {
+          "file": "testdata/download-artifact.yml",
+          "line": 17,
+          "col": 9
+        },
+        "default": true
+      },
+      "repository": {
+        "value": "${{ github.repository }}",
+        "pos": {
+          "file": "testdata/download-artifact.yml",
+          "line": 17,
+          "col": 9
+        },
+        "default": true
+      },
+      "run-id": {
+        "value": "${{ github.run_id }}",
+        "pos": {
+          "file": "testdata/download-artifact.yml",
+          "line": 17,
+          "col": 9
+        },
+        "default": true
+      }
+    }
+  }
+]

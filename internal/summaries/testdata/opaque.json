@@ -1,0 +1,79 @@
+[
+  {
+    "uses": "actions/checkout@0123456789abcdef0123456789abcdef01234567",
+    "action": "actions/checkout",
+    "opaque": true,
+    "opaque_reason": "unversioned-ref"
+  },
+  {
+    "uses": "actions/checkout@main",
+    "action": "actions/checkout",
+    "opaque": true,
+    "opaque_reason": "unversioned-ref"
+  },
+  {
+    "uses": "actions/download-artifact@v3",
+    "action": "actions/download-artifact",
+    "major": 3,
+    "kind": "download-artifact",
+    "opaque": true,
+    "opaque_reason": "version-out-of-range"
+  },
+  {
+    "uses": "actions/download-artifact@v9",
+    "action": "actions/download-artifact",
+    "major": 9,
+    "kind": "download-artifact",
+    "opaque": true,
+    "opaque_reason": "version-out-of-range"
+  },
+  {
+    "uses": "actions/upload-artifact@v8",
+    "action": "actions/upload-artifact",
+    "major": 8,
+    "kind": "upload-artifact",
+    "opaque": true,
+    "opaque_reason": "version-out-of-range"
+  },
+  {
+    "uses": "actions/github-script@v5",
+    "action": "actions/github-script",
+    "major": 5,
+    "kind": "github-script",
+    "opaque": true,
+    "opaque_reason": "version-out-of-range"
+  },
+  {
+    "uses": "dawidd6/action-download-artifact@v1",
+    "action": "dawidd6/action-download-artifact",
+    "major": 1,
+    "kind": "dawidd6-download-artifact",
+    "opaque": true,
+    "opaque_reason": "version-out-of-range"
+  },
+  {
+    "uses": "./local-action",
+    "opaque": true,
+    "opaque_reason": "local"
+  },
+  {
+    "uses": "docker://alpine:3.19",
+    "opaque": true,
+    "opaque_reason": "docker"
+  },
+  {
+    "uses": "actions/upload-artifact/merge@v4",
+    "opaque": true,
+    "opaque_reason": "no-summary"
+  },
+  {
+    "uses": "some/unknown-action@v1",
+    "action": "some/unknown-action",
+    "opaque": true,
+    "opaque_reason": "no-summary"
+  },
+  {
+    "uses": "",
+    "opaque": false
+  }
+]

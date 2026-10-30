@@ -1,0 +1,12 @@
+name: GitHub script
+on: push
+jobs:
+  script:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/github-script@v9
+        with:
+          script: core.info('${{ github.sha }}')
+          github-token: ${{ secrets.SCRIPT_TOKEN }}
+          result-encoding: string
+      - uses: actions/github-script@v6
