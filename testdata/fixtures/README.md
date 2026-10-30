@@ -18,6 +18,8 @@ meant to be scanned offline and never executed against a live repository.
 | `a-spire-fixed` | A′ | Artifact extracted into `${{ runner.temp }}/review`; only `review.json` is parsed | CP-CICD-001 PASS |
 | `b-attest` | B | Fork-rewritable `pull_request` producer writes `head-ref`; privileged consumer validates its character set only, checks it out and pushes to it | CP-CICD-002 FAIL `confirmed-static` (high, guard `syntactic-only`) |
 | `b-attest-fixed` | B′ | Consumer requires `head_repository.full_name == github.repository`; checkout and push target come from the `workflow_run` event | CP-CICD-002 PASS (guard `binds-identity`) |
+| `b-attest-push-only` | B-push-only | Same as B, but the consumer checks out the default branch and only the push destination comes from the artifact | CP-CICD-002 FAIL `confirmed-static` (high, guard `syntactic-only`) |
+| `b-attest-allowlist` | B-allowlist | Same as B, but the artifact ref must exactly equal one of two literal branches | CP-CICD-002 PASS (guard `binds-identity`) |
 | `c-data-only` | C | Artifact extracted into a temp directory, schema-validated, used only for a comment | CP-CICD-001 PASS |
 | `f-restricted-consumer` | F | Same overwrite path as A, but the consumer has `actions: read` only and no secrets | CP-CICD-001 FAIL `confirmed-static` (medium) |
 | `g-unbound-selector` | G | `dawidd6/action-download-artifact` with no `run_id` and `allow_forks: true`; the artifact reaches a `gh-pages` push | CP-CICD-003 FAIL `conditional` (high) |
@@ -26,6 +28,11 @@ meant to be scanned offline and never executed against a live repository.
 download `path:` and the `reviewPath` expression. `b-attest-fixed` reuses B's
 producer, script and README unchanged.
 
+`b-attest-push-only` and `b-attest-allowlist` are not in the spec's fixture table.
+They isolate the two halves of B for the week-0 baseline: a destination sink
+with no untrusted checkout, and an adequate guard on the same flow. Each differs
+from `b-attest` only in the consumer's checkout step or the guard.
+
 ## expected.json
 
 Every fixture has an `expected.json` at its root. All keys are always present;
@@ -33,7 +40,7 @@ keys that do not apply are `null`.
 
 | Field | Type / allowed values | Meaning |
 |---|---|---|
-| `fixture` | `"A"`, `"A′"`, `"B"`, `"B′"`, `"C"`, `"F"`, `"G"` | Spec fixture identifier |
+| `fixture` | `"A"`, `"A′"`, `"B"`, `"B′"`, `"B-push-only"`, `"B-allowlist"`, `"C"`, `"F"`, `"G"` | Spec fixture identifier, or a B probe variant |
 | `title` | string | One-line description of the fixture |
 | `reference` | `"GHSL-2026-204"`, `"GHSL-2026-225"`, `null` | Advisory the fixture reproduces |
 | `variant_of` | `"A"`, `"B"`, `null` | Fixture this corrected variant derives from |

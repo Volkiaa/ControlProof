@@ -8,7 +8,7 @@ fi
 
 script_dir=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)
 out_dir=$1
-fixture_names=(a-spire a-spire-fixed b-attest b-attest-fixed c-data-only f-restricted-consumer g-unbound-selector)
+fixture_names=(a-spire a-spire-fixed b-attest b-attest-fixed b-attest-push-only b-attest-allowlist c-data-only f-restricted-consumer g-unbound-selector)
 
 export GIT_CONFIG_NOSYSTEM=1
 export GIT_CONFIG_GLOBAL=/dev/null

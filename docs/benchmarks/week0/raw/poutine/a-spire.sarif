@@ -1,0 +1,40 @@
+{
+  "$schema": "https://raw.githubusercontent.com/oasis-tcs/sarif-spec/main/sarif-2.1/schema/sarif-schema-2.1.0.json",
+  "runs": [
+    {
+      "results": [],
+      "taxonomies": [
+        {
+          "name": "boost/sast",
+          "organization": "boostsecurity",
+          "rules": [],
+          "version": "1.0.0"
+        }
+      ],
+      "tool": {
+        "driver": {
+          "informationUri": "https://github.com/boostsecurityio/poutine",
+          "name": "poutine",
+          "organization": "boostsecurity",
+          "rules": [],
+          "semanticVersion": "development",
+          "supportedTaxonomies": [
+            {
+              "guid": "0c8bf036-487d-590a-8c22-c41f287b1560",
+              "index": 0,
+              "name": "boost/sast"
+            }
+          ]
+        }
+      },
+      "versionControlProvenance": [
+        {
+          "branch": "main",
+          "repositoryUri": "https://localrepo//local",
+          "revisionId": "4c050972d27abb28d88a925aa3fe212c7c619aa9"
+        }
+      ]
+    }
+  ],
+  "version": "2.1.0"
+}

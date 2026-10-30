@@ -1,0 +1,92 @@
+{
+  "$schema": "https://raw.githubusercontent.com/oasis-tcs/sarif-spec/main/sarif-2.1/schema/sarif-schema-2.1.0.json",
+  "runs": [
+    {
+      "artifacts": [
+        {
+          "length": -1,
+          "location": {
+            "uri": ".github/workflows/publish-site.yml"
+          }
+        }
+      ],
+      "results": [
+        {
+          "level": "note",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": ".github/workflows/publish-site.yml"
+                },
+                "region": {
+                  "endLine": 15,
+                  "startLine": 15
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "Usage of the following GitHub Actions repositories was detected in workflows\nor composite actions, but their owner is not a verified creator."
+          },
+          "partialFingerprints": {
+            "primaryLocationLineHash": "f8180da8121398a035f81b8931ee47cad39b97ad225bd3befbf40ed99d3f48a1"
+          },
+          "properties": {
+            "boost/confidence": "low"
+          },
+          "ruleId": "github_action_from_unverified_creator_used",
+          "ruleIndex": 0
+        }
+      ],
+      "taxonomies": [
+        {
+          "name": "boost/sast",
+          "organization": "boostsecurity",
+          "rules": [],
+          "version": "1.0.0"
+        }
+      ],
+      "tool": {
+        "driver": {
+          "informationUri": "https://github.com/boostsecurityio/poutine",
+          "name": "poutine",
+          "organization": "boostsecurity",
+          "rules": [
+            {
+              "fullDescription": {
+                "text": "Usage of the following GitHub Actions repositories was detected in workflows\nor composite actions, but their owner is not a verified creator."
+              },
+              "help": {
+                "markdown": "## Description\n\nUsage of the following GitHub Actions repositories was detected in workflows\nor composite actions, but their owner is not a verified creator.\n\n## Remediation\n\nIn the workflow file, replace the action with a verified creator's action if possible. Verified creators can be found in the GitHub Marketplace.\n\nEven if the action is published by a Verified Creator, it should not imply that the action is secure or still maintained. A popular action (with many stars and/or downloads) neither implies that it is safe.\n\nRunning `poutine` against the org / repo where the action is published can help you in your own risk analysis.\n\n## See Also\n- [Actions published by Verified Creators on the GitHub Actions Marketplace](https://github.com/marketplace?query=sort%3Apopularity-desc&type=actions&verification=verified_creator)\n- [About badges in GitHub Marketplace](https://docs.github.com/en/actions/creating-actions/publishing-actions-in-github-marketplace#about-badges-in-github-marketplace)",
+                "text": "https://boostsecurityio.github.io/poutine/rules/github_action_from_unverified_creator_used"
+              },
+              "helpUri": "https://boostsecurityio.github.io/poutine/rules/github_action_from_unverified_creator_used",
+              "id": "github_action_from_unverified_creator_used",
+              "name": "Github Action from Unverified Creator used",
+              "shortDescription": {
+                "text": "Github Action from Unverified Creator used"
+              }
+            }
+          ],
+          "semanticVersion": "development",
+          "supportedTaxonomies": [
+            {
+              "guid": "0c8bf036-487d-590a-8c22-c41f287b1560",
+              "index": 0,
+              "name": "boost/sast"
+            }
+          ]
+        }
+      },
+      "versionControlProvenance": [
+        {
+          "branch": "main",
+          "repositoryUri": "https://localrepo//local",
+          "revisionId": "286e9cddf4281fdcf16d77bd2c521172ebac7ed8"
+        }
+      ]
+    }
+  ],
+  "version": "2.1.0"
+}
