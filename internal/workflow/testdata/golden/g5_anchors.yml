@@ -1,0 +1,17 @@
+on: push
+env:
+  GLOBAL: global
+jobs:
+  first:
+    runs-on: ubuntu-latest
+    env: &shared_env
+      TOKEN: ${{ secrets.TOKEN }}
+      MODE: ci
+    steps: &shared_steps
+      - name: greet
+        run: echo hello
+      - run: echo ${{ env.MODE }}
+  second:
+    runs-on: ubuntu-latest
+    env: *shared_env
+    steps: *shared_steps

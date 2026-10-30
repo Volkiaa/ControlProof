@@ -1,0 +1,23 @@
+on: push
+jobs:
+  absent:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo absent
+  empty:
+    runs-on: ubuntu-latest
+    permissions: {}
+    steps:
+      - run: echo empty
+  readall:
+    runs-on: ubuntu-latest
+    permissions: read-all
+    steps:
+      - run: echo read
+  scoped:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      actions: read
+    steps:
+      - run: echo scoped

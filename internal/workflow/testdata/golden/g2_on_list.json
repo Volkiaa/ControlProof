@@ -1,0 +1,60 @@
+{
+  "path": "testdata/golden/g2_on_list.yml",
+  "triggers": [
+    {
+      "event": "push",
+      "file": "testdata/golden/g2_on_list.yml",
+      "line": 1,
+      "col": 6
+    },
+    {
+      "event": "pull_request",
+      "file": "testdata/golden/g2_on_list.yml",
+      "line": 1,
+      "col": 12
+    }
+  ],
+  "permissions": null,
+  "jobs": [
+    {
+      "id": {
+        "value": "test",
+        "pos": {
+          "file": "testdata/golden/g2_on_list.yml",
+          "line": 3,
+          "col": 3
+        }
+      },
+      "runs_on": [
+        {
+          "value": "ubuntu-latest",
+          "pos": {
+            "file": "testdata/golden/g2_on_list.yml",
+            "line": 4,
+            "col": 14
+          }
+        }
+      ],
+      "permissions": null,
+      "steps": [
+        {
+          "index": 0,
+          "run": {
+            "value": "echo ok",
+            "pos": {
+              "file": "testdata/golden/g2_on_list.yml",
+              "line": 6,
+              "col": 14
+            }
+          },
+          "file": "testdata/golden/g2_on_list.yml",
+          "line": 6,
+          "col": 9
+        }
+      ],
+      "file": "testdata/golden/g2_on_list.yml",
+      "line": 3,
+      "col": 3
+    }
+  ]
+}

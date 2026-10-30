@@ -1,0 +1,251 @@
+{
+  "path": "testdata/golden/g5_anchors.yml",
+  "triggers": [
+    {
+      "event": "push",
+      "file": "testdata/golden/g5_anchors.yml",
+      "line": 1,
+      "col": 5
+    }
+  ],
+  "permissions": null,
+  "env": [
+    {
+      "key": "GLOBAL",
+      "value": {
+        "value": "global",
+        "pos": {
+          "file": "testdata/golden/g5_anchors.yml",
+          "line": 3,
+          "col": 11
+        }
+      }
+    }
+  ],
+  "jobs": [
+    {
+      "id": {
+        "value": "first",
+        "pos": {
+          "file": "testdata/golden/g5_anchors.yml",
+          "line": 5,
+          "col": 3
+        }
+      },
+      "runs_on": [
+        {
+          "value": "ubuntu-latest",
+          "pos": {
+            "file": "testdata/golden/g5_anchors.yml",
+            "line": 6,
+            "col": 14
+          }
+        }
+      ],
+      "permissions": null,
+      "env": [
+        {
+          "key": "MODE",
+          "value": {
+            "value": "ci",
+            "pos": {
+              "file": "testdata/golden/g5_anchors.yml",
+              "line": 9,
+              "col": 13
+            }
+          }
+        },
+        {
+          "key": "TOKEN",
+          "value": {
+            "value": "${{ secrets.TOKEN }}",
+            "pos": {
+              "file": "testdata/golden/g5_anchors.yml",
+              "line": 8,
+              "col": 14
+            },
+            "exprs": [
+              {
+                "raw": "secrets.TOKEN",
+                "pos": {
+                  "file": "testdata/golden/g5_anchors.yml",
+                  "line": 8,
+                  "col": 14
+                },
+                "refs": [
+                  "secrets.token"
+                ]
+              }
+            ]
+          }
+        }
+      ],
+      "steps": [
+        {
+          "index": 0,
+          "name": {
+            "value": "greet",
+            "pos": {
+              "file": "testdata/golden/g5_anchors.yml",
+              "line": 11,
+              "col": 15
+            }
+          },
+          "run": {
+            "value": "echo hello",
+            "pos": {
+              "file": "testdata/golden/g5_anchors.yml",
+              "line": 12,
+              "col": 14
+            }
+          },
+          "file": "testdata/golden/g5_anchors.yml",
+          "line": 11,
+          "col": 9
+        },
+        {
+          "index": 1,
+          "run": {
+            "value": "echo ${{ env.MODE }}",
+            "pos": {
+              "file": "testdata/golden/g5_anchors.yml",
+              "line": 13,
+              "col": 14
+            },
+            "exprs": [
+              {
+                "raw": "env.MODE",
+                "pos": {
+                  "file": "testdata/golden/g5_anchors.yml",
+                  "line": 13,
+                  "col": 19
+                },
+                "refs": [
+                  "env.mode"
+                ]
+              }
+            ]
+          },
+          "file": "testdata/golden/g5_anchors.yml",
+          "line": 13,
+          "col": 9
+        }
+      ],
+      "file": "testdata/golden/g5_anchors.yml",
+      "line": 5,
+      "col": 3
+    },
+    {
+      "id": {
+        "value": "second",
+        "pos": {
+          "file": "testdata/golden/g5_anchors.yml",
+          "line": 14,
+          "col": 3
+        }
+      },
+      "runs_on": [
+        {
+          "value": "ubuntu-latest",
+          "pos": {
+            "file": "testdata/golden/g5_anchors.yml",
+            "line": 15,
+            "col": 14
+          }
+        }
+      ],
+      "permissions": null,
+      "env": [
+        {
+          "key": "MODE",
+          "value": {
+            "value": "ci",
+            "pos": {
+              "file": "testdata/golden/g5_anchors.yml",
+              "line": 9,
+              "col": 13
+            }
+          }
+        },
+        {
+          "key": "TOKEN",
+          "value": {
+            "value": "${{ secrets.TOKEN }}",
+            "pos": {
+              "file": "testdata/golden/g5_anchors.yml",
+              "line": 8,
+              "col": 14
+            },
+            "exprs": [
+              {
+                "raw": "secrets.TOKEN",
+                "pos": {
+                  "file": "testdata/golden/g5_anchors.yml",
+                  "line": 8,
+                  "col": 14
+                },
+                "refs": [
+                  "secrets.token"
+                ]
+              }
+            ]
+          }
+        }
+      ],
+      "steps": [
+        {
+          "index": 0,
+          "name": {
+            "value": "greet",
+            "pos": {
+              "file": "testdata/golden/g5_anchors.yml",
+              "line": 11,
+              "col": 15
+            }
+          },
+          "run": {
+            "value": "echo hello",
+            "pos": {
+              "file": "testdata/golden/g5_anchors.yml",
+              "line": 12,
+              "col": 14
+            }
+          },
+          "file": "testdata/golden/g5_anchors.yml",
+          "line": 11,
+          "col": 9
+        },
+        {
+          "index": 1,
+          "run": {
+            "value": "echo ${{ env.MODE }}",
+            "pos": {
+              "file": "testdata/golden/g5_anchors.yml",
+              "line": 13,
+              "col": 14
+            },
+            "exprs": [
+              {
+                "raw": "env.MODE",
+                "pos": {
+                  "file": "testdata/golden/g5_anchors.yml",
+                  "line": 13,
+                  "col": 19
+                },
+                "refs": [
+                  "env.mode"
+                ]
+              }
+            ]
+          },
+          "file": "testdata/golden/g5_anchors.yml",
+          "line": 13,
+          "col": 9
+        }
+      ],
+      "file": "testdata/golden/g5_anchors.yml",
+      "line": 14,
+      "col": 3
+    }
+  ]
+}

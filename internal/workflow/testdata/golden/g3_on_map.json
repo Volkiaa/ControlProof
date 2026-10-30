@@ -1,0 +1,160 @@
+{
+  "path": "testdata/golden/g3_on_map.yml",
+  "triggers": [
+    {
+      "event": "pull_request",
+      "file": "testdata/golden/g3_on_map.yml",
+      "line": 2,
+      "col": 3,
+      "types": [
+        {
+          "value": "opened",
+          "pos": {
+            "file": "testdata/golden/g3_on_map.yml",
+            "line": 3,
+            "col": 13
+          }
+        },
+        {
+          "value": "synchronize",
+          "pos": {
+            "file": "testdata/golden/g3_on_map.yml",
+            "line": 3,
+            "col": 21
+          }
+        }
+      ]
+    },
+    {
+      "event": "workflow_run",
+      "file": "testdata/golden/g3_on_map.yml",
+      "line": 4,
+      "col": 3,
+      "types": [
+        {
+          "value": "completed",
+          "pos": {
+            "file": "testdata/golden/g3_on_map.yml",
+            "line": 6,
+            "col": 13
+          }
+        }
+      ],
+      "branches": [
+        {
+          "value": "main",
+          "pos": {
+            "file": "testdata/golden/g3_on_map.yml",
+            "line": 7,
+            "col": 16
+          }
+        }
+      ],
+      "workflows": [
+        {
+          "value": "Build",
+          "pos": {
+            "file": "testdata/golden/g3_on_map.yml",
+            "line": 5,
+            "col": 17
+          }
+        },
+        {
+          "value": "Test",
+          "pos": {
+            "file": "testdata/golden/g3_on_map.yml",
+            "line": 5,
+            "col": 24
+          }
+        }
+      ]
+    },
+    {
+      "event": "schedule",
+      "file": "testdata/golden/g3_on_map.yml",
+      "line": 8,
+      "col": 3,
+      "cron": [
+        {
+          "value": "0 3 * * *",
+          "pos": {
+            "file": "testdata/golden/g3_on_map.yml",
+            "line": 9,
+            "col": 13
+          }
+        },
+        {
+          "value": "30 4 * * 1",
+          "pos": {
+            "file": "testdata/golden/g3_on_map.yml",
+            "line": 10,
+            "col": 13
+          }
+        }
+      ]
+    },
+    {
+      "event": "workflow_dispatch",
+      "file": "testdata/golden/g3_on_map.yml",
+      "line": 11,
+      "col": 3,
+      "inputs": [
+        "dry-run",
+        "ref"
+      ]
+    },
+    {
+      "event": "workflow_call",
+      "file": "testdata/golden/g3_on_map.yml",
+      "line": 19,
+      "col": 3,
+      "inputs": [
+        "count",
+        "target"
+      ]
+    }
+  ],
+  "permissions": null,
+  "jobs": [
+    {
+      "id": {
+        "value": "build",
+        "pos": {
+          "file": "testdata/golden/g3_on_map.yml",
+          "line": 27,
+          "col": 3
+        }
+      },
+      "runs_on": [
+        {
+          "value": "ubuntu-latest",
+          "pos": {
+            "file": "testdata/golden/g3_on_map.yml",
+            "line": 28,
+            "col": 14
+          }
+        }
+      ],
+      "permissions": null,
+      "steps": [
+        {
+          "index": 0,
+          "run": {
+            "value": "echo ok",
+            "pos": {
+              "file": "testdata/golden/g3_on_map.yml",
+              "line": 30,
+              "col": 14
+            }
+          },
+          "file": "testdata/golden/g3_on_map.yml",
+          "line": 30,
+          "col": 9
+        }
+      ],
+      "file": "testdata/golden/g3_on_map.yml",
+      "line": 27,
+      "col": 3
+    }
+  ]
+}
