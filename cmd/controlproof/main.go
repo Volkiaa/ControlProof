@@ -8,6 +8,7 @@ import (
 	"os"
 
 	"github.com/Volkiaa/ControlProof/internal/config"
+	"github.com/Volkiaa/ControlProof/internal/graph"
 	"github.com/Volkiaa/ControlProof/internal/model"
 	"github.com/Volkiaa/ControlProof/internal/semantics/permissions"
 	"github.com/Volkiaa/ControlProof/internal/semantics/triggers"
@@ -33,6 +34,8 @@ commands:
   debug ir [path]    print the parsed workflow IR as JSON
   debug semantics [--policy FILE] [path]
                      print the trigger, attacker-control and privilege classification as JSON
+  debug graph [--policy FILE] [path]
+                     print the artifact flow graph as JSON
   version            print the controlproof version
   help               print this message
 
@@ -88,6 +91,8 @@ func runDebug(args []string, stdout, stderr io.Writer) int {
 		return runDebugIR(args[1:], stdout, stderr)
 	case "semantics":
 		return runDebugSemantics(args[1:], stdout, stderr)
+	case "graph":
+		return runDebugGraph(args[1:], stdout, stderr)
 	default:
 		fmt.Fprintf(stderr, "controlproof: unknown debug subcommand %q\n", args[0])
 		fmt.Fprint(stderr, usage)
@@ -128,17 +133,17 @@ type semanticsWorkflow struct {
 	Jobs     []permissions.JobPrivilege `json:"jobs"`
 }
 
-func runDebugSemantics(args []string, stdout, stderr io.Writer) int {
-	flags := flag.NewFlagSet("debug semantics", flag.ContinueOnError)
+func debugInputs(name string, args []string, stderr io.Writer) (*config.Policy, string, int) {
+	flags := flag.NewFlagSet("debug "+name, flag.ContinueOnError)
 	flags.SetOutput(stderr)
 	policyPath := flags.String("policy", "", "policy file that supplies the repo profile")
 	if err := flags.Parse(args); err != nil {
-		return exitError
+		return nil, "", exitError
 	}
 	if flags.NArg() > 1 {
-		fmt.Fprintln(stderr, "controlproof: debug semantics takes at most one path")
+		fmt.Fprintf(stderr, "controlproof: debug %s takes at most one path\n", name)
 		fmt.Fprint(stderr, usage)
-		return exitError
+		return nil, "", exitError
 	}
 
 	policy := config.Default()
@@ -146,7 +151,7 @@ func runDebugSemantics(args []string, stdout, stderr io.Writer) int {
 		loaded, err := config.Load(*policyPath)
 		if err != nil {
 			fmt.Fprintf(stderr, "controlproof: %v\n", err)
-			return exitError
+			return nil, "", exitError
 		}
 		policy = loaded
 	}
@@ -154,6 +159,14 @@ func runDebugSemantics(args []string, stdout, stderr io.Writer) int {
 	path := "."
 	if flags.NArg() == 1 {
 		path = flags.Arg(0)
+	}
+	return policy, path, exitCompleted
+}
+
+func runDebugSemantics(args []string, stdout, stderr io.Writer) int {
+	policy, path, code := debugInputs("semantics", args, stderr)
+	if code != exitCompleted {
+		return code
 	}
 
 	workflows, failed, code := loadWorkflows(path, stderr)
@@ -179,6 +192,29 @@ func runDebugSemantics(args []string, stdout, stderr io.Writer) int {
 		Schema:       "controlproof-semantics/0",
 		PolicySHA256: policy.SHA256,
 		Workflows:    classified,
+	}
+	return emitJSON(output, failed, stdout, stderr)
+}
+
+func runDebugGraph(args []string, stdout, stderr io.Writer) int {
+	policy, path, code := debugInputs("graph", args, stderr)
+	if code != exitCompleted {
+		return code
+	}
+
+	workflows, failed, code := loadWorkflows(path, stderr)
+	if code != exitCompleted {
+		return code
+	}
+
+	output := struct {
+		Schema       string       `json:"schema"`
+		PolicySHA256 string       `json:"policy_sha256"`
+		Graph        *graph.Graph `json:"graph"`
+	}{
+		Schema:       "controlproof-graph/0",
+		PolicySHA256: policy.SHA256,
+		Graph:        graph.Build(workflows, policy.RepoProfile),
 	}
 	return emitJSON(output, failed, stdout, stderr)
 }

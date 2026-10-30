@@ -1,0 +1,323 @@
+{
+  "nodes": [
+    {
+      "id": "artifact:.github/workflows/review-capture.yml#review",
+      "kind": "Artifact",
+      "label": "review",
+      "pos": {
+        "file": ".github/workflows/review-capture.yml",
+        "line": 16,
+        "col": 9
+      },
+      "attrs": {
+        "content": "arbitrary",
+        "name": "review",
+        "producer": ".github/workflows/review-capture.yml"
+      }
+    },
+    {
+      "id": "artifact:fork-added:Capture review#review",
+      "kind": "Artifact",
+      "label": "review",
+      "pos": {
+        "file": ".github/workflows/review-apply.yml",
+        "line": 20,
+        "col": 9
+      },
+      "attrs": {
+        "content": "arbitrary",
+        "name": "review",
+        "producer": "fork-added:Capture review"
+      }
+    },
+    {
+      "id": "file:step:.github/workflows/review-apply.yml#apply#1@$GITHUB_WORKSPACE",
+      "kind": "File",
+      "label": "$GITHUB_WORKSPACE",
+      "pos": {
+        "file": ".github/workflows/review-apply.yml",
+        "line": 20,
+        "col": 9
+      },
+      "attrs": {
+        "dir": "$GITHUB_WORKSPACE",
+        "layout": "flat"
+      }
+    },
+    {
+      "id": "job:.github/workflows/review-apply.yml#apply",
+      "kind": "Job",
+      "label": "apply",
+      "pos": {
+        "file": ".github/workflows/review-apply.yml",
+        "line": 8,
+        "col": 3
+      },
+      "attrs": {
+        "cache_write": "default-branch",
+        "token_source": "job"
+      }
+    },
+    {
+      "id": "job:.github/workflows/review-capture.yml#capture",
+      "kind": "Job",
+      "label": "capture",
+      "pos": {
+        "file": ".github/workflows/review-capture.yml",
+        "line": 7,
+        "col": 3
+      },
+      "attrs": {
+        "cache_write": "pr-scoped",
+        "token_source": "workflow"
+      }
+    },
+    {
+      "id": "step:.github/workflows/review-apply.yml#apply#0",
+      "kind": "Step",
+      "label": "Checkout scripts",
+      "pos": {
+        "file": ".github/workflows/review-apply.yml",
+        "line": 16,
+        "col": 9
+      }
+    },
+    {
+      "id": "step:.github/workflows/review-apply.yml#apply#1",
+      "kind": "Step",
+      "label": "Download review",
+      "pos": {
+        "file": ".github/workflows/review-apply.yml",
+        "line": 20,
+        "col": 9
+      }
+    },
+    {
+      "id": "step:.github/workflows/review-apply.yml#apply#2",
+      "kind": "Step",
+      "label": "Apply review",
+      "pos": {
+        "file": ".github/workflows/review-apply.yml",
+        "line": 26,
+        "col": 9
+      }
+    },
+    {
+      "id": "step:.github/workflows/review-capture.yml#capture#0",
+      "kind": "Step",
+      "label": "Write review",
+      "pos": {
+        "file": ".github/workflows/review-capture.yml",
+        "line": 10,
+        "col": 9
+      }
+    },
+    {
+      "id": "step:.github/workflows/review-capture.yml#capture#1",
+      "kind": "Step",
+      "label": "Upload review",
+      "pos": {
+        "file": ".github/workflows/review-capture.yml",
+        "line": 16,
+        "col": 9
+      }
+    },
+    {
+      "id": "trigger:.github/workflows/review-apply.yml#workflow_run",
+      "kind": "Trigger",
+      "label": "workflow_run",
+      "pos": {
+        "file": ".github/workflows/review-apply.yml",
+        "line": 3,
+        "col": 3
+      }
+    },
+    {
+      "id": "trigger:.github/workflows/review-capture.yml#pull_request_review",
+      "kind": "Trigger",
+      "label": "pull_request_review",
+      "pos": {
+        "file": ".github/workflows/review-capture.yml",
+        "line": 3,
+        "col": 3
+      }
+    },
+    {
+      "id": "workflow:.github/workflows/review-apply.yml",
+      "kind": "Workflow",
+      "label": "Apply review",
+      "attrs": {
+        "name": "Apply review",
+        "trust": "trusted-definition"
+      }
+    },
+    {
+      "id": "workflow:.github/workflows/review-capture.yml",
+      "kind": "Workflow",
+      "label": "Capture review",
+      "attrs": {
+        "name": "Capture review",
+        "trust": "fork-definition-controlled"
+      }
+    },
+    {
+      "id": "workflow:fork-added:Capture review",
+      "kind": "Workflow",
+      "label": "Capture review",
+      "attrs": {
+        "name": "Capture review",
+        "synthetic": "true",
+        "trust": "fork-definition-controlled"
+      }
+    }
+  ],
+  "edges": [
+    {
+      "from": "trigger:.github/workflows/review-apply.yml#workflow_run",
+      "to": "workflow:.github/workflows/review-apply.yml",
+      "kind": "CAN_TRIGGER",
+      "source_location": {
+        "file": ".github/workflows/review-apply.yml",
+        "line": 3,
+        "col": 3
+      },
+      "evidence_class": "literal",
+      "confidence": "high",
+      "guards": []
+    },
+    {
+      "from": "trigger:.github/workflows/review-capture.yml#pull_request_review",
+      "to": "workflow:.github/workflows/review-capture.yml",
+      "kind": "CAN_TRIGGER",
+      "source_location": {
+        "file": ".github/workflows/review-capture.yml",
+        "line": 3,
+        "col": 3
+      },
+      "evidence_class": "literal",
+      "confidence": "high",
+      "guards": []
+    },
+    {
+      "from": "workflow:.github/workflows/review-capture.yml",
+      "to": "workflow:.github/workflows/review-apply.yml",
+      "kind": "CAN_TRIGGER",
+      "source_location": {
+        "file": ".github/workflows/review-apply.yml",
+        "line": 4,
+        "col": 17
+      },
+      "evidence_class": "documented_semantics",
+      "confidence": "candidate",
+      "guards": [],
+      "attrs": {
+        "match": "workflow-name",
+        "name": "Capture review"
+      }
+    },
+    {
+      "from": "workflow:fork-added:Capture review",
+      "to": "workflow:.github/workflows/review-apply.yml",
+      "kind": "CAN_TRIGGER",
+      "source_location": {
+        "file": ".github/workflows/review-apply.yml",
+        "line": 4,
+        "col": 17
+      },
+      "evidence_class": "documented_semantics",
+      "confidence": "candidate",
+      "guards": [],
+      "attrs": {
+        "match": "workflow-name",
+        "name": "Capture review",
+        "prerequisite": "fork_pr_workflow_approval"
+      }
+    },
+    {
+      "from": "step:.github/workflows/review-apply.yml#apply#1",
+      "to": "artifact:.github/workflows/review-capture.yml#review",
+      "kind": "DOWNLOADS",
+      "source_location": {
+        "file": ".github/workflows/review-apply.yml",
+        "line": 20,
+        "col": 9
+      },
+      "evidence_class": "literal",
+      "confidence": "high",
+      "guards": [
+        {
+          "expr": "github.event.workflow_run.conclusion == 'success'",
+          "pos": {
+            "file": ".github/workflows/review-apply.yml",
+            "line": 9,
+            "col": 9
+          },
+          "adequacy": "unknown"
+        }
+      ],
+      "attrs": {
+        "content": "arbitrary",
+        "run_id_binding": "workflow-run-event"
+      }
+    },
+    {
+      "from": "step:.github/workflows/review-apply.yml#apply#1",
+      "to": "artifact:fork-added:Capture review#review",
+      "kind": "DOWNLOADS",
+      "source_location": {
+        "file": ".github/workflows/review-apply.yml",
+        "line": 20,
+        "col": 9
+      },
+      "evidence_class": "documented_semantics",
+      "confidence": "high",
+      "guards": [
+        {
+          "expr": "github.event.workflow_run.conclusion == 'success'",
+          "pos": {
+            "file": ".github/workflows/review-apply.yml",
+            "line": 9,
+            "col": 9
+          },
+          "adequacy": "unknown"
+        }
+      ],
+      "attrs": {
+        "content": "arbitrary",
+        "name_match": "attacker-chosen",
+        "run_id_binding": "workflow-run-event"
+      }
+    },
+    {
+      "from": "step:.github/workflows/review-apply.yml#apply#1",
+      "to": "file:step:.github/workflows/review-apply.yml#apply#1@$GITHUB_WORKSPACE",
+      "kind": "EXTRACTS_TO",
+      "source_location": {
+        "file": ".github/workflows/review-apply.yml",
+        "line": 20,
+        "col": 9
+      },
+      "evidence_class": "documented_semantics",
+      "confidence": "high",
+      "guards": []
+    },
+    {
+      "from": "step:.github/workflows/review-capture.yml#capture#1",
+      "to": "artifact:.github/workflows/review-capture.yml#review",
+      "kind": "PRODUCES",
+      "source_location": {
+        "file": ".github/workflows/review-capture.yml",
+        "line": 16,
+        "col": 9
+      },
+      "evidence_class": "literal",
+      "confidence": "high",
+      "guards": [],
+      "attrs": {
+        "name": "review",
+        "path": "review.json"
+      }
+    }
+  ],
+  "unsupported": []
+}

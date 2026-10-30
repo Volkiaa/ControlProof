@@ -1,0 +1,282 @@
+{
+  "nodes": [
+    {
+      "id": "artifact:.github/workflows/build-site.yml#site",
+      "kind": "Artifact",
+      "label": "site",
+      "pos": {
+        "file": ".github/workflows/build-site.yml",
+        "line": 18,
+        "col": 9
+      },
+      "attrs": {
+        "content": "arbitrary",
+        "name": "site",
+        "producer": ".github/workflows/build-site.yml"
+      }
+    },
+    {
+      "id": "file:step:.github/workflows/publish-site.yml#publish#0@$RUNNER_TEMP/site",
+      "kind": "File",
+      "label": "$RUNNER_TEMP/site",
+      "pos": {
+        "file": ".github/workflows/publish-site.yml",
+        "line": 14,
+        "col": 9
+      },
+      "attrs": {
+        "dir": "$RUNNER_TEMP/site",
+        "layout": "flat"
+      }
+    },
+    {
+      "id": "job:.github/workflows/build-site.yml#build",
+      "kind": "Job",
+      "label": "build",
+      "pos": {
+        "file": ".github/workflows/build-site.yml",
+        "line": 9,
+        "col": 3
+      },
+      "attrs": {
+        "cache_write": "unknown",
+        "token_source": "workflow"
+      }
+    },
+    {
+      "id": "job:.github/workflows/publish-site.yml#publish",
+      "kind": "Job",
+      "label": "publish",
+      "pos": {
+        "file": ".github/workflows/publish-site.yml",
+        "line": 8,
+        "col": 3
+      },
+      "attrs": {
+        "cache_write": "default-branch",
+        "token_source": "job"
+      }
+    },
+    {
+      "id": "step:.github/workflows/build-site.yml#build#0",
+      "kind": "Step",
+      "label": "Checkout",
+      "pos": {
+        "file": ".github/workflows/build-site.yml",
+        "line": 12,
+        "col": 9
+      }
+    },
+    {
+      "id": "step:.github/workflows/build-site.yml#build#1",
+      "kind": "Step",
+      "label": "Build site",
+      "pos": {
+        "file": ".github/workflows/build-site.yml",
+        "line": 16,
+        "col": 9
+      }
+    },
+    {
+      "id": "step:.github/workflows/build-site.yml#build#2",
+      "kind": "Step",
+      "label": "Upload site",
+      "pos": {
+        "file": ".github/workflows/build-site.yml",
+        "line": 18,
+        "col": 9
+      }
+    },
+    {
+      "id": "step:.github/workflows/publish-site.yml#publish#0",
+      "kind": "Step",
+      "label": "Download site",
+      "pos": {
+        "file": ".github/workflows/publish-site.yml",
+        "line": 14,
+        "col": 9
+      }
+    },
+    {
+      "id": "step:.github/workflows/publish-site.yml#publish#1",
+      "kind": "Step",
+      "label": "Checkout pages",
+      "pos": {
+        "file": ".github/workflows/publish-site.yml",
+        "line": 21,
+        "col": 9
+      }
+    },
+    {
+      "id": "step:.github/workflows/publish-site.yml#publish#2",
+      "kind": "Step",
+      "label": "Publish",
+      "pos": {
+        "file": ".github/workflows/publish-site.yml",
+        "line": 26,
+        "col": 9
+      }
+    },
+    {
+      "id": "trigger:.github/workflows/build-site.yml#pull_request",
+      "kind": "Trigger",
+      "label": "pull_request",
+      "pos": {
+        "file": ".github/workflows/build-site.yml",
+        "line": 3,
+        "col": 3
+      }
+    },
+    {
+      "id": "trigger:.github/workflows/build-site.yml#push",
+      "kind": "Trigger",
+      "label": "push",
+      "pos": {
+        "file": ".github/workflows/build-site.yml",
+        "line": 4,
+        "col": 3
+      }
+    },
+    {
+      "id": "trigger:.github/workflows/publish-site.yml#schedule",
+      "kind": "Trigger",
+      "label": "schedule",
+      "pos": {
+        "file": ".github/workflows/publish-site.yml",
+        "line": 3,
+        "col": 3
+      }
+    },
+    {
+      "id": "trigger:.github/workflows/publish-site.yml#workflow_dispatch",
+      "kind": "Trigger",
+      "label": "workflow_dispatch",
+      "pos": {
+        "file": ".github/workflows/publish-site.yml",
+        "line": 5,
+        "col": 3
+      }
+    },
+    {
+      "id": "workflow:.github/workflows/build-site.yml",
+      "kind": "Workflow",
+      "label": "Build site",
+      "attrs": {
+        "name": "Build site",
+        "trust": "fork-definition-controlled"
+      }
+    },
+    {
+      "id": "workflow:.github/workflows/publish-site.yml",
+      "kind": "Workflow",
+      "label": "Publish site",
+      "attrs": {
+        "name": "Publish site",
+        "trust": "trusted-definition"
+      }
+    }
+  ],
+  "edges": [
+    {
+      "from": "trigger:.github/workflows/build-site.yml#pull_request",
+      "to": "workflow:.github/workflows/build-site.yml",
+      "kind": "CAN_TRIGGER",
+      "source_location": {
+        "file": ".github/workflows/build-site.yml",
+        "line": 3,
+        "col": 3
+      },
+      "evidence_class": "literal",
+      "confidence": "high",
+      "guards": []
+    },
+    {
+      "from": "trigger:.github/workflows/build-site.yml#push",
+      "to": "workflow:.github/workflows/build-site.yml",
+      "kind": "CAN_TRIGGER",
+      "source_location": {
+        "file": ".github/workflows/build-site.yml",
+        "line": 4,
+        "col": 3
+      },
+      "evidence_class": "literal",
+      "confidence": "high",
+      "guards": []
+    },
+    {
+      "from": "trigger:.github/workflows/publish-site.yml#schedule",
+      "to": "workflow:.github/workflows/publish-site.yml",
+      "kind": "CAN_TRIGGER",
+      "source_location": {
+        "file": ".github/workflows/publish-site.yml",
+        "line": 3,
+        "col": 3
+      },
+      "evidence_class": "literal",
+      "confidence": "high",
+      "guards": []
+    },
+    {
+      "from": "trigger:.github/workflows/publish-site.yml#workflow_dispatch",
+      "to": "workflow:.github/workflows/publish-site.yml",
+      "kind": "CAN_TRIGGER",
+      "source_location": {
+        "file": ".github/workflows/publish-site.yml",
+        "line": 5,
+        "col": 3
+      },
+      "evidence_class": "literal",
+      "confidence": "high",
+      "guards": []
+    },
+    {
+      "from": "step:.github/workflows/publish-site.yml#publish#0",
+      "to": "artifact:.github/workflows/build-site.yml#site",
+      "kind": "DOWNLOADS",
+      "source_location": {
+        "file": ".github/workflows/publish-site.yml",
+        "line": 14,
+        "col": 9
+      },
+      "evidence_class": "literal",
+      "confidence": "candidate",
+      "guards": [],
+      "attrs": {
+        "allow_forks": "true",
+        "content": "arbitrary",
+        "run_id_binding": "latest-run"
+      }
+    },
+    {
+      "from": "step:.github/workflows/publish-site.yml#publish#0",
+      "to": "file:step:.github/workflows/publish-site.yml#publish#0@$RUNNER_TEMP/site",
+      "kind": "EXTRACTS_TO",
+      "source_location": {
+        "file": ".github/workflows/publish-site.yml",
+        "line": 14,
+        "col": 9
+      },
+      "evidence_class": "documented_semantics",
+      "confidence": "high",
+      "guards": []
+    },
+    {
+      "from": "step:.github/workflows/build-site.yml#build#2",
+      "to": "artifact:.github/workflows/build-site.yml#site",
+      "kind": "PRODUCES",
+      "source_location": {
+        "file": ".github/workflows/build-site.yml",
+        "line": 18,
+        "col": 9
+      },
+      "evidence_class": "literal",
+      "confidence": "high",
+      "guards": [],
+      "attrs": {
+        "name": "site",
+        "path": "_site/"
+      }
+    }
+  ],
+  "unsupported": []
+}
