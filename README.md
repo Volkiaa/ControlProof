@@ -20,6 +20,10 @@ go build ./cmd/controlproof
 
 `scan` is not implemented yet: it prints `controlproof: scan is not implemented yet` and exits with status 2, so an unfinished scanner never reads as "no findings".
 
+## Policy file
+
+`.controlproof.yaml` currently supports `schema_version: 1` and a `repo_profile` with `provider: github`, `repository_default_token_permissions` (`read`, `write` or `unknown`) and `fork_pr_workflow_approval` (`all-outside-collaborators`, `first-time-contributors`, `none` or `unknown`); unknown keys are rejected.
+
 ## Checks
 
 CI (`.github/workflows/ci.yml`) runs these on every pull request and on `main`:
