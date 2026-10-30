@@ -1,0 +1,32 @@
+name: Apply review
+on:
+  workflow_run:
+    workflows: ["Capture review"]
+    types: [completed]
+permissions: {}
+jobs:
+  apply:
+    if: github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-latest
+    permissions:
+      actions: read
+      issues: write
+      pull-requests: write
+    steps:
+      - name: Checkout scripts
+        uses: actions/checkout@v7
+        with:
+          sparse-checkout: .github/scripts
+      - name: Download review
+        uses: actions/download-artifact@v8
+        with:
+          name: review
+          path: ${{ runner.temp }}/review
+          run-id: ${{ github.event.workflow_run.id }}
+          github-token: ${{ github.token }}
+      - name: Apply review
+        uses: actions/github-script@v9
+        with:
+          script: |
+            const applyReview = require('./.github/scripts/apply-review.js')
+            await applyReview({github, context, core, reviewPath: `${process.env.RUNNER_TEMP}/review/review.json`})

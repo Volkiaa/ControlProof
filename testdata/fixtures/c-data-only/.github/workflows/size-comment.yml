@@ -1,0 +1,58 @@
+name: Size comment
+on:
+  workflow_run:
+    workflows: ["Size report"]
+    types: [completed]
+permissions: {}
+jobs:
+  comment:
+    if: github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-latest
+    permissions:
+      actions: read
+      pull-requests: write
+    steps:
+      - name: Download size
+        uses: actions/download-artifact@v8
+        with:
+          name: size-report
+          path: ${{ runner.temp }}/size-report
+          run-id: ${{ github.event.workflow_run.id }}
+          github-token: ${{ github.token }}
+      - name: Comment size
+        uses: actions/github-script@v9
+        with:
+          script: |
+            const fs = require('fs')
+            const path = `${process.env.RUNNER_TEMP}/size-report/size.json`
+            let report
+            try {
+              report = JSON.parse(fs.readFileSync(path, 'utf8'))
+            } catch (error) {
+              core.setFailed(`invalid size artifact: ${error.message}`)
+              return
+            }
+            const {pr, kilobytes} = report
+            if (!Number.isSafeInteger(pr) || pr <= 0) {
+              core.setFailed('size artifact has an invalid pull request number')
+              return
+            }
+            if (!Number.isSafeInteger(kilobytes) || kilobytes < 0) {
+              core.setFailed('size artifact has an invalid size')
+              return
+            }
+            const {data: pull} = await github.rest.pulls.get({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              pull_number: pr,
+            })
+            if (pull.head.sha !== context.payload.workflow_run.head_sha) {
+              core.setFailed('size artifact does not match the triggering run')
+              return
+            }
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: pr,
+              body: `Repository size: ${kilobytes} KiB`,
+            })

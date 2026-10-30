@@ -1,0 +1,23 @@
+name: Size report
+on:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  size:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - name: Measure
+        env:
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+        run: |
+          jq -n --argjson pr "$PR_NUMBER" --argjson kilobytes "$(du -sk --exclude=.git . | cut -f1)" '{pr: $pr, kilobytes: $kilobytes}' > size.json
+      - name: Upload size
+        uses: actions/upload-artifact@v7
+        with:
+          name: size-report
+          path: size.json

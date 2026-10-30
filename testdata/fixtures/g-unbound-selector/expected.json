@@ -1,0 +1,18 @@
+{
+  "fixture": "G",
+  "title": "Unbound site artifact reaches a gh-pages push",
+  "reference": null,
+  "variant_of": null,
+  "control_id": "CP-CICD-003",
+  "status": "FAIL",
+  "confidence": "conditional",
+  "severity": "high",
+  "guard_adequacy": null,
+  "prerequisites": [
+    "fork pull request workflow runs are not held for maintainer approval (repository/organization fork PR approval policy)",
+    "the attacker's fork run of build-site.yml is the most recent successful run when publish-site.yml runs"
+  ],
+  "producer": ".github/workflows/build-site.yml",
+  "consumer": ".github/workflows/publish-site.yml",
+  "rationale": "The downloader selects the latest successful Build site run on any branch with allow_forks, so a fork author can rewrite build-site.yml to upload arbitrary site content that the consumer pushes to gh-pages with contents: write."
+}

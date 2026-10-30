@@ -1,0 +1,15 @@
+{
+  "fixture": "B′",
+  "title": "Attest formatting destination bound to the triggering repository",
+  "reference": "GHSL-2026-225",
+  "variant_of": "B",
+  "control_id": "CP-CICD-002",
+  "status": "PASS",
+  "confidence": null,
+  "severity": null,
+  "guard_adequacy": "binds-identity",
+  "prerequisites": [],
+  "producer": ".github/workflows/format.yml",
+  "consumer": ".github/workflows/format-push.yml",
+  "rationale": "The consumer only runs for the same repository and derives the checkout ref and push target from the workflow_run event's head SHA and branch, so a fork cannot supply the destination."
+}

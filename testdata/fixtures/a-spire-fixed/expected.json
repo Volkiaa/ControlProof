@@ -1,0 +1,15 @@
+{
+  "fixture": "A′",
+  "title": "SPIRE review artifact extracted outside the workspace",
+  "reference": "GHSL-2026-204",
+  "variant_of": "A",
+  "control_id": "CP-CICD-001",
+  "status": "PASS",
+  "confidence": null,
+  "severity": null,
+  "guard_adequacy": null,
+  "prerequisites": [],
+  "producer": ".github/workflows/review-capture.yml",
+  "consumer": ".github/workflows/review-apply.yml",
+  "rationale": "The artifact is extracted into runner.temp and only review.json is parsed as data, so attacker-controlled files never overlap the checked-out helper and nothing from the extraction tree is executed."
+}
