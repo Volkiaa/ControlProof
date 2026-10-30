@@ -1,0 +1,160 @@
+{
+  "workflows": [
+    {
+      "path": ".github/workflows/ci.yml",
+      "triggers": [
+        {
+          "event": "push",
+          "file": ".github/workflows/ci.yml",
+          "line": 1,
+          "col": 5
+        }
+      ],
+      "permissions": null,
+      "jobs": [
+        {
+          "id": {
+            "value": "build",
+            "pos": {
+              "file": ".github/workflows/ci.yml",
+              "line": 3,
+              "col": 3
+            }
+          },
+          "runs_on": [
+            {
+              "value": "ubuntu-latest",
+              "pos": {
+                "file": ".github/workflows/ci.yml",
+                "line": 4,
+                "col": 14
+              }
+            }
+          ],
+          "permissions": null,
+          "steps": [
+            {
+              "index": 0,
+              "name": {
+                "value": "Call A",
+                "pos": {
+                  "file": ".github/workflows/ci.yml",
+                  "line": 6,
+                  "col": 15
+                }
+              },
+              "uses": {
+                "value": "./.github/actions/A",
+                "pos": {
+                  "file": ".github/workflows/ci.yml",
+                  "line": 7,
+                  "col": 15
+                }
+              },
+              "local": {
+                "path": ".github/actions/A/action.yml",
+                "using": "composite",
+                "steps": [
+                  {
+                    "index": 0,
+                    "name": {
+                      "value": "Outer",
+                      "pos": {
+                        "file": ".github/actions/A/action.yml",
+                        "line": 5,
+                        "col": 13
+                      }
+                    },
+                    "run": {
+                      "value": "echo outer",
+                      "pos": {
+                        "file": ".github/actions/A/action.yml",
+                        "line": 6,
+                        "col": 12
+                      }
+                    },
+                    "shell": {
+                      "value": "bash",
+                      "pos": {
+                        "file": ".github/actions/A/action.yml",
+                        "line": 7,
+                        "col": 14
+                      }
+                    },
+                    "file": ".github/actions/A/action.yml",
+                    "line": 5,
+                    "col": 7
+                  },
+                  {
+                    "index": 1,
+                    "name": {
+                      "value": "Nested",
+                      "pos": {
+                        "file": ".github/actions/A/action.yml",
+                        "line": 8,
+                        "col": 13
+                      }
+                    },
+                    "uses": {
+                      "value": "./.github/actions/B",
+                      "pos": {
+                        "file": ".github/actions/A/action.yml",
+                        "line": 9,
+                        "col": 13
+                      }
+                    },
+                    "local": {
+                      "path": ".github/actions/B/action.yml",
+                      "using": "composite",
+                      "steps": [
+                        {
+                          "index": 0,
+                          "name": {
+                            "value": "Inner",
+                            "pos": {
+                              "file": ".github/actions/B/action.yml",
+                              "line": 5,
+                              "col": 13
+                            }
+                          },
+                          "run": {
+                            "value": "echo inner",
+                            "pos": {
+                              "file": ".github/actions/B/action.yml",
+                              "line": 6,
+                              "col": 12
+                            }
+                          },
+                          "shell": {
+                            "value": "bash",
+                            "pos": {
+                              "file": ".github/actions/B/action.yml",
+                              "line": 7,
+                              "col": 14
+                            }
+                          },
+                          "file": ".github/actions/B/action.yml",
+                          "line": 5,
+                          "col": 7
+                        }
+                      ]
+                    },
+                    "file": ".github/actions/A/action.yml",
+                    "line": 8,
+                    "col": 7
+                  }
+                ]
+              },
+              "file": ".github/workflows/ci.yml",
+              "line": 6,
+              "col": 9
+            }
+          ],
+          "file": ".github/workflows/ci.yml",
+          "line": 3,
+          "col": 3
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+on:
+  workflow_call:
+    inputs:
+      ref:
+        type: string
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Echo ref
+        run: echo "${{ inputs.ref }}"

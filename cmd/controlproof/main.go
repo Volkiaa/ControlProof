@@ -119,6 +119,11 @@ func runDebugIR(path string, stdout, stderr io.Writer) int {
 		if parseErr != nil {
 			fmt.Fprintf(stderr, "controlproof: %v\n", parseErr)
 			failed = true
+			continue
+		}
+		if err := workflow.Inline(ws, wf, workflow.DefaultLimits); err != nil {
+			fmt.Fprintf(stderr, "controlproof: %v\n", err)
+			failed = true
 		}
 	}
 

@@ -1,0 +1,160 @@
+{
+  "path": "testdata/golden/g9_bare_if.yml",
+  "triggers": [
+    {
+      "event": "workflow_run",
+      "file": "testdata/golden/g9_bare_if.yml",
+      "line": 2,
+      "col": 3,
+      "types": [
+        {
+          "value": "completed",
+          "pos": {
+            "file": "testdata/golden/g9_bare_if.yml",
+            "line": 4,
+            "col": 13
+          }
+        }
+      ],
+      "workflows": [
+        {
+          "value": "Build",
+          "pos": {
+            "file": "testdata/golden/g9_bare_if.yml",
+            "line": 3,
+            "col": 17
+          }
+        }
+      ]
+    }
+  ],
+  "permissions": null,
+  "jobs": [
+    {
+      "id": {
+        "value": "publish",
+        "pos": {
+          "file": "testdata/golden/g9_bare_if.yml",
+          "line": 6,
+          "col": 3
+        }
+      },
+      "if": {
+        "value": "github.event.workflow_run.head_repository.full_name == github.repository",
+        "pos": {
+          "file": "testdata/golden/g9_bare_if.yml",
+          "line": 7,
+          "col": 9
+        },
+        "exprs": [
+          {
+            "raw": "github.event.workflow_run.head_repository.full_name == github.repository",
+            "pos": {
+              "file": "testdata/golden/g9_bare_if.yml",
+              "line": 7,
+              "col": 9
+            },
+            "refs": [
+              "github.event.workflow_run.head_repository.full_name",
+              "github.repository"
+            ]
+          }
+        ]
+      },
+      "runs_on": [
+        {
+          "value": "ubuntu-latest",
+          "pos": {
+            "file": "testdata/golden/g9_bare_if.yml",
+            "line": 8,
+            "col": 14
+          }
+        }
+      ],
+      "permissions": null,
+      "steps": [
+        {
+          "index": 0,
+          "name": {
+            "value": "Push",
+            "pos": {
+              "file": "testdata/golden/g9_bare_if.yml",
+              "line": 10,
+              "col": 15
+            }
+          },
+          "if": {
+            "value": "success() \u0026\u0026 github.ref != ''",
+            "pos": {
+              "file": "testdata/golden/g9_bare_if.yml",
+              "line": 11,
+              "col": 13
+            },
+            "exprs": [
+              {
+                "raw": "success() \u0026\u0026 github.ref != ''",
+                "pos": {
+                  "file": "testdata/golden/g9_bare_if.yml",
+                  "line": 11,
+                  "col": 13
+                },
+                "refs": [
+                  "github.ref"
+                ]
+              }
+            ]
+          },
+          "run": {
+            "value": "git push origin HEAD",
+            "pos": {
+              "file": "testdata/golden/g9_bare_if.yml",
+              "line": 12,
+              "col": 14
+            }
+          },
+          "file": "testdata/golden/g9_bare_if.yml",
+          "line": 10,
+          "col": 9
+        },
+        {
+          "index": 1,
+          "if": {
+            "value": "${{ github.event.workflow_run.conclusion == 'success' }}",
+            "pos": {
+              "file": "testdata/golden/g9_bare_if.yml",
+              "line": 13,
+              "col": 13
+            },
+            "exprs": [
+              {
+                "raw": "github.event.workflow_run.conclusion == 'success'",
+                "pos": {
+                  "file": "testdata/golden/g9_bare_if.yml",
+                  "line": 13,
+                  "col": 13
+                },
+                "refs": [
+                  "github.event.workflow_run.conclusion"
+                ]
+              }
+            ]
+          },
+          "run": {
+            "value": "echo already-wrapped",
+            "pos": {
+              "file": "testdata/golden/g9_bare_if.yml",
+              "line": 14,
+              "col": 14
+            }
+          },
+          "file": "testdata/golden/g9_bare_if.yml",
+          "line": 13,
+          "col": 9
+        }
+      ],
+      "file": "testdata/golden/g9_bare_if.yml",
+      "line": 6,
+      "col": 3
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+name: B
+runs:
+  using: composite
+  steps:
+    - name: Inner
+      run: echo inner
+      shell: bash

@@ -16,7 +16,7 @@ go build ./cmd/controlproof
 ./controlproof debug ir .
 ```
 
-`debug ir [path]` prints the typed workflow IR as JSON (`controlproof-ir/0`), including parse diagnostics. It exits 2 when any workflow produced an error.
+`debug ir [path]` prints the typed workflow IR as JSON (`controlproof-ir/0`), including parse diagnostics and inlined local composite actions and reusable workflows. It exits 2 when any workflow produced a parse or inline error.
 
 `scan` is not implemented yet: it prints `controlproof: scan is not implemented yet` and exits with status 2, so an unfinished scanner never reads as "no findings".
 

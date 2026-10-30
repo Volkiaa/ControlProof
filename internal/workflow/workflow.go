@@ -13,17 +13,19 @@ import (
 )
 
 type Limits struct {
-	MaxBytes int
-	MaxNodes int
-	MaxDepth int
-	Timeout  time.Duration
+	MaxBytes       int
+	MaxNodes       int
+	MaxDepth       int
+	MaxInlineDepth int
+	Timeout        time.Duration
 }
 
 var DefaultLimits = Limits{
-	MaxBytes: 1 << 20,
-	MaxNodes: 100_000,
-	MaxDepth: 64,
-	Timeout:  5 * time.Second,
+	MaxBytes:       1 << 20,
+	MaxNodes:       100_000,
+	MaxDepth:       64,
+	MaxInlineDepth: 10,
+	Timeout:        5 * time.Second,
 }
 
 var (

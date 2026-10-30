@@ -54,38 +54,53 @@ type KV struct {
 }
 
 type Job struct {
-	ID                      Str          `json:"id"`
-	Name                    *Str         `json:"name,omitempty"`
-	If                      *Str         `json:"if,omitempty"`
-	Needs                   []Str        `json:"needs,omitempty"`
-	RunsOn                  []Str        `json:"runs_on,omitempty"`
-	RunnerGroup             *Str         `json:"runner_group,omitempty"`
-	Permissions             *Permissions `json:"permissions"`
-	Environment             *Str         `json:"environment,omitempty"`
-	Env                     []KV         `json:"env,omitempty"`
-	DefaultShell            *Str         `json:"default_shell,omitempty"`
-	DefaultWorkingDirectory *Str         `json:"default_working_directory,omitempty"`
-	Outputs                 []KV         `json:"outputs,omitempty"`
-	Steps                   []Step       `json:"steps,omitempty"`
-	Uses                    *Str         `json:"uses,omitempty"`
-	With                    []KV         `json:"with,omitempty"`
-	Secrets                 []KV         `json:"secrets,omitempty"`
-	InheritSecrets          bool         `json:"inherit_secrets,omitempty"`
+	ID                      Str            `json:"id"`
+	Name                    *Str           `json:"name,omitempty"`
+	If                      *Str           `json:"if,omitempty"`
+	Needs                   []Str          `json:"needs,omitempty"`
+	RunsOn                  []Str          `json:"runs_on,omitempty"`
+	RunnerGroup             *Str           `json:"runner_group,omitempty"`
+	Permissions             *Permissions   `json:"permissions"`
+	Environment             *Str           `json:"environment,omitempty"`
+	Env                     []KV           `json:"env,omitempty"`
+	DefaultShell            *Str           `json:"default_shell,omitempty"`
+	DefaultWorkingDirectory *Str           `json:"default_working_directory,omitempty"`
+	Outputs                 []KV           `json:"outputs,omitempty"`
+	Steps                   []Step         `json:"steps,omitempty"`
+	Uses                    *Str           `json:"uses,omitempty"`
+	With                    []KV           `json:"with,omitempty"`
+	Secrets                 []KV           `json:"secrets,omitempty"`
+	InheritSecrets          bool           `json:"inherit_secrets,omitempty"`
+	Callee                  *LocalWorkflow `json:"callee,omitempty"`
 	Pos
 }
 
+type LocalWorkflow struct {
+	Path       string    `json:"path,omitempty"`
+	Workflow   *Workflow `json:"workflow,omitempty"`
+	Unresolved string    `json:"unresolved,omitempty"`
+}
+
 type Step struct {
-	Index            int  `json:"index"`
-	ID               *Str `json:"id,omitempty"`
-	Name             *Str `json:"name,omitempty"`
-	If               *Str `json:"if,omitempty"`
-	Uses             *Str `json:"uses,omitempty"`
-	With             []KV `json:"with,omitempty"`
-	Run              *Str `json:"run,omitempty"`
-	Shell            *Str `json:"shell,omitempty"`
-	WorkingDirectory *Str `json:"working_directory,omitempty"`
-	Env              []KV `json:"env,omitempty"`
+	Index            int          `json:"index"`
+	ID               *Str         `json:"id,omitempty"`
+	Name             *Str         `json:"name,omitempty"`
+	If               *Str         `json:"if,omitempty"`
+	Uses             *Str         `json:"uses,omitempty"`
+	With             []KV         `json:"with,omitempty"`
+	Run              *Str         `json:"run,omitempty"`
+	Shell            *Str         `json:"shell,omitempty"`
+	WorkingDirectory *Str         `json:"working_directory,omitempty"`
+	Env              []KV         `json:"env,omitempty"`
+	Local            *LocalAction `json:"local,omitempty"`
 	Pos
+}
+
+type LocalAction struct {
+	Path       string `json:"path,omitempty"`
+	Using      string `json:"using,omitempty"`
+	Steps      []Step `json:"steps,omitempty"`
+	Unresolved string `json:"unresolved,omitempty"`
 }
 
 type Diag struct {
