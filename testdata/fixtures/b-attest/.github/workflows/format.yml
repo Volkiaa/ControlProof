@@ -1,0 +1,27 @@
+name: Format
+on:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  format:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - name: Format markdown
+        run: ./scripts/format.sh
+      - name: Collect result
+        env:
+          HEAD_REF: ${{ github.head_ref }}
+        run: |
+          mkdir -p out
+          git diff > out/format.patch
+          printf '%s\n' "$HEAD_REF" > out/head-ref
+      - name: Upload result
+        uses: actions/upload-artifact@v7
+        with:
+          name: format-result
+          path: out/

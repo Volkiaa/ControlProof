@@ -1,0 +1,15 @@
+{
+  "fixture": "C",
+  "title": "Data-only size artifact parsed from a temp directory",
+  "reference": null,
+  "variant_of": null,
+  "control_id": "CP-CICD-001",
+  "status": "PASS",
+  "confidence": null,
+  "severity": null,
+  "guard_adequacy": null,
+  "prerequisites": [],
+  "producer": ".github/workflows/size-report.yml",
+  "consumer": ".github/workflows/size-comment.yml",
+  "rationale": "The artifact is extracted into runner.temp, schema-validated and used only as the body of a comment, so no checked-out or executable file can be overwritten or imported."
+}

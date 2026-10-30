@@ -1,0 +1,15 @@
+{
+  "fixture": "B",
+  "title": "Attest formatting artifact controls the push destination",
+  "reference": "GHSL-2026-225",
+  "variant_of": null,
+  "control_id": "CP-CICD-002",
+  "status": "FAIL",
+  "confidence": "confirmed-static",
+  "severity": "high",
+  "guard_adequacy": "syntactic-only",
+  "prerequisites": [],
+  "producer": ".github/workflows/format.yml",
+  "consumer": ".github/workflows/format-push.yml",
+  "rationale": "A fork author can rewrite format.yml so head-ref contains main, which passes the charset-only guard; the privileged consumer checks out that ref, applies the attacker's patch and pushes it to main with contents: write."
+}

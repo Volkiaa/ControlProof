@@ -1,0 +1,15 @@
+{
+  "fixture": "F",
+  "title": "Restricted consumer imports an overwritten review helper",
+  "reference": null,
+  "variant_of": null,
+  "control_id": "CP-CICD-001",
+  "status": "FAIL",
+  "confidence": "confirmed-static",
+  "severity": "medium",
+  "guard_adequacy": null,
+  "prerequisites": [],
+  "producer": ".github/workflows/review-capture.yml",
+  "consumer": ".github/workflows/review-summary.yml",
+  "rationale": "A fork author can rewrite review-capture.yml so the review artifact contains .github/scripts/summarize-review.js, which the consumer imports; the job has only actions: read and no secrets, but code execution in the default-branch context meets the cache-poisoning impact floor."
+}

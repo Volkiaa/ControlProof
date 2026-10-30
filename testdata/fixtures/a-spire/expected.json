@@ -1,0 +1,15 @@
+{
+  "fixture": "A",
+  "title": "SPIRE review artifact overwrites an imported helper",
+  "reference": "GHSL-2026-204",
+  "variant_of": null,
+  "control_id": "CP-CICD-001",
+  "status": "FAIL",
+  "confidence": "confirmed-static",
+  "severity": "high",
+  "guard_adequacy": null,
+  "prerequisites": [],
+  "producer": ".github/workflows/review-capture.yml",
+  "consumer": ".github/workflows/review-apply.yml",
+  "rationale": "A fork author can rewrite review-capture.yml so the review artifact contains .github/scripts/apply-review.js; the consumer extracts it into the workspace, overwriting the checked-out helper before require() runs attacker code with issues and pull-requests write."
+}
