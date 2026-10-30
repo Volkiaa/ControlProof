@@ -475,7 +475,7 @@ jobs:
 			allowForks: "false",
 		},
 		{
-			name: "missing workflow",
+			name: "missing workflow with unbound run_id",
 			source: `name: Publish
 on: push
 jobs:
@@ -485,8 +485,10 @@ jobs:
       - uses: dawidd6/action-download-artifact@v27
         with:
           name: site
+          run_id: "12345"
 `,
-			unsupported: "dynamic-selector",
+			unsupported:       "dynamic-selector",
+			unsupportedReason: "workflow is resolved from a run_id that is not bound to the triggering event",
 		},
 		{
 			name: "dynamic workflow",
@@ -572,6 +574,137 @@ jobs:
 			}
 		})
 	}
+}
+
+func TestDawidd6WorkflowFromRun(t *testing.T) {
+	producer := parseWorkflow(t, "build.yml", `name: Build
+on: pull_request
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/upload-artifact@v7
+        with:
+          name: site
+          path: _site/
+`)
+
+	t.Run("event-bound run_id", func(t *testing.T) {
+		consumer := parseWorkflow(t, "publish.yml", `name: Publish
+on:
+  workflow_run:
+    workflows: [Build]
+    types: [completed]
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: dawidd6/action-download-artifact@v27
+        with:
+          name: site
+          run_id: ${{ github.event.workflow_run.id }}
+`)
+		g := Build([]model.Workflow{producer, consumer}, config.Default().RepoProfile)
+		edge := edgeTo(t, g, edgeDownloads, "artifact:.github/workflows/build.yml#site")
+		if edge.Attrs["run_id_binding"] != "workflow-run-event" || edge.Confidence != confidenceHigh {
+			t.Fatalf("edge = %+v, want an event-bound high-confidence download", edge)
+		}
+		if items := unsupported(g, "dynamic-selector"); len(items) != 0 {
+			t.Fatalf("unsupported = %+v, want none", items)
+		}
+	})
+
+	t.Run("no run_id selects the current workflow", func(t *testing.T) {
+		consumer := parseWorkflow(t, "self.yml", `name: Self
+on: pull_request
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/upload-artifact@v7
+        with:
+          name: cache
+          path: out/
+  reuse:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: dawidd6/action-download-artifact@v27
+        with:
+          name: cache
+`)
+		g := Build([]model.Workflow{consumer}, config.Default().RepoProfile)
+		edge := edgeTo(t, g, edgeDownloads, "artifact:.github/workflows/self.yml#cache")
+		if edge.Attrs["run_id_binding"] != "latest-run" || edge.Attrs["content"] != contentArbitrary {
+			t.Fatalf("edge = %+v, want a latest-run download of the workflow's own arbitrary artifact", edge)
+		}
+	})
+}
+
+func TestDawidd6NameRegexp(t *testing.T) {
+	producer := parseWorkflow(t, "build.yml", `name: Build
+on: push
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/upload-artifact@v7
+        with:
+          name: build-linux
+          path: out/
+`)
+	consumer := func(name, merge string) model.Workflow {
+		return parseWorkflow(t, "publish.yml", `name: Publish
+on: push
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: dawidd6/action-download-artifact@v27
+        with:
+          workflow: build.yml
+          name: '`+name+`'
+          name_is_regexp: true
+          merge_multiple: `+merge+`
+`)
+	}
+
+	t.Run("match", func(t *testing.T) {
+		g := Build([]model.Workflow{producer, consumer("^build-.*$", "false")}, config.Default().RepoProfile)
+		edge := edgeTo(t, g, edgeDownloads, "artifact:.github/workflows/build.yml#build-linux")
+		if edge.Confidence != confidenceCandidate {
+			t.Fatalf("confidence = %q, want candidate", edge.Confidence)
+		}
+		file := fileNodeForStep(t, g, "step:.github/workflows/publish.yml#publish#0")
+		if file.Attrs["layout"] != "per-artifact-subdir" {
+			t.Fatalf("layout = %q, want per-artifact-subdir", file.Attrs["layout"])
+		}
+	})
+
+	t.Run("merge_multiple flattens", func(t *testing.T) {
+		g := Build([]model.Workflow{producer, consumer("^build-.*$", "true")}, config.Default().RepoProfile)
+		file := fileNodeForStep(t, g, "step:.github/workflows/publish.yml#publish#0")
+		if file.Attrs["layout"] != "flat" {
+			t.Fatalf("layout = %q, want flat", file.Attrs["layout"])
+		}
+	})
+
+	t.Run("no match", func(t *testing.T) {
+		g := Build([]model.Workflow{producer, consumer("^docs-", "false")}, config.Default().RepoProfile)
+		if found := edges(g, edgeDownloads, "", ""); len(found) != 0 {
+			t.Fatalf("downloads = %+v, want none", found)
+		}
+	})
+
+	t.Run("unsupported syntax", func(t *testing.T) {
+		g := Build([]model.Workflow{producer, consumer("^build-(?=linux)", "false")}, config.Default().RepoProfile)
+		edge := edgeTo(t, g, edgeDownloads, "artifact:.github/workflows/build.yml#build-linux")
+		if edge.Confidence != confidenceUnknown || edge.Attrs["name_match"] != "unsupported-regexp" {
+			t.Fatalf("edge = %+v, want an unknown-confidence unsupported-regexp match", edge)
+		}
+		if len(unsupported(g, "dynamic-selector")) == 0 {
+			t.Fatalf("unsupported = %+v, want a dynamic-selector record", g.Unsupported)
+		}
+	})
 }
 
 func TestNameMatching(t *testing.T) {

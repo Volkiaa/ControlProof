@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"path"
+	"regexp"
 	"sort"
 	"strconv"
 	"strings"
@@ -371,25 +372,6 @@ func (b *builder) dawidd6Download(ctx stepContext, rec summaries.Recognition) {
 		return
 	}
 
-	var candidates []producerCandidate
-	if workflow, ok := rec.Inputs["workflow"]; !ok || workflow.Dynamic || strings.TrimSpace(workflow.Value) == "" {
-		b.addUnsupported("dynamic-selector", ctx.step.Pos, "workflow selector is dynamic or missing")
-	} else {
-		want := strings.TrimSpace(workflow.Value)
-		for i := range b.workflows {
-			candidate := &b.workflows[i]
-			if path.Base(candidate.wf.Path) == want || candidate.classification.Name == want {
-				candidates = append(candidates, producerCandidate{
-					path:  candidate.wf.Path,
-					trust: candidate.classification.Trust,
-				})
-			}
-		}
-		if len(candidates) == 0 {
-			b.addUnsupported("dynamic-selector", ctx.step.Pos, fmt.Sprintf("no workflow in the repository matches %s", want))
-		}
-	}
-
 	binding := "other"
 	if runID, ok := rec.Inputs["run_id"]; !ok || runID.Default {
 		binding = "latest-run"
@@ -400,8 +382,46 @@ func (b *builder) dawidd6Download(ctx stepContext, rec summaries.Recognition) {
 	if allowForks, ok := rec.Inputs["allow_forks"]; ok {
 		extras["allow_forks"] = allowForks.Value
 	}
+	if newSelector(rec).invalidRegexp {
+		b.addUnsupported("dynamic-selector", ctx.step.Pos, "artifact name regexp is not supported by the Go regexp syntax")
+	}
+	candidates := b.dawidd6Candidates(ctx, rec, binding)
 	b.linkProducers(ctx, rec, candidates, binding, extras)
 	b.addExtraction(ctx, rec, "dawidd6")
+}
+
+func (b *builder) dawidd6Candidates(ctx stepContext, rec summaries.Recognition, binding string) []producerCandidate {
+	workflow, ok := rec.Inputs["workflow"]
+	if !ok || strings.TrimSpace(workflow.Value) == "" {
+		switch binding {
+		case "workflow-run-event":
+			return b.producers[ctx.wf.Path]
+		case "latest-run":
+			return []producerCandidate{{path: ctx.wf.Path, trust: ctx.trust}}
+		}
+		b.addUnsupported("dynamic-selector", ctx.step.Pos, "workflow is resolved from a run_id that is not bound to the triggering event")
+		return nil
+	}
+	if workflow.Dynamic {
+		b.addUnsupported("dynamic-selector", ctx.step.Pos, "workflow selector is dynamic")
+		return nil
+	}
+
+	want := strings.TrimSpace(workflow.Value)
+	var candidates []producerCandidate
+	for i := range b.workflows {
+		candidate := &b.workflows[i]
+		if path.Base(candidate.wf.Path) == want || candidate.classification.Name == want {
+			candidates = append(candidates, producerCandidate{
+				path:  candidate.wf.Path,
+				trust: candidate.classification.Trust,
+			})
+		}
+	}
+	if len(candidates) == 0 {
+		b.addUnsupported("dynamic-selector", ctx.step.Pos, fmt.Sprintf("no workflow in the repository matches %s", want))
+	}
+	return candidates
 }
 
 func (b *builder) linkSameRun(ctx stepContext, rec summaries.Recognition, binding string) {
@@ -787,11 +807,13 @@ func selectorUnknownName(rec summaries.Recognition) string {
 }
 
 type selector struct {
-	name       string
-	pattern    string
-	hasName    bool
-	hasPattern bool
-	dynamic    bool
+	name          string
+	pattern       string
+	hasName       bool
+	hasPattern    bool
+	dynamic       bool
+	nameRegexp    *regexp.Regexp
+	invalidRegexp bool
 }
 
 func newSelector(rec summaries.Recognition) selector {
@@ -802,6 +824,14 @@ func newSelector(rec summaries.Recognition) selector {
 		} else if strings.TrimSpace(input.Value) != "" {
 			out.name = input.Value
 			out.hasName = true
+		}
+	}
+	if out.hasName && merged(rec, "name_is_regexp") {
+		compiled, err := regexp.Compile(out.name)
+		if err != nil {
+			out.invalidRegexp = true
+		} else {
+			out.nameRegexp = compiled
 		}
 	}
 	if input, ok := rec.Inputs["pattern"]; ok {
@@ -821,6 +851,8 @@ func (s selector) matchUpload(item upload) (string, string, string, bool) {
 		return evidenceDocumented, confidenceUnknown, "dynamic-upload-name", true
 	case s.dynamic:
 		return evidenceDocumented, confidenceUnknown, "dynamic-selector", true
+	case s.invalidRegexp:
+		return evidenceDocumented, confidenceUnknown, "unsupported-regexp", true
 	default:
 		evidence, ok := s.match(item.name)
 		return evidence, "", "", ok
@@ -829,6 +861,8 @@ func (s selector) matchUpload(item upload) (string, string, string, bool) {
 
 func (s selector) match(artifactName string) (string, bool) {
 	switch {
+	case s.nameRegexp != nil:
+		return evidenceDocumented, s.nameRegexp.MatchString(artifactName)
 	case s.hasName:
 		return evidenceLiteral, artifactName == s.name
 	case s.hasPattern:
@@ -843,13 +877,16 @@ func (s selector) match(artifactName string) (string, bool) {
 }
 
 func (s selector) attackerName() string {
-	if s.hasName {
+	if s.hasName && s.nameRegexp == nil && !s.invalidRegexp {
 		return s.name
 	}
 	return "*"
 }
 
 func layout(rec summaries.Recognition, kind string) string {
+	if kind == "dawidd6" && merged(rec, "name_is_regexp") && !merged(rec, "merge_multiple") {
+		return "per-artifact-subdir"
+	}
 	if input, ok := rec.Inputs["name"]; ok && (input.Dynamic || strings.TrimSpace(input.Value) != "") {
 		return "flat"
 	}
