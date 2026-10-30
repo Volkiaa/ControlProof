@@ -1,0 +1,40 @@
+[
+  {
+    "job": "build",
+    "pos": {
+      "file": "testdata/golden/empty-map.yml",
+      "line": 5,
+      "col": 3
+    },
+    "privilege": {
+      "token": {
+        "source": "workflow",
+        "scopes": {
+          "actions": "none",
+          "attestations": "none",
+          "checks": "none",
+          "contents": "none",
+          "deployments": "none",
+          "discussions": "none",
+          "id-token": "none",
+          "issues": "none",
+          "models": "none",
+          "packages": "none",
+          "pages": "none",
+          "pull-requests": "none",
+          "repository-projects": "none",
+          "security-events": "none",
+          "statuses": "none"
+        },
+        "pos": {
+          "file": "testdata/golden/empty-map.yml",
+          "line": 3,
+          "col": 1
+        }
+      },
+      "id_token_write": false,
+      "runner": "github-hosted",
+      "cache_write": "unknown"
+    }
+  }
+]

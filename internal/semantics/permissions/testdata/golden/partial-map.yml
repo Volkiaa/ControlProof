@@ -1,0 +1,11 @@
+name: Partial map
+on: push
+permissions: {}
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      issues: write
+    steps:
+      - run: echo hi

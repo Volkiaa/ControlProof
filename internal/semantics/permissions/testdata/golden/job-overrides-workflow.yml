@@ -1,0 +1,10 @@
+name: Job overrides workflow
+on: push
+permissions: read-all
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - run: echo hi

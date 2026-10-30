@@ -1,0 +1,46 @@
+[
+  {
+    "job": "publish",
+    "pos": {
+      "file": "testdata/golden/id-token.yml",
+      "line": 5,
+      "col": 3
+    },
+    "privilege": {
+      "token": {
+        "source": "job",
+        "scopes": {
+          "actions": "none",
+          "attestations": "none",
+          "checks": "none",
+          "contents": "read",
+          "deployments": "none",
+          "discussions": "none",
+          "id-token": "write",
+          "issues": "none",
+          "models": "none",
+          "packages": "none",
+          "pages": "none",
+          "pull-requests": "none",
+          "repository-projects": "none",
+          "security-events": "none",
+          "statuses": "none"
+        },
+        "pos": {
+          "file": "testdata/golden/id-token.yml",
+          "line": 7,
+          "col": 5
+        }
+      },
+      "id_token_write": true,
+      "runner": "github-hosted",
+      "cache_write": "unknown",
+      "prerequisites": [
+        {
+          "setting": "oidc_federation_trust",
+          "description": "an OIDC federation trust policy grants publish authority to this job"
+        }
+      ]
+    }
+  }
+]

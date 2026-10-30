@@ -1,0 +1,9 @@
+name: Write all
+on: push
+permissions: {}
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions: write-all
+    steps:
+      - run: echo hi

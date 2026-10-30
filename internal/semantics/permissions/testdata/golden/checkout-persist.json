@@ -1,0 +1,50 @@
+[
+  {
+    "job": "checkout",
+    "pos": {
+      "file": "testdata/golden/checkout-persist.yml",
+      "line": 8,
+      "col": 3
+    },
+    "privilege": {
+      "token": {
+        "source": "unknown-default"
+      },
+      "id_token_write": false,
+      "checkouts": [
+        {
+          "pos": {
+            "file": "testdata/golden/checkout-persist.yml",
+            "line": 11,
+            "col": 9
+          },
+          "persist_credentials": "true"
+        },
+        {
+          "pos": {
+            "file": "testdata/golden/checkout-persist.yml",
+            "line": 12,
+            "col": 9
+          },
+          "persist_credentials": "false"
+        },
+        {
+          "pos": {
+            "file": "testdata/golden/checkout-persist.yml",
+            "line": 15,
+            "col": 9
+          },
+          "persist_credentials": "unknown"
+        }
+      ],
+      "runner": "github-hosted",
+      "cache_write": "unknown",
+      "prerequisites": [
+        {
+          "setting": "repository_default_token_permissions",
+          "description": "repository default GITHUB_TOKEN permissions grant the access this path needs"
+        }
+      ]
+    }
+  }
+]

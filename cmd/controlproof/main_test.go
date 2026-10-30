@@ -174,6 +174,46 @@ type semanticsWorkflowEntry struct {
 			AttackerControl string `json:"attacker_control"`
 		} `json:"triggers"`
 	} `json:"triggers"`
+	Jobs []semanticsJob `json:"jobs"`
+}
+
+type semanticsJob struct {
+	Job       string `json:"job"`
+	Privilege struct {
+		Token struct {
+			Source string            `json:"source"`
+			Scopes map[string]string `json:"scopes"`
+		} `json:"token"`
+		Prerequisites []struct {
+			Setting string `json:"setting"`
+		} `json:"prerequisites"`
+	} `json:"privilege"`
+}
+
+func findSemanticsJob(t *testing.T, output semanticsOutput, path, id string) semanticsJob {
+	t.Helper()
+	for _, wf := range output.Workflows {
+		if wf.Path != path {
+			continue
+		}
+		for _, job := range wf.Jobs {
+			if job.Job == id {
+				return job
+			}
+		}
+		t.Fatalf("%s has no job %s", path, id)
+	}
+	t.Fatalf("output has no workflow %s", path)
+	return semanticsJob{}
+}
+
+func hasSemanticsPrerequisite(job semanticsJob, setting string) bool {
+	for _, prerequisite := range job.Privilege.Prerequisites {
+		if prerequisite.Setting == setting {
+			return true
+		}
+	}
+	return false
 }
 
 func readSemantics(t *testing.T, stdout []byte) semanticsOutput {
@@ -283,6 +323,48 @@ func TestDebugSemantics(t *testing.T) {
 		}
 		if !strings.Contains(stderr.String(), policy) {
 			t.Fatalf("stderr = %q, want it to name %s", stderr.String(), policy)
+		}
+	})
+
+	t.Run("resolved repository default token permissions", func(t *testing.T) {
+		root := t.TempDir()
+		writeWorkflow(t, root, "consumer.yml", "on:\n  workflow_run:\n    workflows: [Build]\n    types: [completed]\njobs:\n  consume:\n    runs-on: ubuntu-latest\n    steps:\n      - run: echo hi\n")
+
+		var stdout, stderr bytes.Buffer
+		if code := run([]string{"debug", "semantics", root}, &stdout, &stderr); code != exitCompleted {
+			t.Fatalf("run() = %d, want %d; stderr: %s", code, exitCompleted, stderr.String())
+		}
+		unknown := findSemanticsJob(t, readSemantics(t, stdout.Bytes()), ".github/workflows/consumer.yml", "consume")
+		if unknown.Privilege.Token.Source != "unknown-default" {
+			t.Fatalf("token source = %q, want unknown-default", unknown.Privilege.Token.Source)
+		}
+		if unknown.Privilege.Token.Scopes != nil {
+			t.Fatalf("token scopes = %v, want none", unknown.Privilege.Token.Scopes)
+		}
+		if !hasSemanticsPrerequisite(unknown, "repository_default_token_permissions") {
+			t.Fatalf("prerequisites = %+v, want repository_default_token_permissions", unknown.Privilege.Prerequisites)
+		}
+
+		policy := filepath.Join(t.TempDir(), "controlproof.yaml")
+		content := "schema_version: 1\nrepo_profile:\n  repository_default_token_permissions: write\n"
+		if err := os.WriteFile(policy, []byte(content), 0o644); err != nil {
+			t.Fatalf("write policy: %v", err)
+		}
+
+		stdout.Reset()
+		stderr.Reset()
+		if code := run([]string{"debug", "semantics", "--policy", policy, root}, &stdout, &stderr); code != exitCompleted {
+			t.Fatalf("run() = %d, want %d; stderr: %s", code, exitCompleted, stderr.String())
+		}
+		resolved := findSemanticsJob(t, readSemantics(t, stdout.Bytes()), ".github/workflows/consumer.yml", "consume")
+		if resolved.Privilege.Token.Source != "repo_profile" {
+			t.Fatalf("token source = %q, want repo_profile", resolved.Privilege.Token.Source)
+		}
+		if resolved.Privilege.Token.Scopes["contents"] != "write" || resolved.Privilege.Token.Scopes["id-token"] != "none" {
+			t.Fatalf("token scopes = %v, want contents write and id-token none", resolved.Privilege.Token.Scopes)
+		}
+		if hasSemanticsPrerequisite(resolved, "repository_default_token_permissions") {
+			t.Fatalf("prerequisites = %+v, want no repository_default_token_permissions once resolved", resolved.Privilege.Prerequisites)
 		}
 	})
 

@@ -1,0 +1,16 @@
+name: Caller private
+on:
+  workflow_call:
+jobs:
+  inherit-caller:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo ${{ secrets.MID_SECRET }}
+  override:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - run: echo ${{ secrets.OVERRIDE_SECRET }}
+  nested:
+    uses: ./.github/workflows/leaf.yml

@@ -1,0 +1,11 @@
+name: Cache reach
+on:
+  workflow_run:
+    workflows: [Build]
+    types: [completed]
+permissions: {}
+jobs:
+  consume:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo hi

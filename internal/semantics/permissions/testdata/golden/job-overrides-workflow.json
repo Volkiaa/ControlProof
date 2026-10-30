@@ -1,0 +1,40 @@
+[
+  {
+    "job": "build",
+    "pos": {
+      "file": "testdata/golden/job-overrides-workflow.yml",
+      "line": 5,
+      "col": 3
+    },
+    "privilege": {
+      "token": {
+        "source": "job",
+        "scopes": {
+          "actions": "none",
+          "attestations": "none",
+          "checks": "none",
+          "contents": "write",
+          "deployments": "none",
+          "discussions": "none",
+          "id-token": "none",
+          "issues": "none",
+          "models": "none",
+          "packages": "none",
+          "pages": "none",
+          "pull-requests": "none",
+          "repository-projects": "none",
+          "security-events": "none",
+          "statuses": "none"
+        },
+        "pos": {
+          "file": "testdata/golden/job-overrides-workflow.yml",
+          "line": 7,
+          "col": 5
+        }
+      },
+      "id_token_write": false,
+      "runner": "github-hosted",
+      "cache_write": "unknown"
+    }
+  }
+]

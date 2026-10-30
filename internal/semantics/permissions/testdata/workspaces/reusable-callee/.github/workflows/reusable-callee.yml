@@ -1,0 +1,10 @@
+name: Caller
+on:
+  workflow_run:
+    workflows: [Build]
+    types: [completed]
+permissions: {}
+jobs:
+  call:
+    uses: ./.github/workflows/caller-private.yml
+    secrets: inherit

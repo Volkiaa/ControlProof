@@ -1,0 +1,118 @@
+[
+  {
+    "job": "deploy",
+    "pos": {
+      "file": "testdata/golden/environment.yml",
+      "line": 5,
+      "col": 3
+    },
+    "privilege": {
+      "token": {
+        "source": "workflow",
+        "scopes": {
+          "actions": "none",
+          "attestations": "none",
+          "checks": "none",
+          "contents": "none",
+          "deployments": "none",
+          "discussions": "none",
+          "id-token": "none",
+          "issues": "none",
+          "models": "none",
+          "packages": "none",
+          "pages": "none",
+          "pull-requests": "none",
+          "repository-projects": "none",
+          "security-events": "none",
+          "statuses": "none"
+        },
+        "pos": {
+          "file": "testdata/golden/environment.yml",
+          "line": 3,
+          "col": 1
+        }
+      },
+      "id_token_write": false,
+      "environment": {
+        "name": "production",
+        "pos": {
+          "file": "testdata/golden/environment.yml",
+          "line": 6,
+          "col": 18
+        },
+        "protection": "unknown"
+      },
+      "runner": "github-hosted",
+      "cache_write": "unknown",
+      "prerequisites": [
+        {
+          "setting": "environment_protection",
+          "description": "environment production protection rules (required reviewers, branch policy) are unknown offline",
+          "pos": {
+            "file": "testdata/golden/environment.yml",
+            "line": 6,
+            "col": 18
+          }
+        }
+      ]
+    }
+  },
+  {
+    "job": "preview",
+    "pos": {
+      "file": "testdata/golden/environment.yml",
+      "line": 10,
+      "col": 3
+    },
+    "privilege": {
+      "token": {
+        "source": "workflow",
+        "scopes": {
+          "actions": "none",
+          "attestations": "none",
+          "checks": "none",
+          "contents": "none",
+          "deployments": "none",
+          "discussions": "none",
+          "id-token": "none",
+          "issues": "none",
+          "models": "none",
+          "packages": "none",
+          "pages": "none",
+          "pull-requests": "none",
+          "repository-projects": "none",
+          "security-events": "none",
+          "statuses": "none"
+        },
+        "pos": {
+          "file": "testdata/golden/environment.yml",
+          "line": 3,
+          "col": 1
+        }
+      },
+      "id_token_write": false,
+      "environment": {
+        "name": "${{ github.ref_name }}",
+        "pos": {
+          "file": "testdata/golden/environment.yml",
+          "line": 11,
+          "col": 18
+        },
+        "protection": "unknown"
+      },
+      "runner": "github-hosted",
+      "cache_write": "unknown",
+      "prerequisites": [
+        {
+          "setting": "environment_protection",
+          "description": "environment ${{ github.ref_name }} protection rules (required reviewers, branch policy) are unknown offline",
+          "pos": {
+            "file": "testdata/golden/environment.yml",
+            "line": 11,
+            "col": 18
+          }
+        }
+      ]
+    }
+  }
+]

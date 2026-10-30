@@ -1,0 +1,8 @@
+name: Self hosted
+on: push
+permissions: {}
+jobs:
+  build:
+    runs-on: [self-hosted, linux]
+    steps:
+      - run: echo hi

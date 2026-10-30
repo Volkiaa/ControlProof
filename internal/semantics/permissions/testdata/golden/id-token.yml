@@ -1,0 +1,11 @@
+name: ID token
+on: push
+permissions: {}
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - run: echo publish
