@@ -4,7 +4,7 @@ go 1.26
 
 require (
 	github.com/rhysd/actionlint v1.7.12
-	go.yaml.in/yaml/v4 v4.0.0-rc.3
+	go.yaml.in/yaml/v4 v4.0.0-rc.6
 )
 
 require (
