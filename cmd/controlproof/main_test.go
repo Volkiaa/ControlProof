@@ -145,6 +145,85 @@ func TestDebugIR(t *testing.T) {
 	})
 }
 
+type graphOutput struct {
+	Schema       string `json:"schema"`
+	PolicySHA256 string `json:"policy_sha256"`
+	Graph        struct {
+		Nodes []struct {
+			ID   string `json:"id"`
+			Kind string `json:"kind"`
+		} `json:"nodes"`
+		Edges []struct {
+			From       string            `json:"from"`
+			To         string            `json:"to"`
+			Kind       string            `json:"kind"`
+			Confidence string            `json:"confidence"`
+			Attrs      map[string]string `json:"attrs"`
+		} `json:"edges"`
+	} `json:"graph"`
+}
+
+func TestDebugGraph(t *testing.T) {
+	aSpire := filepath.Join("..", "..", "testdata", "fixtures", "a-spire")
+
+	t.Run("valid workflows", func(t *testing.T) {
+		var stdout, stderr bytes.Buffer
+		code := run([]string{"debug", "graph", aSpire}, &stdout, &stderr)
+		if code != exitCompleted {
+			t.Fatalf("run() = %d, want %d; stderr: %s", code, exitCompleted, stderr.String())
+		}
+		if stderr.Len() != 0 {
+			t.Fatalf("stderr = %q, want empty", stderr.String())
+		}
+
+		var output graphOutput
+		if err := json.Unmarshal(stdout.Bytes(), &output); err != nil {
+			t.Fatalf("stdout is not JSON: %v\n%s", err, stdout.String())
+		}
+		if output.Schema != "controlproof-graph/0" {
+			t.Fatalf("schema = %q, want controlproof-graph/0", output.Schema)
+		}
+		if output.PolicySHA256 != "" {
+			t.Fatalf("policy_sha256 = %q, want empty without --policy", output.PolicySHA256)
+		}
+		if len(output.Graph.Nodes) == 0 || len(output.Graph.Edges) == 0 {
+			t.Fatalf("graph is empty: %+v", output.Graph)
+		}
+
+		found := false
+		for _, edge := range output.Graph.Edges {
+			if edge.Kind == "DOWNLOADS" && edge.To == "artifact:.github/workflows/review-capture.yml#review" {
+				found = true
+				if edge.Confidence != "high" || edge.Attrs["content"] != "arbitrary" || edge.Attrs["run_id_binding"] != "workflow-run-event" {
+					t.Fatalf("download edge = %+v attrs %v, want high/arbitrary/workflow-run-event", edge, edge.Attrs)
+				}
+			}
+		}
+		if !found {
+			t.Fatal("graph has no DOWNLOADS edge to the review capture artifact")
+		}
+	})
+
+	t.Run("invalid policy", func(t *testing.T) {
+		policy := filepath.Join(t.TempDir(), "bad.yaml")
+		if err := os.WriteFile(policy, []byte("schema_version: 2\n"), 0o644); err != nil {
+			t.Fatalf("write policy: %v", err)
+		}
+
+		var stdout, stderr bytes.Buffer
+		code := run([]string{"debug", "graph", "--policy", policy, aSpire}, &stdout, &stderr)
+		if code != exitError {
+			t.Fatalf("run() = %d, want %d", code, exitError)
+		}
+		if stdout.Len() != 0 {
+			t.Fatalf("stdout = %q, want empty", stdout.String())
+		}
+		if !strings.Contains(stderr.String(), policy) {
+			t.Fatalf("stderr = %q, want it to name %s", stderr.String(), policy)
+		}
+	})
+}
+
 func writeWorkflow(t *testing.T, root, name, content string) {
 	t.Helper()
 	dir := filepath.Join(root, ".github", "workflows")
