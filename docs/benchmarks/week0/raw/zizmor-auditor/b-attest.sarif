@@ -1,0 +1,1712 @@
+{
+  "$schema": "https://docs.oasis-open.org/sarif/sarif/v2.1.0/os/schemas/sarif-schema-2.1.0.json",
+  "runs": [
+    {
+      "results": [
+        {
+          "codeFlows": [
+            {
+              "threadFlows": [
+                {
+                  "locations": [
+                    {
+                      "importance": "essential",
+                      "location": {
+                        "logicalLocations": [
+                          {
+                            "properties": {
+                              "symbolic": {
+                                "annotation": "does not set persist-credentials: false",
+                                "feature_kind": "Normal",
+                                "key": {
+                                  "Local": {
+                                    "verbatim_path": "./.github/workflows/format-push.yml"
+                                  }
+                                },
+                                "kind": "Primary",
+                                "route": {
+                                  "route": [
+                                    {
+                                      "Key": "jobs"
+                                    },
+                                    {
+                                      "Key": "push"
+                                    },
+                                    {
+                                      "Key": "steps"
+                                    },
+                                    {
+                                      "Index": 2
+                                    }
+                                  ]
+                                }
+                              }
+                            }
+                          }
+                        ],
+                        "message": {
+                          "text": "does not set persist-credentials: false"
+                        },
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": ".github/workflows/format-push.yml"
+                          },
+                          "region": {
+                            "endColumn": 47,
+                            "endLine": 34,
+                            "snippet": {
+                              "text": "name: Checkout target\n        uses: actions/checkout@v7\n        with:\n          ref: ${{ steps.target.outputs.ref }}"
+                            },
+                            "sourceLanguage": "yaml",
+                            "startColumn": 9,
+                            "startLine": 31
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "kind": "fail",
+          "level": "note",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "properties": {
+                    "symbolic": {
+                      "annotation": "does not set persist-credentials: false",
+                      "feature_kind": "Normal",
+                      "key": {
+                        "Local": {
+                          "verbatim_path": "./.github/workflows/format-push.yml"
+                        }
+                      },
+                      "kind": "Primary",
+                      "route": {
+                        "route": [
+                          {
+                            "Key": "jobs"
+                          },
+                          {
+                            "Key": "push"
+                          },
+                          {
+                            "Key": "steps"
+                          },
+                          {
+                            "Index": 2
+                          }
+                        ]
+                      }
+                    }
+                  }
+                }
+              ],
+              "message": {
+                "text": "does not set persist-credentials: false"
+              },
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": ".github/workflows/format-push.yml"
+                },
+                "region": {
+                  "endColumn": 47,
+                  "endLine": 34,
+                  "snippet": {
+                    "text": "name: Checkout target\n        uses: actions/checkout@v7\n        with:\n          ref: ${{ steps.target.outputs.ref }}"
+                  },
+                  "sourceLanguage": "yaml",
+                  "startColumn": 9,
+                  "startLine": 31
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "credential persistence through GitHub Actions artifacts: does not set persist-credentials: false"
+          },
+          "properties": {
+            "zizmor/confidence": "Low",
+            "zizmor/persona": "Regular",
+            "zizmor/severity": "Low"
+          },
+          "ruleId": "zizmor/artipacked"
+        },
+        {
+          "codeFlows": [
+            {
+              "threadFlows": [
+                {
+                  "locations": [
+                    {
+                      "importance": "essential",
+                      "location": {
+                        "logicalLocations": [
+                          {
+                            "properties": {
+                              "symbolic": {
+                                "annotation": "workflow_run is almost always used insecurely",
+                                "feature_kind": "Normal",
+                                "key": {
+                                  "Local": {
+                                    "verbatim_path": "./.github/workflows/format-push.yml"
+                                  }
+                                },
+                                "kind": "Primary",
+                                "route": {
+                                  "route": [
+                                    {
+                                      "Key": "on"
+                                    }
+                                  ]
+                                }
+                              }
+                            }
+                          }
+                        ],
+                        "message": {
+                          "text": "workflow_run is almost always used insecurely"
+                        },
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": ".github/workflows/format-push.yml"
+                          },
+                          "region": {
+                            "endColumn": 23,
+                            "endLine": 5,
+                            "snippet": {
+                              "text": "on:\n  workflow_run:\n    workflows: [\"Format\"]\n    types: [completed]"
+                            },
+                            "sourceLanguage": "yaml",
+                            "startColumn": 1,
+                            "startLine": 2
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "kind": "fail",
+          "level": "error",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "properties": {
+                    "symbolic": {
+                      "annotation": "workflow_run is almost always used insecurely",
+                      "feature_kind": "Normal",
+                      "key": {
+                        "Local": {
+                          "verbatim_path": "./.github/workflows/format-push.yml"
+                        }
+                      },
+                      "kind": "Primary",
+                      "route": {
+                        "route": [
+                          {
+                            "Key": "on"
+                          }
+                        ]
+                      }
+                    }
+                  }
+                }
+              ],
+              "message": {
+                "text": "workflow_run is almost always used insecurely"
+              },
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": ".github/workflows/format-push.yml"
+                },
+                "region": {
+                  "endColumn": 23,
+                  "endLine": 5,
+                  "snippet": {
+                    "text": "on:\n  workflow_run:\n    workflows: [\"Format\"]\n    types: [completed]"
+                  },
+                  "sourceLanguage": "yaml",
+                  "startColumn": 1,
+                  "startLine": 2
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "use of fundamentally insecure workflow trigger: workflow_run is almost always used insecurely"
+          },
+          "properties": {
+            "zizmor/confidence": "Medium",
+            "zizmor/persona": "Regular",
+            "zizmor/severity": "High"
+          },
+          "ruleId": "zizmor/dangerous-triggers"
+        },
+        {
+          "codeFlows": [
+            {
+              "threadFlows": [
+                {
+                  "locations": [
+                    {
+                      "importance": "essential",
+                      "location": {
+                        "logicalLocations": [
+                          {
+                            "properties": {
+                              "symbolic": {
+                                "annotation": "action is not pinned to a hash (required by blanket policy)",
+                                "feature_kind": {
+                                  "Subfeature": {
+                                    "after": 0,
+                                    "fragment": {
+                                      "Raw": "actions/download-artifact@v8"
+                                    }
+                                  }
+                                },
+                                "key": {
+                                  "Local": {
+                                    "verbatim_path": "./.github/workflows/format-push.yml"
+                                  }
+                                },
+                                "kind": "Primary",
+                                "route": {
+                                  "route": [
+                                    {
+                                      "Key": "jobs"
+                                    },
+                                    {
+                                      "Key": "push"
+                                    },
+                                    {
+                                      "Key": "steps"
+                                    },
+                                    {
+                                      "Index": 0
+                                    },
+                                    {
+                                      "Key": "uses"
+                                    }
+                                  ]
+                                }
+                              }
+                            }
+                          }
+                        ],
+                        "message": {
+                          "text": "action is not pinned to a hash (required by blanket policy)"
+                        },
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": ".github/workflows/format-push.yml"
+                          },
+                          "region": {
+                            "endColumn": 43,
+                            "endLine": 16,
+                            "snippet": {
+                              "text": "actions/download-artifact@v8"
+                            },
+                            "sourceLanguage": "yaml",
+                            "startColumn": 15,
+                            "startLine": 16
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "kind": "fail",
+          "level": "error",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "properties": {
+                    "symbolic": {
+                      "annotation": "action is not pinned to a hash (required by blanket policy)",
+                      "feature_kind": {
+                        "Subfeature": {
+                          "after": 0,
+                          "fragment": {
+                            "Raw": "actions/download-artifact@v8"
+                          }
+                        }
+                      },
+                      "key": {
+                        "Local": {
+                          "verbatim_path": "./.github/workflows/format-push.yml"
+                        }
+                      },
+                      "kind": "Primary",
+                      "route": {
+                        "route": [
+                          {
+                            "Key": "jobs"
+                          },
+                          {
+                            "Key": "push"
+                          },
+                          {
+                            "Key": "steps"
+                          },
+                          {
+                            "Index": 0
+                          },
+                          {
+                            "Key": "uses"
+                          }
+                        ]
+                      }
+                    }
+                  }
+                }
+              ],
+              "message": {
+                "text": "action is not pinned to a hash (required by blanket policy)"
+              },
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": ".github/workflows/format-push.yml"
+                },
+                "region": {
+                  "endColumn": 43,
+                  "endLine": 16,
+                  "snippet": {
+                    "text": "actions/download-artifact@v8"
+                  },
+                  "sourceLanguage": "yaml",
+                  "startColumn": 15,
+                  "startLine": 16
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "unpinned action reference: action is not pinned to a hash (required by blanket policy)"
+          },
+          "properties": {
+            "zizmor/confidence": "High",
+            "zizmor/persona": "Regular",
+            "zizmor/severity": "High"
+          },
+          "ruleId": "zizmor/unpinned-uses"
+        },
+        {
+          "codeFlows": [
+            {
+              "threadFlows": [
+                {
+                  "locations": [
+                    {
+                      "importance": "essential",
+                      "location": {
+                        "logicalLocations": [
+                          {
+                            "properties": {
+                              "symbolic": {
+                                "annotation": "action is not pinned to a hash (required by blanket policy)",
+                                "feature_kind": {
+                                  "Subfeature": {
+                                    "after": 0,
+                                    "fragment": {
+                                      "Raw": "actions/checkout@v7"
+                                    }
+                                  }
+                                },
+                                "key": {
+                                  "Local": {
+                                    "verbatim_path": "./.github/workflows/format-push.yml"
+                                  }
+                                },
+                                "kind": "Primary",
+                                "route": {
+                                  "route": [
+                                    {
+                                      "Key": "jobs"
+                                    },
+                                    {
+                                      "Key": "push"
+                                    },
+                                    {
+                                      "Key": "steps"
+                                    },
+                                    {
+                                      "Index": 2
+                                    },
+                                    {
+                                      "Key": "uses"
+                                    }
+                                  ]
+                                }
+                              }
+                            }
+                          }
+                        ],
+                        "message": {
+                          "text": "action is not pinned to a hash (required by blanket policy)"
+                        },
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": ".github/workflows/format-push.yml"
+                          },
+                          "region": {
+                            "endColumn": 34,
+                            "endLine": 32,
+                            "snippet": {
+                              "text": "actions/checkout@v7"
+                            },
+                            "sourceLanguage": "yaml",
+                            "startColumn": 15,
+                            "startLine": 32
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "kind": "fail",
+          "level": "error",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "properties": {
+                    "symbolic": {
+                      "annotation": "action is not pinned to a hash (required by blanket policy)",
+                      "feature_kind": {
+                        "Subfeature": {
+                          "after": 0,
+                          "fragment": {
+                            "Raw": "actions/checkout@v7"
+                          }
+                        }
+                      },
+                      "key": {
+                        "Local": {
+                          "verbatim_path": "./.github/workflows/format-push.yml"
+                        }
+                      },
+                      "kind": "Primary",
+                      "route": {
+                        "route": [
+                          {
+                            "Key": "jobs"
+                          },
+                          {
+                            "Key": "push"
+                          },
+                          {
+                            "Key": "steps"
+                          },
+                          {
+                            "Index": 2
+                          },
+                          {
+                            "Key": "uses"
+                          }
+                        ]
+                      }
+                    }
+                  }
+                }
+              ],
+              "message": {
+                "text": "action is not pinned to a hash (required by blanket policy)"
+              },
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": ".github/workflows/format-push.yml"
+                },
+                "region": {
+                  "endColumn": 34,
+                  "endLine": 32,
+                  "snippet": {
+                    "text": "actions/checkout@v7"
+                  },
+                  "sourceLanguage": "yaml",
+                  "startColumn": 15,
+                  "startLine": 32
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "unpinned action reference: action is not pinned to a hash (required by blanket policy)"
+          },
+          "properties": {
+            "zizmor/confidence": "High",
+            "zizmor/persona": "Regular",
+            "zizmor/severity": "High"
+          },
+          "ruleId": "zizmor/unpinned-uses"
+        },
+        {
+          "codeFlows": [
+            {
+              "threadFlows": [
+                {
+                  "locations": [
+                    {
+                      "importance": "essential",
+                      "location": {
+                        "logicalLocations": [
+                          {
+                            "properties": {
+                              "symbolic": {
+                                "annotation": "needs an explanatory comment",
+                                "feature_kind": "Normal",
+                                "key": {
+                                  "Local": {
+                                    "verbatim_path": "./.github/workflows/format-push.yml"
+                                  }
+                                },
+                                "kind": "Primary",
+                                "route": {
+                                  "route": [
+                                    {
+                                      "Key": "jobs"
+                                    },
+                                    {
+                                      "Key": "push"
+                                    },
+                                    {
+                                      "Key": "permissions"
+                                    },
+                                    {
+                                      "Key": "actions"
+                                    }
+                                  ]
+                                }
+                              }
+                            }
+                          }
+                        ],
+                        "message": {
+                          "text": "needs an explanatory comment"
+                        },
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": ".github/workflows/format-push.yml"
+                          },
+                          "region": {
+                            "endColumn": 20,
+                            "endLine": 12,
+                            "snippet": {
+                              "text": "      actions: read"
+                            },
+                            "sourceLanguage": "yaml",
+                            "startColumn": 7,
+                            "startLine": 12
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "importance": "essential",
+                      "location": {
+                        "logicalLocations": [
+                          {
+                            "properties": {
+                              "symbolic": {
+                                "annotation": "needs an explanatory comment",
+                                "feature_kind": "Normal",
+                                "key": {
+                                  "Local": {
+                                    "verbatim_path": "./.github/workflows/format-push.yml"
+                                  }
+                                },
+                                "kind": "Primary",
+                                "route": {
+                                  "route": [
+                                    {
+                                      "Key": "jobs"
+                                    },
+                                    {
+                                      "Key": "push"
+                                    },
+                                    {
+                                      "Key": "permissions"
+                                    },
+                                    {
+                                      "Key": "contents"
+                                    }
+                                  ]
+                                }
+                              }
+                            }
+                          }
+                        ],
+                        "message": {
+                          "text": "needs an explanatory comment"
+                        },
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": ".github/workflows/format-push.yml"
+                          },
+                          "region": {
+                            "endColumn": 22,
+                            "endLine": 13,
+                            "snippet": {
+                              "text": "      contents: write"
+                            },
+                            "sourceLanguage": "yaml",
+                            "startColumn": 7,
+                            "startLine": 13
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "kind": "fail",
+          "level": "note",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "properties": {
+                    "symbolic": {
+                      "annotation": "needs an explanatory comment",
+                      "feature_kind": "Normal",
+                      "key": {
+                        "Local": {
+                          "verbatim_path": "./.github/workflows/format-push.yml"
+                        }
+                      },
+                      "kind": "Primary",
+                      "route": {
+                        "route": [
+                          {
+                            "Key": "jobs"
+                          },
+                          {
+                            "Key": "push"
+                          },
+                          {
+                            "Key": "permissions"
+                          },
+                          {
+                            "Key": "actions"
+                          }
+                        ]
+                      }
+                    }
+                  }
+                }
+              ],
+              "message": {
+                "text": "needs an explanatory comment"
+              },
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": ".github/workflows/format-push.yml"
+                },
+                "region": {
+                  "endColumn": 20,
+                  "endLine": 12,
+                  "snippet": {
+                    "text": "      actions: read"
+                  },
+                  "sourceLanguage": "yaml",
+                  "startColumn": 7,
+                  "startLine": 12
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "permissions without explanatory comments: needs an explanatory comment"
+          },
+          "properties": {
+            "zizmor/confidence": "High",
+            "zizmor/persona": "Pedantic",
+            "zizmor/severity": "Low"
+          },
+          "ruleId": "zizmor/undocumented-permissions"
+        },
+        {
+          "codeFlows": [
+            {
+              "threadFlows": [
+                {
+                  "locations": [
+                    {
+                      "importance": "essential",
+                      "location": {
+                        "logicalLocations": [
+                          {
+                            "properties": {
+                              "symbolic": {
+                                "annotation": "this job",
+                                "feature_kind": "KeyOnly",
+                                "key": {
+                                  "Local": {
+                                    "verbatim_path": "./.github/workflows/format-push.yml"
+                                  }
+                                },
+                                "kind": "Primary",
+                                "route": {
+                                  "route": [
+                                    {
+                                      "Key": "jobs"
+                                    },
+                                    {
+                                      "Key": "push"
+                                    }
+                                  ]
+                                }
+                              }
+                            }
+                          }
+                        ],
+                        "message": {
+                          "text": "this job"
+                        },
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": ".github/workflows/format-push.yml"
+                          },
+                          "region": {
+                            "endColumn": 7,
+                            "endLine": 8,
+                            "snippet": {
+                              "text": "push"
+                            },
+                            "sourceLanguage": "yaml",
+                            "startColumn": 3,
+                            "startLine": 8
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "kind": "review",
+          "level": "note",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "properties": {
+                    "symbolic": {
+                      "annotation": "this job",
+                      "feature_kind": "KeyOnly",
+                      "key": {
+                        "Local": {
+                          "verbatim_path": "./.github/workflows/format-push.yml"
+                        }
+                      },
+                      "kind": "Primary",
+                      "route": {
+                        "route": [
+                          {
+                            "Key": "jobs"
+                          },
+                          {
+                            "Key": "push"
+                          }
+                        ]
+                      }
+                    }
+                  }
+                }
+              ],
+              "message": {
+                "text": "this job"
+              },
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": ".github/workflows/format-push.yml"
+                },
+                "region": {
+                  "endColumn": 7,
+                  "endLine": 8,
+                  "snippet": {
+                    "text": "push"
+                  },
+                  "sourceLanguage": "yaml",
+                  "startColumn": 3,
+                  "startLine": 8
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "workflow or action definition without a name: this job"
+          },
+          "properties": {
+            "zizmor/confidence": "High",
+            "zizmor/persona": "Pedantic",
+            "zizmor/severity": "Informational"
+          },
+          "ruleId": "zizmor/anonymous-definition"
+        },
+        {
+          "codeFlows": [
+            {
+              "threadFlows": [
+                {
+                  "locations": [
+                    {
+                      "importance": "essential",
+                      "location": {
+                        "logicalLocations": [
+                          {
+                            "properties": {
+                              "symbolic": {
+                                "annotation": "workflow is missing concurrency setting",
+                                "feature_kind": "Normal",
+                                "key": {
+                                  "Local": {
+                                    "verbatim_path": "./.github/workflows/format-push.yml"
+                                  }
+                                },
+                                "kind": "Primary",
+                                "route": {
+                                  "route": [
+                                    {
+                                      "Key": "on"
+                                    }
+                                  ]
+                                }
+                              }
+                            }
+                          }
+                        ],
+                        "message": {
+                          "text": "workflow is missing concurrency setting"
+                        },
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": ".github/workflows/format-push.yml"
+                          },
+                          "region": {
+                            "endColumn": 23,
+                            "endLine": 5,
+                            "snippet": {
+                              "text": "on:\n  workflow_run:\n    workflows: [\"Format\"]\n    types: [completed]"
+                            },
+                            "sourceLanguage": "yaml",
+                            "startColumn": 1,
+                            "startLine": 2
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "importance": "important",
+                      "location": {
+                        "logicalLocations": [
+                          {
+                            "properties": {
+                              "symbolic": {
+                                "annotation": "job affected by missing workflow concurrency",
+                                "feature_kind": "KeyOnly",
+                                "key": {
+                                  "Local": {
+                                    "verbatim_path": "./.github/workflows/format-push.yml"
+                                  }
+                                },
+                                "kind": "Related",
+                                "route": {
+                                  "route": [
+                                    {
+                                      "Key": "jobs"
+                                    },
+                                    {
+                                      "Key": "push"
+                                    }
+                                  ]
+                                }
+                              }
+                            }
+                          }
+                        ],
+                        "message": {
+                          "text": "job affected by missing workflow concurrency"
+                        },
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": ".github/workflows/format-push.yml"
+                          },
+                          "region": {
+                            "endColumn": 7,
+                            "endLine": 8,
+                            "snippet": {
+                              "text": "push"
+                            },
+                            "sourceLanguage": "yaml",
+                            "startColumn": 3,
+                            "startLine": 8
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "kind": "fail",
+          "level": "note",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "properties": {
+                    "symbolic": {
+                      "annotation": "workflow is missing concurrency setting",
+                      "feature_kind": "Normal",
+                      "key": {
+                        "Local": {
+                          "verbatim_path": "./.github/workflows/format-push.yml"
+                        }
+                      },
+                      "kind": "Primary",
+                      "route": {
+                        "route": [
+                          {
+                            "Key": "on"
+                          }
+                        ]
+                      }
+                    }
+                  }
+                }
+              ],
+              "message": {
+                "text": "workflow is missing concurrency setting"
+              },
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": ".github/workflows/format-push.yml"
+                },
+                "region": {
+                  "endColumn": 23,
+                  "endLine": 5,
+                  "snippet": {
+                    "text": "on:\n  workflow_run:\n    workflows: [\"Format\"]\n    types: [completed]"
+                  },
+                  "sourceLanguage": "yaml",
+                  "startColumn": 1,
+                  "startLine": 2
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "insufficient job-level concurrency limits: workflow is missing concurrency setting"
+          },
+          "properties": {
+            "zizmor/confidence": "High",
+            "zizmor/persona": "Pedantic",
+            "zizmor/severity": "Low"
+          },
+          "ruleId": "zizmor/concurrency-limits"
+        },
+        {
+          "codeFlows": [
+            {
+              "threadFlows": [
+                {
+                  "locations": [
+                    {
+                      "importance": "essential",
+                      "location": {
+                        "logicalLocations": [
+                          {
+                            "properties": {
+                              "symbolic": {
+                                "annotation": "action is not pinned to a hash (required by blanket policy)",
+                                "feature_kind": {
+                                  "Subfeature": {
+                                    "after": 0,
+                                    "fragment": {
+                                      "Raw": "actions/checkout@v7"
+                                    }
+                                  }
+                                },
+                                "key": {
+                                  "Local": {
+                                    "verbatim_path": "./.github/workflows/format.yml"
+                                  }
+                                },
+                                "kind": "Primary",
+                                "route": {
+                                  "route": [
+                                    {
+                                      "Key": "jobs"
+                                    },
+                                    {
+                                      "Key": "format"
+                                    },
+                                    {
+                                      "Key": "steps"
+                                    },
+                                    {
+                                      "Index": 0
+                                    },
+                                    {
+                                      "Key": "uses"
+                                    }
+                                  ]
+                                }
+                              }
+                            }
+                          }
+                        ],
+                        "message": {
+                          "text": "action is not pinned to a hash (required by blanket policy)"
+                        },
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": ".github/workflows/format.yml"
+                          },
+                          "region": {
+                            "endColumn": 34,
+                            "endLine": 11,
+                            "snippet": {
+                              "text": "actions/checkout@v7"
+                            },
+                            "sourceLanguage": "yaml",
+                            "startColumn": 15,
+                            "startLine": 11
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "kind": "fail",
+          "level": "error",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "properties": {
+                    "symbolic": {
+                      "annotation": "action is not pinned to a hash (required by blanket policy)",
+                      "feature_kind": {
+                        "Subfeature": {
+                          "after": 0,
+                          "fragment": {
+                            "Raw": "actions/checkout@v7"
+                          }
+                        }
+                      },
+                      "key": {
+                        "Local": {
+                          "verbatim_path": "./.github/workflows/format.yml"
+                        }
+                      },
+                      "kind": "Primary",
+                      "route": {
+                        "route": [
+                          {
+                            "Key": "jobs"
+                          },
+                          {
+                            "Key": "format"
+                          },
+                          {
+                            "Key": "steps"
+                          },
+                          {
+                            "Index": 0
+                          },
+                          {
+                            "Key": "uses"
+                          }
+                        ]
+                      }
+                    }
+                  }
+                }
+              ],
+              "message": {
+                "text": "action is not pinned to a hash (required by blanket policy)"
+              },
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": ".github/workflows/format.yml"
+                },
+                "region": {
+                  "endColumn": 34,
+                  "endLine": 11,
+                  "snippet": {
+                    "text": "actions/checkout@v7"
+                  },
+                  "sourceLanguage": "yaml",
+                  "startColumn": 15,
+                  "startLine": 11
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "unpinned action reference: action is not pinned to a hash (required by blanket policy)"
+          },
+          "properties": {
+            "zizmor/confidence": "High",
+            "zizmor/persona": "Regular",
+            "zizmor/severity": "High"
+          },
+          "ruleId": "zizmor/unpinned-uses"
+        },
+        {
+          "codeFlows": [
+            {
+              "threadFlows": [
+                {
+                  "locations": [
+                    {
+                      "importance": "essential",
+                      "location": {
+                        "logicalLocations": [
+                          {
+                            "properties": {
+                              "symbolic": {
+                                "annotation": "action is not pinned to a hash (required by blanket policy)",
+                                "feature_kind": {
+                                  "Subfeature": {
+                                    "after": 0,
+                                    "fragment": {
+                                      "Raw": "actions/upload-artifact@v7"
+                                    }
+                                  }
+                                },
+                                "key": {
+                                  "Local": {
+                                    "verbatim_path": "./.github/workflows/format.yml"
+                                  }
+                                },
+                                "kind": "Primary",
+                                "route": {
+                                  "route": [
+                                    {
+                                      "Key": "jobs"
+                                    },
+                                    {
+                                      "Key": "format"
+                                    },
+                                    {
+                                      "Key": "steps"
+                                    },
+                                    {
+                                      "Index": 3
+                                    },
+                                    {
+                                      "Key": "uses"
+                                    }
+                                  ]
+                                }
+                              }
+                            }
+                          }
+                        ],
+                        "message": {
+                          "text": "action is not pinned to a hash (required by blanket policy)"
+                        },
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": ".github/workflows/format.yml"
+                          },
+                          "region": {
+                            "endColumn": 41,
+                            "endLine": 24,
+                            "snippet": {
+                              "text": "actions/upload-artifact@v7"
+                            },
+                            "sourceLanguage": "yaml",
+                            "startColumn": 15,
+                            "startLine": 24
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "kind": "fail",
+          "level": "error",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "properties": {
+                    "symbolic": {
+                      "annotation": "action is not pinned to a hash (required by blanket policy)",
+                      "feature_kind": {
+                        "Subfeature": {
+                          "after": 0,
+                          "fragment": {
+                            "Raw": "actions/upload-artifact@v7"
+                          }
+                        }
+                      },
+                      "key": {
+                        "Local": {
+                          "verbatim_path": "./.github/workflows/format.yml"
+                        }
+                      },
+                      "kind": "Primary",
+                      "route": {
+                        "route": [
+                          {
+                            "Key": "jobs"
+                          },
+                          {
+                            "Key": "format"
+                          },
+                          {
+                            "Key": "steps"
+                          },
+                          {
+                            "Index": 3
+                          },
+                          {
+                            "Key": "uses"
+                          }
+                        ]
+                      }
+                    }
+                  }
+                }
+              ],
+              "message": {
+                "text": "action is not pinned to a hash (required by blanket policy)"
+              },
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": ".github/workflows/format.yml"
+                },
+                "region": {
+                  "endColumn": 41,
+                  "endLine": 24,
+                  "snippet": {
+                    "text": "actions/upload-artifact@v7"
+                  },
+                  "sourceLanguage": "yaml",
+                  "startColumn": 15,
+                  "startLine": 24
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "unpinned action reference: action is not pinned to a hash (required by blanket policy)"
+          },
+          "properties": {
+            "zizmor/confidence": "High",
+            "zizmor/persona": "Regular",
+            "zizmor/severity": "High"
+          },
+          "ruleId": "zizmor/unpinned-uses"
+        },
+        {
+          "codeFlows": [
+            {
+              "threadFlows": [
+                {
+                  "locations": [
+                    {
+                      "importance": "essential",
+                      "location": {
+                        "logicalLocations": [
+                          {
+                            "properties": {
+                              "symbolic": {
+                                "annotation": "this job",
+                                "feature_kind": "KeyOnly",
+                                "key": {
+                                  "Local": {
+                                    "verbatim_path": "./.github/workflows/format.yml"
+                                  }
+                                },
+                                "kind": "Primary",
+                                "route": {
+                                  "route": [
+                                    {
+                                      "Key": "jobs"
+                                    },
+                                    {
+                                      "Key": "format"
+                                    }
+                                  ]
+                                }
+                              }
+                            }
+                          }
+                        ],
+                        "message": {
+                          "text": "this job"
+                        },
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": ".github/workflows/format.yml"
+                          },
+                          "region": {
+                            "endColumn": 9,
+                            "endLine": 7,
+                            "snippet": {
+                              "text": "format"
+                            },
+                            "sourceLanguage": "yaml",
+                            "startColumn": 3,
+                            "startLine": 7
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "kind": "review",
+          "level": "note",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "properties": {
+                    "symbolic": {
+                      "annotation": "this job",
+                      "feature_kind": "KeyOnly",
+                      "key": {
+                        "Local": {
+                          "verbatim_path": "./.github/workflows/format.yml"
+                        }
+                      },
+                      "kind": "Primary",
+                      "route": {
+                        "route": [
+                          {
+                            "Key": "jobs"
+                          },
+                          {
+                            "Key": "format"
+                          }
+                        ]
+                      }
+                    }
+                  }
+                }
+              ],
+              "message": {
+                "text": "this job"
+              },
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": ".github/workflows/format.yml"
+                },
+                "region": {
+                  "endColumn": 9,
+                  "endLine": 7,
+                  "snippet": {
+                    "text": "format"
+                  },
+                  "sourceLanguage": "yaml",
+                  "startColumn": 3,
+                  "startLine": 7
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "workflow or action definition without a name: this job"
+          },
+          "properties": {
+            "zizmor/confidence": "High",
+            "zizmor/persona": "Pedantic",
+            "zizmor/severity": "Informational"
+          },
+          "ruleId": "zizmor/anonymous-definition"
+        },
+        {
+          "codeFlows": [
+            {
+              "threadFlows": [
+                {
+                  "locations": [
+                    {
+                      "importance": "essential",
+                      "location": {
+                        "logicalLocations": [
+                          {
+                            "properties": {
+                              "symbolic": {
+                                "annotation": "workflow is missing concurrency setting",
+                                "feature_kind": "Normal",
+                                "key": {
+                                  "Local": {
+                                    "verbatim_path": "./.github/workflows/format.yml"
+                                  }
+                                },
+                                "kind": "Primary",
+                                "route": {
+                                  "route": [
+                                    {
+                                      "Key": "on"
+                                    }
+                                  ]
+                                }
+                              }
+                            }
+                          }
+                        ],
+                        "message": {
+                          "text": "workflow is missing concurrency setting"
+                        },
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": ".github/workflows/format.yml"
+                          },
+                          "region": {
+                            "endColumn": 16,
+                            "endLine": 3,
+                            "snippet": {
+                              "text": "on:\n  pull_request:"
+                            },
+                            "sourceLanguage": "yaml",
+                            "startColumn": 1,
+                            "startLine": 2
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "importance": "important",
+                      "location": {
+                        "logicalLocations": [
+                          {
+                            "properties": {
+                              "symbolic": {
+                                "annotation": "job affected by missing workflow concurrency",
+                                "feature_kind": "KeyOnly",
+                                "key": {
+                                  "Local": {
+                                    "verbatim_path": "./.github/workflows/format.yml"
+                                  }
+                                },
+                                "kind": "Related",
+                                "route": {
+                                  "route": [
+                                    {
+                                      "Key": "jobs"
+                                    },
+                                    {
+                                      "Key": "format"
+                                    }
+                                  ]
+                                }
+                              }
+                            }
+                          }
+                        ],
+                        "message": {
+                          "text": "job affected by missing workflow concurrency"
+                        },
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": ".github/workflows/format.yml"
+                          },
+                          "region": {
+                            "endColumn": 9,
+                            "endLine": 7,
+                            "snippet": {
+                              "text": "format"
+                            },
+                            "sourceLanguage": "yaml",
+                            "startColumn": 3,
+                            "startLine": 7
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "kind": "fail",
+          "level": "note",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "properties": {
+                    "symbolic": {
+                      "annotation": "workflow is missing concurrency setting",
+                      "feature_kind": "Normal",
+                      "key": {
+                        "Local": {
+                          "verbatim_path": "./.github/workflows/format.yml"
+                        }
+                      },
+                      "kind": "Primary",
+                      "route": {
+                        "route": [
+                          {
+                            "Key": "on"
+                          }
+                        ]
+                      }
+                    }
+                  }
+                }
+              ],
+              "message": {
+                "text": "workflow is missing concurrency setting"
+              },
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": ".github/workflows/format.yml"
+                },
+                "region": {
+                  "endColumn": 16,
+                  "endLine": 3,
+                  "snippet": {
+                    "text": "on:\n  pull_request:"
+                  },
+                  "sourceLanguage": "yaml",
+                  "startColumn": 1,
+                  "startLine": 2
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "insufficient job-level concurrency limits: workflow is missing concurrency setting"
+          },
+          "properties": {
+            "zizmor/confidence": "High",
+            "zizmor/persona": "Pedantic",
+            "zizmor/severity": "Low"
+          },
+          "ruleId": "zizmor/concurrency-limits"
+        }
+      ],
+      "tool": {
+        "driver": {
+          "downloadUri": "https://github.com/zizmorcore/zizmor",
+          "informationUri": "https://docs.zizmor.sh",
+          "name": "zizmor",
+          "rules": [
+            {
+              "help": {
+                "markdown": "`artipacked`: credential persistence through GitHub Actions artifacts\n\nDocs: <https://docs.zizmor.sh/audits/#artipacked>",
+                "text": "credential persistence through GitHub Actions artifacts"
+              },
+              "helpUri": "https://docs.zizmor.sh/audits/#artipacked",
+              "id": "zizmor/artipacked",
+              "name": "artipacked",
+              "properties": {
+                "tags": [
+                  "security"
+                ]
+              }
+            },
+            {
+              "help": {
+                "markdown": "`dangerous-triggers`: use of fundamentally insecure workflow trigger\n\nDocs: <https://docs.zizmor.sh/audits/#dangerous-triggers>",
+                "text": "use of fundamentally insecure workflow trigger"
+              },
+              "helpUri": "https://docs.zizmor.sh/audits/#dangerous-triggers",
+              "id": "zizmor/dangerous-triggers",
+              "name": "dangerous-triggers",
+              "properties": {
+                "tags": [
+                  "security"
+                ]
+              }
+            },
+            {
+              "help": {
+                "markdown": "`unpinned-uses`: unpinned action reference\n\nDocs: <https://docs.zizmor.sh/audits/#unpinned-uses>",
+                "text": "unpinned action reference"
+              },
+              "helpUri": "https://docs.zizmor.sh/audits/#unpinned-uses",
+              "id": "zizmor/unpinned-uses",
+              "name": "unpinned-uses",
+              "properties": {
+                "tags": [
+                  "security"
+                ]
+              }
+            },
+            {
+              "help": {
+                "markdown": "`undocumented-permissions`: permissions without explanatory comments\n\nDocs: <https://docs.zizmor.sh/audits/#undocumented-permissions>",
+                "text": "permissions without explanatory comments"
+              },
+              "helpUri": "https://docs.zizmor.sh/audits/#undocumented-permissions",
+              "id": "zizmor/undocumented-permissions",
+              "name": "undocumented-permissions",
+              "properties": {
+                "tags": [
+                  "security"
+                ]
+              }
+            },
+            {
+              "help": {
+                "markdown": "`anonymous-definition`: workflow or action definition without a name\n\nDocs: <https://docs.zizmor.sh/audits/#anonymous-definition>",
+                "text": "workflow or action definition without a name"
+              },
+              "helpUri": "https://docs.zizmor.sh/audits/#anonymous-definition",
+              "id": "zizmor/anonymous-definition",
+              "name": "anonymous-definition",
+              "properties": {
+                "tags": [
+                  "security"
+                ]
+              }
+            },
+            {
+              "help": {
+                "markdown": "`concurrency-limits`: insufficient job-level concurrency limits\n\nDocs: <https://docs.zizmor.sh/audits/#concurrency-limits>",
+                "text": "insufficient job-level concurrency limits"
+              },
+              "helpUri": "https://docs.zizmor.sh/audits/#concurrency-limits",
+              "id": "zizmor/concurrency-limits",
+              "name": "concurrency-limits",
+              "properties": {
+                "tags": [
+                  "security"
+                ]
+              }
+            }
+          ],
+          "semanticVersion": "1.30.1",
+          "version": "1.30.1"
+        }
+      }
+    }
+  ],
+  "version": "2.1.0"
+}

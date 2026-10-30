@@ -36,6 +36,7 @@
 | ADR-008 | No default GitHub App or GitHub write token. | Preserve least privilege and zero cloud dependencies. | Read-only GitHub metadata becomes essential. |
 | ADR-009 | Build the workflow model on `github.com/rhysd/actionlint` (MIT; public `Parse` API with positions and `${{ }}` expression parser). | Saves most of weeks 1–2; mature handling of workflow syntax edge cases. | actionlint's AST blocks a required semantic (fork it narrowly, or parse with `github.com/yaml/go-yaml` directly; `gopkg.in/yaml.v3` is archived). |
 | ADR-010 | Parse `run:` blocks with `mvdan.cc/sh/v3/syntax` (AST only, never interpreted). | Needed for `$GITHUB_OUTPUT`/`$GITHUB_ENV` propagation and command recognition without writing a shell parser. | — |
+| ADR-011 | Week-0 gate: CP-CICD-002 is the headline, CP-CICD-001 is a parity rule, CP-CICD-003 is the second differentiator ([ADR-011](../architecture/adr/ADR-011-week0-gate.md)). | No tool detects B's guard inadequacy or the destination sink; CodeQL already detects A and F (`docs/benchmarks/week0.md`). | CodeQL ships guard- or destination-aware artifact queries, or the week-8 corpus shows no incremental true positive. |
 
 **Research grounding.** GitHub's documentation warns that `workflow_run` may receive write tokens and secrets even when its upstream workflow was unprivileged. GitHub Security Lab published two advisories on 2026-09-16:
 

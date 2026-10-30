@@ -2,7 +2,7 @@
 set -euo pipefail
 
 script_dir=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)
-fixture_names=(a-spire a-spire-fixed b-attest b-attest-fixed c-data-only f-restricted-consumer g-unbound-selector)
+fixture_names=(a-spire a-spire-fixed b-attest b-attest-fixed b-attest-push-only b-attest-allowlist c-data-only f-restricted-consumer g-unbound-selector)
 
 missing=0
 for tool in actionlint shellcheck jq git; do
@@ -31,7 +31,7 @@ for name in "${fixture_names[@]}"; do
   jq -e '
     . as $e
     | ($e | keys | sort) == (["consumer","confidence","control_id","fixture","guard_adequacy","prerequisites","producer","rationale","reference","severity","status","title","variant_of"] | sort)
-      and ($e.fixture | IN("A","A′","B","B′","C","F","G"))
+      and ($e.fixture | IN("A","A′","B","B′","B-push-only","B-allowlist","C","F","G"))
       and ($e.title | type == "string" and length > 0)
       and (($e.reference == null) or ($e.reference | IN("GHSL-2026-204","GHSL-2026-225")))
       and (($e.variant_of == null) or ($e.variant_of | IN("A","B")))

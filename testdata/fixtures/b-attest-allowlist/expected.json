@@ -1,0 +1,15 @@
+{
+  "fixture": "B-allowlist",
+  "title": "Attest formatting destination restricted to an exact allowlist",
+  "reference": null,
+  "variant_of": "B",
+  "control_id": "CP-CICD-002",
+  "status": "PASS",
+  "confidence": null,
+  "severity": null,
+  "guard_adequacy": "binds-identity",
+  "prerequisites": [],
+  "producer": ".github/workflows/format.yml",
+  "consumer": ".github/workflows/format-push.yml",
+  "rationale": "The artifact-supplied ref is accepted only if it exactly equals one of two literal bot branches, so a fork cannot choose any other push destination."
+}
