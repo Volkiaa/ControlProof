@@ -10,6 +10,10 @@ import (
 )
 
 func (c *converter) exprs(value string, base *actionlint.Pos) []model.Expr {
+	return c.exprsAt(value, c.pos(base))
+}
+
+func (c *converter) exprsAt(value string, base model.Pos) []model.Expr {
 	var out []model.Expr
 	for offset := 0; offset < len(value); {
 		start := strings.Index(value[offset:], "${{")
@@ -23,7 +27,7 @@ func (c *converter) exprs(value string, base *actionlint.Pos) []model.Expr {
 
 		expr := model.Expr{
 			Raw: strings.TrimSpace(raw),
-			Pos: c.exprPos(base, value[:start]),
+			Pos: c.exprPosAt(base, value[:start]),
 		}
 		expr.Refs, expr.Err = parseExpression(expr.Raw)
 		out = append(out, expr)
@@ -31,6 +35,18 @@ func (c *converter) exprs(value string, base *actionlint.Pos) []model.Expr {
 		offset = next
 	}
 	return out
+}
+
+func conditionExprs(value string, pos model.Pos) []model.Expr {
+	if strings.Contains(value, "${{") {
+		return nil
+	}
+	raw := strings.TrimSpace(value)
+	if raw == "" {
+		return nil
+	}
+	refs, err := parseExpression(raw)
+	return []model.Expr{{Raw: raw, Pos: pos, Refs: refs, Err: err}}
 }
 
 func expressionSpan(value string, inner int) (string, int) {
@@ -44,11 +60,7 @@ func expressionSpan(value string, inner int) (string, int) {
 	return value[inner : inner+end], inner + end + len("}}")
 }
 
-func (c *converter) exprPos(base *actionlint.Pos, prefix string) model.Pos {
-	pos := c.pos(base)
-	if base == nil {
-		return pos
-	}
+func (c *converter) exprPosAt(pos model.Pos, prefix string) model.Pos {
 	newlines := strings.Count(prefix, "\n")
 	pos.Line += newlines
 	if newlines == 0 {

@@ -1,0 +1,15 @@
+on:
+  workflow_run:
+    workflows: [Build]
+    types: [completed]
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Call local action
+        uses: ./.github/actions/echo
+        with:
+          ref: ${{ github.event.workflow_run.head_branch }}
+      - uses: actions/checkout@v7
+      - uses: owner/repo/path@v1
+      - uses: docker://alpine:3

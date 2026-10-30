@@ -2,6 +2,7 @@ package workflow
 
 import (
 	"sort"
+	"strings"
 
 	"github.com/Volkiaa/ControlProof/internal/model"
 	"github.com/rhysd/actionlint"
@@ -50,6 +51,17 @@ func (c *converter) str(s *actionlint.String) *model.Str {
 	}
 	out := &model.Str{Value: s.Value, Pos: c.pos(s.Pos)}
 	out.Exprs = c.exprs(s.Value, s.Pos)
+	return out
+}
+
+func (c *converter) ifStr(s *actionlint.String) *model.Str {
+	out := c.str(s)
+	if out == nil {
+		return nil
+	}
+	if !strings.Contains(out.Value, "${{") {
+		out.Exprs = conditionExprs(out.Value, out.Pos)
+	}
 	return out
 }
 
@@ -173,7 +185,7 @@ func (c *converter) job(id string, job *actionlint.Job) model.Job {
 	}
 	out.Pos = c.pos(job.Pos)
 	out.Name = c.str(job.Name)
-	out.If = c.str(job.If)
+	out.If = c.ifStr(job.If)
 	out.Needs = c.strings(job.Needs)
 	if job.RunsOn != nil {
 		out.RunsOn = c.strings(job.RunsOn.Labels)
@@ -260,7 +272,7 @@ func (c *converter) step(index int, step *actionlint.Step) model.Step {
 	out.Pos = c.pos(step.Pos)
 	out.ID = c.str(step.ID)
 	out.Name = c.str(step.Name)
-	out.If = c.str(step.If)
+	out.If = c.ifStr(step.If)
 	out.Env = c.env(step.Env)
 
 	switch exec := step.Exec.(type) {

@@ -1,0 +1,157 @@
+{
+  "workflows": [
+    {
+      "path": ".github/workflows/consumer.yml",
+      "triggers": [
+        {
+          "event": "pull_request_target",
+          "file": ".github/workflows/consumer.yml",
+          "line": 1,
+          "col": 5
+        }
+      ],
+      "permissions": null,
+      "jobs": [
+        {
+          "id": {
+            "value": "build",
+            "pos": {
+              "file": ".github/workflows/consumer.yml",
+              "line": 3,
+              "col": 3
+            }
+          },
+          "runs_on": [
+            {
+              "value": "ubuntu-latest",
+              "pos": {
+                "file": ".github/workflows/consumer.yml",
+                "line": 4,
+                "col": 14
+              }
+            }
+          ],
+          "permissions": {
+            "scopes": [
+              {
+                "key": "contents",
+                "value": {
+                  "value": "write",
+                  "pos": {
+                    "file": ".github/workflows/consumer.yml",
+                    "line": 6,
+                    "col": 17
+                  }
+                }
+              }
+            ],
+            "file": ".github/workflows/consumer.yml",
+            "line": 5,
+            "col": 5
+          },
+          "steps": [
+            {
+              "index": 0,
+              "uses": {
+                "value": "./.github/actions/fetch",
+                "pos": {
+                  "file": ".github/workflows/consumer.yml",
+                  "line": 8,
+                  "col": 15
+                }
+              },
+              "local": {
+                "path": ".github/actions/fetch/action.yml",
+                "using": "composite",
+                "steps": [
+                  {
+                    "index": 0,
+                    "name": {
+                      "value": "Download artifact",
+                      "pos": {
+                        "file": ".github/actions/fetch/action.yml",
+                        "line": 5,
+                        "col": 13
+                      }
+                    },
+                    "uses": {
+                      "value": "actions/download-artifact@v4",
+                      "pos": {
+                        "file": ".github/actions/fetch/action.yml",
+                        "line": 6,
+                        "col": 13
+                      }
+                    },
+                    "with": [
+                      {
+                        "key": "name",
+                        "value": {
+                          "value": "patch",
+                          "pos": {
+                            "file": ".github/actions/fetch/action.yml",
+                            "line": 8,
+                            "col": 15
+                          }
+                        }
+                      },
+                      {
+                        "key": "path",
+                        "value": {
+                          "value": "./scripts",
+                          "pos": {
+                            "file": ".github/actions/fetch/action.yml",
+                            "line": 9,
+                            "col": 15
+                          }
+                        }
+                      }
+                    ],
+                    "file": ".github/actions/fetch/action.yml",
+                    "line": 5,
+                    "col": 7
+                  },
+                  {
+                    "index": 1,
+                    "name": {
+                      "value": "Run script",
+                      "pos": {
+                        "file": ".github/actions/fetch/action.yml",
+                        "line": 10,
+                        "col": 13
+                      }
+                    },
+                    "run": {
+                      "value": "./scripts/x.sh",
+                      "pos": {
+                        "file": ".github/actions/fetch/action.yml",
+                        "line": 11,
+                        "col": 12
+                      }
+                    },
+                    "shell": {
+                      "value": "bash",
+                      "pos": {
+                        "file": ".github/actions/fetch/action.yml",
+                        "line": 12,
+                        "col": 14
+                      }
+                    },
+                    "file": ".github/actions/fetch/action.yml",
+                    "line": 10,
+                    "col": 7
+                  }
+                ]
+              },
+              "file": ".github/workflows/consumer.yml",
+              "line": 8,
+              "col": 9
+            }
+          ],
+          "file": ".github/workflows/consumer.yml",
+          "line": 3,
+          "col": 3
+        }
+      ]
+    }
+  ]
+}
