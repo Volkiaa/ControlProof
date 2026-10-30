@@ -1,0 +1,86 @@
+[
+  {
+    "job": "token",
+    "pos": {
+      "file": "testdata/golden/app-token.yml",
+      "line": 5,
+      "col": 3
+    },
+    "privilege": {
+      "token": {
+        "source": "workflow",
+        "scopes": {
+          "actions": "none",
+          "attestations": "none",
+          "checks": "none",
+          "contents": "none",
+          "deployments": "none",
+          "discussions": "none",
+          "id-token": "none",
+          "issues": "none",
+          "models": "none",
+          "packages": "none",
+          "pages": "none",
+          "pull-requests": "none",
+          "repository-projects": "none",
+          "security-events": "none",
+          "statuses": "none"
+        },
+        "pos": {
+          "file": "testdata/golden/app-token.yml",
+          "line": 3,
+          "col": 1
+        }
+      },
+      "id_token_write": false,
+      "secrets": [
+        {
+          "name": "app_private_key",
+          "pos": {
+            "file": "testdata/golden/app-token.yml",
+            "line": 11,
+            "col": 24
+          }
+        }
+      ],
+      "checkouts": [
+        {
+          "pos": {
+            "file": "testdata/golden/app-token.yml",
+            "line": 14,
+            "col": 9
+          },
+          "persist_credentials": "true"
+        }
+      ],
+      "app_tokens": [
+        {
+          "name": "actions/create-github-app-token",
+          "pos": {
+            "file": "testdata/golden/app-token.yml",
+            "line": 8,
+            "col": 9
+          }
+        },
+        {
+          "name": "tibdex/github-app-token",
+          "pos": {
+            "file": "testdata/golden/app-token.yml",
+            "line": 12,
+            "col": 9
+          }
+        },
+        {
+          "name": "peter-murray/workflow-application-token-action",
+          "pos": {
+            "file": "testdata/golden/app-token.yml",
+            "line": 13,
+            "col": 9
+          }
+        }
+      ],
+      "runner": "github-hosted",
+      "cache_write": "unknown"
+    }
+  }
+]

@@ -1,0 +1,227 @@
+[
+  {
+    "job": "call",
+    "pos": {
+      "file": ".github/workflows/reusable-callee.yml",
+      "line": 8,
+      "col": 3
+    },
+    "privilege": {
+      "token": {
+        "source": "workflow",
+        "scopes": {
+          "actions": "none",
+          "attestations": "none",
+          "checks": "none",
+          "contents": "none",
+          "deployments": "none",
+          "discussions": "none",
+          "id-token": "none",
+          "issues": "none",
+          "models": "none",
+          "packages": "none",
+          "pages": "none",
+          "pull-requests": "none",
+          "repository-projects": "none",
+          "security-events": "none",
+          "statuses": "none"
+        },
+        "pos": {
+          "file": ".github/workflows/reusable-callee.yml",
+          "line": 6,
+          "col": 1
+        }
+      },
+      "id_token_write": false,
+      "inherit_secrets": true,
+      "runner": "unknown",
+      "cache_write": "default-branch"
+    },
+    "callee_jobs": [
+      {
+        "job": "inherit-caller",
+        "pos": {
+          "file": ".github/workflows/caller-private.yml",
+          "line": 5,
+          "col": 3
+        },
+        "privilege": {
+          "token": {
+            "source": "caller",
+            "scopes": {
+              "actions": "none",
+              "attestations": "none",
+              "checks": "none",
+              "contents": "none",
+              "deployments": "none",
+              "discussions": "none",
+              "id-token": "none",
+              "issues": "none",
+              "models": "none",
+              "packages": "none",
+              "pages": "none",
+              "pull-requests": "none",
+              "repository-projects": "none",
+              "security-events": "none",
+              "statuses": "none"
+            },
+            "pos": {
+              "file": ".github/workflows/reusable-callee.yml",
+              "line": 6,
+              "col": 1
+            }
+          },
+          "id_token_write": false,
+          "secrets": [
+            {
+              "name": "mid_secret",
+              "pos": {
+                "file": ".github/workflows/caller-private.yml",
+                "line": 8,
+                "col": 19
+              }
+            }
+          ],
+          "runner": "github-hosted",
+          "cache_write": "default-branch"
+        }
+      },
+      {
+        "job": "nested",
+        "pos": {
+          "file": ".github/workflows/caller-private.yml",
+          "line": 15,
+          "col": 3
+        },
+        "privilege": {
+          "token": {
+            "source": "caller",
+            "scopes": {
+              "actions": "none",
+              "attestations": "none",
+              "checks": "none",
+              "contents": "none",
+              "deployments": "none",
+              "discussions": "none",
+              "id-token": "none",
+              "issues": "none",
+              "models": "none",
+              "packages": "none",
+              "pages": "none",
+              "pull-requests": "none",
+              "repository-projects": "none",
+              "security-events": "none",
+              "statuses": "none"
+            },
+            "pos": {
+              "file": ".github/workflows/reusable-callee.yml",
+              "line": 6,
+              "col": 1
+            }
+          },
+          "id_token_write": false,
+          "runner": "unknown",
+          "cache_write": "default-branch"
+        },
+        "callee_jobs": [
+          {
+            "job": "leaf-default",
+            "pos": {
+              "file": ".github/workflows/leaf.yml",
+              "line": 6,
+              "col": 3
+            },
+            "privilege": {
+              "token": {
+                "source": "workflow",
+                "scopes": {
+                  "actions": "read",
+                  "attestations": "read",
+                  "checks": "read",
+                  "contents": "read",
+                  "deployments": "read",
+                  "discussions": "read",
+                  "id-token": "read",
+                  "issues": "read",
+                  "models": "read",
+                  "packages": "read",
+                  "pages": "read",
+                  "pull-requests": "read",
+                  "repository-projects": "read",
+                  "security-events": "read",
+                  "statuses": "read"
+                },
+                "pos": {
+                  "file": ".github/workflows/leaf.yml",
+                  "line": 4,
+                  "col": 1
+                }
+              },
+              "id_token_write": false,
+              "secrets": [
+                {
+                  "name": "leaf_secret",
+                  "pos": {
+                    "file": ".github/workflows/leaf.yml",
+                    "line": 9,
+                    "col": 19
+                  }
+                }
+              ],
+              "runner": "github-hosted",
+              "cache_write": "default-branch"
+            }
+          }
+        ]
+      },
+      {
+        "job": "override",
+        "pos": {
+          "file": ".github/workflows/caller-private.yml",
+          "line": 9,
+          "col": 3
+        },
+        "privilege": {
+          "token": {
+            "source": "job",
+            "scopes": {
+              "actions": "none",
+              "attestations": "none",
+              "checks": "none",
+              "contents": "write",
+              "deployments": "none",
+              "discussions": "none",
+              "id-token": "none",
+              "issues": "none",
+              "models": "none",
+              "packages": "none",
+              "pages": "none",
+              "pull-requests": "none",
+              "repository-projects": "none",
+              "security-events": "none",
+              "statuses": "none"
+            },
+            "pos": {
+              "file": ".github/workflows/caller-private.yml",
+              "line": 11,
+              "col": 5
+            }
+          },
+          "id_token_write": false,
+          "secrets": [
+            {
+              "name": "override_secret",
+              "pos": {
+                "file": ".github/workflows/caller-private.yml",
+                "line": 14,
+                "col": 19
+              }
+            }
+          ],
+          "runner": "github-hosted",
+          "cache_write": "default-branch"
+        }
+      }
+    ]
+  }
+]

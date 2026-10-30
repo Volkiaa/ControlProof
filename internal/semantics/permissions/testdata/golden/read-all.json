@@ -1,0 +1,40 @@
+[
+  {
+    "job": "build",
+    "pos": {
+      "file": "testdata/golden/read-all.yml",
+      "line": 5,
+      "col": 3
+    },
+    "privilege": {
+      "token": {
+        "source": "workflow",
+        "scopes": {
+          "actions": "read",
+          "attestations": "read",
+          "checks": "read",
+          "contents": "read",
+          "deployments": "read",
+          "discussions": "read",
+          "id-token": "read",
+          "issues": "read",
+          "models": "read",
+          "packages": "read",
+          "pages": "read",
+          "pull-requests": "read",
+          "repository-projects": "read",
+          "security-events": "read",
+          "statuses": "read"
+        },
+        "pos": {
+          "file": "testdata/golden/read-all.yml",
+          "line": 3,
+          "col": 1
+        }
+      },
+      "id_token_write": false,
+      "runner": "github-hosted",
+      "cache_write": "unknown"
+    }
+  }
+]

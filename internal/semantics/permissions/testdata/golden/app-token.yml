@@ -1,0 +1,14 @@
+name: App tokens
+on: push
+permissions: {}
+jobs:
+  token:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/create-github-app-token@v1
+        with:
+          app-id: ${{ vars.APP_ID }}
+          private-key: ${{ secrets.APP_PRIVATE_KEY }}
+      - uses: tibdex/github-app-token@v2
+      - uses: peter-murray/workflow-application-token-action@v4
+      - uses: actions/checkout@v7

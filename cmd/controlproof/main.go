@@ -9,6 +9,7 @@ import (
 
 	"github.com/Volkiaa/ControlProof/internal/config"
 	"github.com/Volkiaa/ControlProof/internal/model"
+	"github.com/Volkiaa/ControlProof/internal/semantics/permissions"
 	"github.com/Volkiaa/ControlProof/internal/semantics/triggers"
 	"github.com/Volkiaa/ControlProof/internal/version"
 	"github.com/Volkiaa/ControlProof/internal/workflow"
@@ -31,7 +32,7 @@ commands:
   scan [path]        scan a repository for CP-CICD-* findings (not implemented yet)
   debug ir [path]    print the parsed workflow IR as JSON
   debug semantics [--policy FILE] [path]
-                     print the trigger and attacker-control classification as JSON
+                     print the trigger, attacker-control and privilege classification as JSON
   version            print the controlproof version
   help               print this message
 
@@ -122,8 +123,9 @@ func runDebugIR(args []string, stdout, stderr io.Writer) int {
 }
 
 type semanticsWorkflow struct {
-	Path     string                  `json:"path"`
-	Triggers triggers.Classification `json:"triggers"`
+	Path     string                     `json:"path"`
+	Triggers triggers.Classification    `json:"triggers"`
+	Jobs     []permissions.JobPrivilege `json:"jobs"`
 }
 
 func runDebugSemantics(args []string, stdout, stderr io.Writer) int {
@@ -165,6 +167,7 @@ func runDebugSemantics(args []string, stdout, stderr io.Writer) int {
 		classified = append(classified, semanticsWorkflow{
 			Path:     wf.Path,
 			Triggers: triggers.Classify(wf, policy.RepoProfile),
+			Jobs:     permissions.Resolve(wf, policy.RepoProfile),
 		})
 	}
 

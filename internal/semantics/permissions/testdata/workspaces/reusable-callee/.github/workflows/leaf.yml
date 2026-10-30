@@ -1,0 +1,9 @@
+name: Leaf
+on:
+  workflow_call:
+permissions: read-all
+jobs:
+  leaf-default:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo ${{ secrets.LEAF_SECRET }}

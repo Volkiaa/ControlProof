@@ -1,0 +1,14 @@
+name: Environment
+on: push
+permissions: {}
+jobs:
+  deploy:
+    environment: production
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo deploy
+  preview:
+    environment: ${{ github.ref_name }}
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo preview
