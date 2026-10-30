@@ -1,0 +1,15 @@
+on:
+  workflow_run:
+    workflows: [Build]
+    types: [completed]
+jobs:
+  inspect:
+    if: ${{ github.event['pull_request'].head.ref != '' && contains(github.event.pull_request.labels.*.name, 'x') }}
+    runs-on: ubuntu-latest
+    env:
+      REF: ${{ steps.target.outputs.ref }}
+      TOKEN: ${{ secrets.TOKEN }}
+    steps:
+      - id: target
+        run: echo "a ${{ github.event['pull_request'].head.ref }} and ${{ steps.target.outputs.ref }}"
+      - run: echo "${{ github. }}"

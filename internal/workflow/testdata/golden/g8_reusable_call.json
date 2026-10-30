@@ -1,0 +1,74 @@
+{
+  "path": "testdata/golden/g8_reusable_call.yml",
+  "triggers": [
+    {
+      "event": "push",
+      "file": "testdata/golden/g8_reusable_call.yml",
+      "line": 1,
+      "col": 5
+    }
+  ],
+  "permissions": null,
+  "jobs": [
+    {
+      "id": {
+        "value": "call",
+        "pos": {
+          "file": "testdata/golden/g8_reusable_call.yml",
+          "line": 3,
+          "col": 3
+        }
+      },
+      "permissions": null,
+      "uses": {
+        "value": "./.github/workflows/x.yml",
+        "pos": {
+          "file": "testdata/golden/g8_reusable_call.yml",
+          "line": 4,
+          "col": 11
+        }
+      },
+      "with": [
+        {
+          "key": "mode",
+          "value": {
+            "value": "ci",
+            "pos": {
+              "file": "testdata/golden/g8_reusable_call.yml",
+              "line": 7,
+              "col": 13
+            }
+          }
+        },
+        {
+          "key": "ref",
+          "value": {
+            "value": "${{ github.ref }}",
+            "pos": {
+              "file": "testdata/golden/g8_reusable_call.yml",
+              "line": 6,
+              "col": 12
+            },
+            "exprs": [
+              {
+                "raw": "github.ref",
+                "pos": {
+                  "file": "testdata/golden/g8_reusable_call.yml",
+                  "line": 6,
+                  "col": 12
+                },
+                "refs": [
+                  "github.ref"
+                ]
+              }
+            ]
+          }
+        }
+      ],
+      "inherit_secrets": true,
+      "file": "testdata/golden/g8_reusable_call.yml",
+      "line": 3,
+      "col": 3
+    }
+  ]
+}

@@ -1,0 +1,81 @@
+{
+  "path": "testdata/golden/g6_multiline.yml",
+  "triggers": [
+    {
+      "event": "push",
+      "file": "testdata/golden/g6_multiline.yml",
+      "line": 1,
+      "col": 5
+    }
+  ],
+  "permissions": null,
+  "jobs": [
+    {
+      "id": {
+        "value": "build",
+        "pos": {
+          "file": "testdata/golden/g6_multiline.yml",
+          "line": 3,
+          "col": 3
+        }
+      },
+      "runs_on": [
+        {
+          "value": "ubuntu-latest",
+          "pos": {
+            "file": "testdata/golden/g6_multiline.yml",
+            "line": 4,
+            "col": 14
+          }
+        }
+      ],
+      "permissions": null,
+      "steps": [
+        {
+          "index": 0,
+          "run": {
+            "value": "echo one\necho \"${{ github.ref }}\"\necho three\n",
+            "pos": {
+              "file": "testdata/golden/g6_multiline.yml",
+              "line": 6,
+              "col": 14
+            },
+            "exprs": [
+              {
+                "raw": "github.ref",
+                "pos": {
+                  "file": "testdata/golden/g6_multiline.yml",
+                  "line": 7,
+                  "col": 7
+                },
+                "refs": [
+                  "github.ref"
+                ]
+              }
+            ]
+          },
+          "file": "testdata/golden/g6_multiline.yml",
+          "line": 6,
+          "col": 9
+        },
+        {
+          "index": 1,
+          "run": {
+            "value": "echo folded line two\n",
+            "pos": {
+              "file": "testdata/golden/g6_multiline.yml",
+              "line": 10,
+              "col": 14
+            }
+          },
+          "file": "testdata/golden/g6_multiline.yml",
+          "line": 10,
+          "col": 9
+        }
+      ],
+      "file": "testdata/golden/g6_multiline.yml",
+      "line": 3,
+      "col": 3
+    }
+  ]
+}

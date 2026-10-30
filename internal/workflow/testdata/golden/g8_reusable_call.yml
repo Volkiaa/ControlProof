@@ -1,0 +1,8 @@
+on: push
+jobs:
+  call:
+    uses: ./.github/workflows/x.yml
+    with:
+      ref: ${{ github.ref }}
+      mode: ci
+    secrets: inherit
