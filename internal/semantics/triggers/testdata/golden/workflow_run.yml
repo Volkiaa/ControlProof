@@ -1,0 +1,11 @@
+name: Workflow run
+on:
+  workflow_run:
+    workflows: [Build]
+    types: [completed]
+jobs:
+  consume:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7

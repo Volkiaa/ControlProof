@@ -1,0 +1,17 @@
+{
+  "workflow": "testdata/golden/workflow_run.yml",
+  "name": "Workflow run",
+  "trust": "trusted-definition",
+  "triggers": [
+    {
+      "event": "workflow_run",
+      "pos": {
+        "file": "testdata/golden/workflow_run.yml",
+        "line": 3,
+        "col": 3
+      },
+      "modeled": true,
+      "attacker_control": "upstream-dependent"
+    }
+  ]
+}

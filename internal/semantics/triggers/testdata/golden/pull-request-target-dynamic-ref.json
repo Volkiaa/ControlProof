@@ -1,0 +1,20 @@
+{
+  "workflow": "testdata/golden/pull-request-target-dynamic-ref.yml",
+  "name": "Dynamic checkout",
+  "trust": "unknown",
+  "triggers": [
+    {
+      "event": "pull_request_target",
+      "pos": {
+        "file": "testdata/golden/pull-request-target-dynamic-ref.yml",
+        "line": 3,
+        "col": 3
+      },
+      "modeled": true,
+      "attacker_control": "event-fields"
+    }
+  ],
+  "unknown_reasons": [
+    "testdata/golden/pull-request-target-dynamic-ref.yml:12: checkout ref is dynamic and not provably the base commit"
+  ]
+}

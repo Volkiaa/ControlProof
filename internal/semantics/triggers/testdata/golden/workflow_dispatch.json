@@ -1,0 +1,23 @@
+{
+  "workflow": "testdata/golden/workflow_dispatch.yml",
+  "name": "Manual",
+  "trust": "trusted-definition",
+  "triggers": [
+    {
+      "event": "workflow_dispatch",
+      "pos": {
+        "file": "testdata/golden/workflow_dispatch.yml",
+        "line": 3,
+        "col": 3
+      },
+      "modeled": true,
+      "attacker_control": "conditional"
+    }
+  ],
+  "prerequisites": [
+    {
+      "setting": "dispatcher_trust",
+      "description": "only trusted users can dispatch this workflow (requires write access)"
+    }
+  ]
+}

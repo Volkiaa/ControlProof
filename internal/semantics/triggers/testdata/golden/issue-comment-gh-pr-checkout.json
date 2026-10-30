@@ -1,0 +1,24 @@
+{
+  "workflow": "testdata/golden/issue-comment-gh-pr-checkout.yml",
+  "name": "Checkout from comment",
+  "trust": "pr-head-builder",
+  "triggers": [
+    {
+      "event": "issue_comment",
+      "pos": {
+        "file": "testdata/golden/issue-comment-gh-pr-checkout.yml",
+        "line": 3,
+        "col": 3
+      },
+      "modeled": true,
+      "attacker_control": "event-fields"
+    }
+  ],
+  "pr_head_checkouts": [
+    {
+      "file": "testdata/golden/issue-comment-gh-pr-checkout.yml",
+      "line": 10,
+      "col": 9
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "workflow": "testdata/golden/pull-request-target-head-sha.yml",
+  "name": "Build pull request head",
+  "trust": "pr-head-builder",
+  "triggers": [
+    {
+      "event": "pull_request_target",
+      "pos": {
+        "file": "testdata/golden/pull-request-target-head-sha.yml",
+        "line": 3,
+        "col": 3
+      },
+      "modeled": true,
+      "attacker_control": "event-fields"
+    }
+  ],
+  "pr_head_checkouts": [
+    {
+      "file": "testdata/golden/pull-request-target-head-sha.yml",
+      "line": 9,
+      "col": 9
+    }
+  ]
+}

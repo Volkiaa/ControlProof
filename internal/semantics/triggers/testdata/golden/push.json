@@ -1,0 +1,23 @@
+{
+  "workflow": "testdata/golden/push.yml",
+  "name": "Push",
+  "trust": "trusted-definition",
+  "triggers": [
+    {
+      "event": "push",
+      "pos": {
+        "file": "testdata/golden/push.yml",
+        "line": 3,
+        "col": 3
+      },
+      "modeled": true,
+      "attacker_control": "conditional"
+    }
+  ],
+  "prerequisites": [
+    {
+      "setting": "branch_protection",
+      "description": "pushes to main, release/** are restricted to trusted committers"
+    }
+  ]
+}

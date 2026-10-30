@@ -1,0 +1,17 @@
+{
+  "workflow": "testdata/golden/issue_comment.yml",
+  "name": "Issue comment",
+  "trust": "trusted-definition",
+  "triggers": [
+    {
+      "event": "issue_comment",
+      "pos": {
+        "file": "testdata/golden/issue_comment.yml",
+        "line": 3,
+        "col": 3
+      },
+      "modeled": true,
+      "attacker_control": "event-fields"
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+name: Pull request review
+on:
+  pull_request_review:
+    types: [submitted]
+jobs:
+  review:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7

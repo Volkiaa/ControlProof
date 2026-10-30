@@ -1,0 +1,11 @@
+name: Checkout from comment
+on:
+  issue_comment:
+    types: [created]
+jobs:
+  build:
+    if: github.event.issue.pull_request
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout pull request
+        run: gh pr checkout ${{ github.event.issue.number }}
