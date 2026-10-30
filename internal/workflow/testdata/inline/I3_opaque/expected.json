@@ -1,0 +1,97 @@
+{
+  "workflows": [
+    {
+      "path": ".github/workflows/ci.yml",
+      "triggers": [
+        {
+          "event": "push",
+          "file": ".github/workflows/ci.yml",
+          "line": 1,
+          "col": 5
+        }
+      ],
+      "permissions": null,
+      "jobs": [
+        {
+          "id": {
+            "value": "build",
+            "pos": {
+              "file": ".github/workflows/ci.yml",
+              "line": 3,
+              "col": 3
+            }
+          },
+          "runs_on": [
+            {
+              "value": "ubuntu-latest",
+              "pos": {
+                "file": ".github/workflows/ci.yml",
+                "line": 4,
+                "col": 14
+              }
+            }
+          ],
+          "permissions": null,
+          "steps": [
+            {
+              "index": 0,
+              "uses": {
+                "value": "./.github/actions/node",
+                "pos": {
+                  "file": ".github/workflows/ci.yml",
+                  "line": 6,
+                  "col": 15
+                }
+              },
+              "local": {
+                "path": ".github/actions/node/action.yml",
+                "using": "node20"
+              },
+              "file": ".github/workflows/ci.yml",
+              "line": 6,
+              "col": 9
+            },
+            {
+              "index": 1,
+              "uses": {
+                "value": "./.github/actions/yamlonly",
+                "pos": {
+                  "file": ".github/workflows/ci.yml",
+                  "line": 7,
+                  "col": 15
+                }
+              },
+              "local": {
+                "path": ".github/actions/yamlonly/action.yaml",
+                "using": "node16"
+              },
+              "file": ".github/workflows/ci.yml",
+              "line": 7,
+              "col": 9
+            },
+            {
+              "index": 2,
+              "uses": {
+                "value": "./.github/actions/missing",
+                "pos": {
+                  "file": ".github/workflows/ci.yml",
+                  "line": 8,
+                  "col": 15
+                }
+              },
+              "local": {
+                "unresolved": ".github/actions/missing/action.yml: action metadata not found: file does not exist"
+              },
+              "file": ".github/workflows/ci.yml",
+              "line": 8,
+              "col": 9
+            }
+          ],
+          "file": ".github/workflows/ci.yml",
+          "line": 3,
+          "col": 3
+        }
+      ]
+    }
+  ]
+}

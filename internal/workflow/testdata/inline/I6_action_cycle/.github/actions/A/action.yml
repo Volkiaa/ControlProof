@@ -1,0 +1,6 @@
+name: A
+runs:
+  using: composite
+  steps:
+    - name: Recurse
+      uses: ./.github/actions/A

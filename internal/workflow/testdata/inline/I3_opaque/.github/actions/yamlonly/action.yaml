@@ -1,0 +1,4 @@
+name: yamlonly
+runs:
+  using: node16
+  main: index.js

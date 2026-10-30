@@ -1,0 +1,19 @@
+name: echo
+description: echo input
+inputs:
+  ref:
+    description: ref
+runs:
+  using: composite
+  steps:
+    - id: first
+      name: First
+      if: github.event.workflow_run.head_repository.full_name == github.repository
+      run: echo "${{ inputs.ref }}"
+      shell: bash
+    - name: Second
+      run: echo done
+      shell: bash
+      env:
+        DEBUG: 1
+        VERBOSE: true

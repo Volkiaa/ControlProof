@@ -1,0 +1,203 @@
+{
+  "path": "testdata/golden/g7_expressions.yml",
+  "triggers": [
+    {
+      "event": "workflow_run",
+      "file": "testdata/golden/g7_expressions.yml",
+      "line": 2,
+      "col": 3,
+      "types": [
+        {
+          "value": "completed",
+          "pos": {
+            "file": "testdata/golden/g7_expressions.yml",
+            "line": 4,
+            "col": 13
+          }
+        }
+      ],
+      "workflows": [
+        {
+          "value": "Build",
+          "pos": {
+            "file": "testdata/golden/g7_expressions.yml",
+            "line": 3,
+            "col": 17
+          }
+        }
+      ]
+    }
+  ],
+  "permissions": null,
+  "jobs": [
+    {
+      "id": {
+        "value": "inspect",
+        "pos": {
+          "file": "testdata/golden/g7_expressions.yml",
+          "line": 6,
+          "col": 3
+        }
+      },
+      "if": {
+        "value": "${{ github.event['pull_request'].head.ref != '' \u0026\u0026 contains(github.event.pull_request.labels.*.name, 'x') }}",
+        "pos": {
+          "file": "testdata/golden/g7_expressions.yml",
+          "line": 7,
+          "col": 9
+        },
+        "exprs": [
+          {
+            "raw": "github.event['pull_request'].head.ref != '' \u0026\u0026 contains(github.event.pull_request.labels.*.name, 'x')",
+            "pos": {
+              "file": "testdata/golden/g7_expressions.yml",
+              "line": 7,
+              "col": 9
+            },
+            "refs": [
+              "github.event.pull_request.head.ref",
+              "github.event.pull_request.labels.*.name"
+            ]
+          }
+        ]
+      },
+      "runs_on": [
+        {
+          "value": "ubuntu-latest",
+          "pos": {
+            "file": "testdata/golden/g7_expressions.yml",
+            "line": 8,
+            "col": 14
+          }
+        }
+      ],
+      "permissions": null,
+      "env": [
+        {
+          "key": "REF",
+          "value": {
+            "value": "${{ steps.target.outputs.ref }}",
+            "pos": {
+              "file": "testdata/golden/g7_expressions.yml",
+              "line": 10,
+              "col": 12
+            },
+            "exprs": [
+              {
+                "raw": "steps.target.outputs.ref",
+                "pos": {
+                  "file": "testdata/golden/g7_expressions.yml",
+                  "line": 10,
+                  "col": 12
+                },
+                "refs": [
+                  "steps.target.outputs.ref"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "key": "TOKEN",
+          "value": {
+            "value": "${{ secrets.TOKEN }}",
+            "pos": {
+              "file": "testdata/golden/g7_expressions.yml",
+              "line": 11,
+              "col": 14
+            },
+            "exprs": [
+              {
+                "raw": "secrets.TOKEN",
+                "pos": {
+                  "file": "testdata/golden/g7_expressions.yml",
+                  "line": 11,
+                  "col": 14
+                },
+                "refs": [
+                  "secrets.token"
+                ]
+              }
+            ]
+          }
+        }
+      ],
+      "steps": [
+        {
+          "index": 0,
+          "id": {
+            "value": "target",
+            "pos": {
+              "file": "testdata/golden/g7_expressions.yml",
+              "line": 13,
+              "col": 13
+            }
+          },
+          "run": {
+            "value": "echo \"a ${{ github.event['pull_request'].head.ref }} and ${{ steps.target.outputs.ref }}\"",
+            "pos": {
+              "file": "testdata/golden/g7_expressions.yml",
+              "line": 14,
+              "col": 14
+            },
+            "exprs": [
+              {
+                "raw": "github.event['pull_request'].head.ref",
+                "pos": {
+                  "file": "testdata/golden/g7_expressions.yml",
+                  "line": 14,
+                  "col": 22
+                },
+                "refs": [
+                  "github.event.pull_request.head.ref"
+                ]
+              },
+              {
+                "raw": "steps.target.outputs.ref",
+                "pos": {
+                  "file": "testdata/golden/g7_expressions.yml",
+                  "line": 14,
+                  "col": 71
+                },
+                "refs": [
+                  "steps.target.outputs.ref"
+                ]
+              }
+            ]
+          },
+          "file": "testdata/golden/g7_expressions.yml",
+          "line": 13,
+          "col": 9
+        },
+        {
+          "index": 1,
+          "run": {
+            "value": "echo \"${{ github. }}\"",
+            "pos": {
+              "file": "testdata/golden/g7_expressions.yml",
+              "line": 15,
+              "col": 14
+            },
+            "exprs": [
+              {
+                "raw": "github.",
+                "pos": {
+                  "file": "testdata/golden/g7_expressions.yml",
+                  "line": 15,
+                  "col": 20
+                },
+                "err": "unexpected end of input while parsing object property dereference like 'a.b' or array element dereference like 'a.*'. expecting \"IDENT\", \"*\""
+              }
+            ]
+          },
+          "file": "testdata/golden/g7_expressions.yml",
+          "line": 15,
+          "col": 9
+        }
+      ],
+      "file": "testdata/golden/g7_expressions.yml",
+      "line": 6,
+      "col": 3
+    }
+  ]
+}

@@ -1,0 +1,287 @@
+{
+  "workflows": [
+    {
+      "path": ".github/workflows/ci.yml",
+      "triggers": [
+        {
+          "event": "workflow_run",
+          "file": ".github/workflows/ci.yml",
+          "line": 2,
+          "col": 3,
+          "types": [
+            {
+              "value": "completed",
+              "pos": {
+                "file": ".github/workflows/ci.yml",
+                "line": 4,
+                "col": 13
+              }
+            }
+          ],
+          "workflows": [
+            {
+              "value": "Build",
+              "pos": {
+                "file": ".github/workflows/ci.yml",
+                "line": 3,
+                "col": 17
+              }
+            }
+          ]
+        }
+      ],
+      "permissions": null,
+      "jobs": [
+        {
+          "id": {
+            "value": "inspect",
+            "pos": {
+              "file": ".github/workflows/ci.yml",
+              "line": 6,
+              "col": 3
+            }
+          },
+          "runs_on": [
+            {
+              "value": "ubuntu-latest",
+              "pos": {
+                "file": ".github/workflows/ci.yml",
+                "line": 7,
+                "col": 14
+              }
+            }
+          ],
+          "permissions": null,
+          "steps": [
+            {
+              "index": 0,
+              "name": {
+                "value": "Call local action",
+                "pos": {
+                  "file": ".github/workflows/ci.yml",
+                  "line": 9,
+                  "col": 15
+                }
+              },
+              "uses": {
+                "value": "./.github/actions/echo",
+                "pos": {
+                  "file": ".github/workflows/ci.yml",
+                  "line": 10,
+                  "col": 15
+                }
+              },
+              "with": [
+                {
+                  "key": "ref",
+                  "value": {
+                    "value": "${{ github.event.workflow_run.head_branch }}",
+                    "pos": {
+                      "file": ".github/workflows/ci.yml",
+                      "line": 12,
+                      "col": 16
+                    },
+                    "exprs": [
+                      {
+                        "raw": "github.event.workflow_run.head_branch",
+                        "pos": {
+                          "file": ".github/workflows/ci.yml",
+                          "line": 12,
+                          "col": 16
+                        },
+                        "refs": [
+                          "github.event.workflow_run.head_branch"
+                        ]
+                      }
+                    ]
+                  }
+                }
+              ],
+              "local": {
+                "path": ".github/actions/echo/action.yml",
+                "using": "composite",
+                "steps": [
+                  {
+                    "index": 0,
+                    "id": {
+                      "value": "first",
+                      "pos": {
+                        "file": ".github/actions/echo/action.yml",
+                        "line": 9,
+                        "col": 11
+                      }
+                    },
+                    "name": {
+                      "value": "First",
+                      "pos": {
+                        "file": ".github/actions/echo/action.yml",
+                        "line": 10,
+                        "col": 13
+                      }
+                    },
+                    "if": {
+                      "value": "github.event.workflow_run.head_repository.full_name == github.repository",
+                      "pos": {
+                        "file": ".github/actions/echo/action.yml",
+                        "line": 11,
+                        "col": 11
+                      },
+                      "exprs": [
+                        {
+                          "raw": "github.event.workflow_run.head_repository.full_name == github.repository",
+                          "pos": {
+                            "file": ".github/actions/echo/action.yml",
+                            "line": 11,
+                            "col": 11
+                          },
+                          "refs": [
+                            "github.event.workflow_run.head_repository.full_name",
+                            "github.repository"
+                          ]
+                        }
+                      ]
+                    },
+                    "run": {
+                      "value": "echo \"${{ inputs.ref }}\"",
+                      "pos": {
+                        "file": ".github/actions/echo/action.yml",
+                        "line": 12,
+                        "col": 12
+                      },
+                      "exprs": [
+                        {
+                          "raw": "inputs.ref",
+                          "pos": {
+                            "file": ".github/actions/echo/action.yml",
+                            "line": 12,
+                            "col": 18
+                          },
+                          "refs": [
+                            "inputs.ref"
+                          ]
+                        }
+                      ]
+                    },
+                    "shell": {
+                      "value": "bash",
+                      "pos": {
+                        "file": ".github/actions/echo/action.yml",
+                        "line": 13,
+                        "col": 14
+                      }
+                    },
+                    "file": ".github/actions/echo/action.yml",
+                    "line": 9,
+                    "col": 7
+                  },
+                  {
+                    "index": 1,
+                    "name": {
+                      "value": "Second",
+                      "pos": {
+                        "file": ".github/actions/echo/action.yml",
+                        "line": 14,
+                        "col": 13
+                      }
+                    },
+                    "run": {
+                      "value": "echo done",
+                      "pos": {
+                        "file": ".github/actions/echo/action.yml",
+                        "line": 15,
+                        "col": 12
+                      }
+                    },
+                    "shell": {
+                      "value": "bash",
+                      "pos": {
+                        "file": ".github/actions/echo/action.yml",
+                        "line": 16,
+                        "col": 14
+                      }
+                    },
+                    "env": [
+                      {
+                        "key": "DEBUG",
+                        "value": {
+                          "value": "1",
+                          "pos": {
+                            "file": ".github/actions/echo/action.yml",
+                            "line": 18,
+                            "col": 16
+                          }
+                        }
+                      },
+                      {
+                        "key": "VERBOSE",
+                        "value": {
+                          "value": "true",
+                          "pos": {
+                            "file": ".github/actions/echo/action.yml",
+                            "line": 19,
+                            "col": 18
+                          }
+                        }
+                      }
+                    ],
+                    "file": ".github/actions/echo/action.yml",
+                    "line": 14,
+                    "col": 7
+                  }
+                ]
+              },
+              "file": ".github/workflows/ci.yml",
+              "line": 9,
+              "col": 9
+            },
+            {
+              "index": 1,
+              "uses": {
+                "value": "actions/checkout@v7",
+                "pos": {
+                  "file": ".github/workflows/ci.yml",
+                  "line": 13,
+                  "col": 15
+                }
+              },
+              "file": ".github/workflows/ci.yml",
+              "line": 13,
+              "col": 9
+            },
+            {
+              "index": 2,
+              "uses": {
+                "value": "owner/repo/path@v1",
+                "pos": {
+                  "file": ".github/workflows/ci.yml",
+                  "line": 14,
+                  "col": 15
+                }
+              },
+              "file": ".github/workflows/ci.yml",
+              "line": 14,
+              "col": 9
+            },
+            {
+              "index": 3,
+              "uses": {
+                "value": "docker://alpine:3",
+                "pos": {
+                  "file": ".github/workflows/ci.yml",
+                  "line": 15,
+                  "col": 15
+                }
+              },
+              "file": ".github/workflows/ci.yml",
+              "line": 15,
+              "col": 9
+            }
+          ],
+          "file": ".github/workflows/ci.yml",
+          "line": 6,
+          "col": 3
+        }
+      ]
+    }
+  ]
+}

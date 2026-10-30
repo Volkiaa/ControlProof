@@ -1,0 +1,218 @@
+{
+  "path": "testdata/golden/g4_permissions.yml",
+  "triggers": [
+    {
+      "event": "push",
+      "file": "testdata/golden/g4_permissions.yml",
+      "line": 1,
+      "col": 5
+    }
+  ],
+  "permissions": null,
+  "jobs": [
+    {
+      "id": {
+        "value": "absent",
+        "pos": {
+          "file": "testdata/golden/g4_permissions.yml",
+          "line": 3,
+          "col": 3
+        }
+      },
+      "runs_on": [
+        {
+          "value": "ubuntu-latest",
+          "pos": {
+            "file": "testdata/golden/g4_permissions.yml",
+            "line": 4,
+            "col": 14
+          }
+        }
+      ],
+      "permissions": null,
+      "steps": [
+        {
+          "index": 0,
+          "run": {
+            "value": "echo absent",
+            "pos": {
+              "file": "testdata/golden/g4_permissions.yml",
+              "line": 6,
+              "col": 14
+            }
+          },
+          "file": "testdata/golden/g4_permissions.yml",
+          "line": 6,
+          "col": 9
+        }
+      ],
+      "file": "testdata/golden/g4_permissions.yml",
+      "line": 3,
+      "col": 3
+    },
+    {
+      "id": {
+        "value": "empty",
+        "pos": {
+          "file": "testdata/golden/g4_permissions.yml",
+          "line": 7,
+          "col": 3
+        }
+      },
+      "runs_on": [
+        {
+          "value": "ubuntu-latest",
+          "pos": {
+            "file": "testdata/golden/g4_permissions.yml",
+            "line": 8,
+            "col": 14
+          }
+        }
+      ],
+      "permissions": {
+        "file": "testdata/golden/g4_permissions.yml",
+        "line": 9,
+        "col": 5
+      },
+      "steps": [
+        {
+          "index": 0,
+          "run": {
+            "value": "echo empty",
+            "pos": {
+              "file": "testdata/golden/g4_permissions.yml",
+              "line": 11,
+              "col": 14
+            }
+          },
+          "file": "testdata/golden/g4_permissions.yml",
+          "line": 11,
+          "col": 9
+        }
+      ],
+      "file": "testdata/golden/g4_permissions.yml",
+      "line": 7,
+      "col": 3
+    },
+    {
+      "id": {
+        "value": "readall",
+        "pos": {
+          "file": "testdata/golden/g4_permissions.yml",
+          "line": 12,
+          "col": 3
+        }
+      },
+      "runs_on": [
+        {
+          "value": "ubuntu-latest",
+          "pos": {
+            "file": "testdata/golden/g4_permissions.yml",
+            "line": 13,
+            "col": 14
+          }
+        }
+      ],
+      "permissions": {
+        "all": {
+          "value": "read-all",
+          "pos": {
+            "file": "testdata/golden/g4_permissions.yml",
+            "line": 14,
+            "col": 18
+          }
+        },
+        "file": "testdata/golden/g4_permissions.yml",
+        "line": 14,
+        "col": 5
+      },
+      "steps": [
+        {
+          "index": 0,
+          "run": {
+            "value": "echo read",
+            "pos": {
+              "file": "testdata/golden/g4_permissions.yml",
+              "line": 16,
+              "col": 14
+            }
+          },
+          "file": "testdata/golden/g4_permissions.yml",
+          "line": 16,
+          "col": 9
+        }
+      ],
+      "file": "testdata/golden/g4_permissions.yml",
+      "line": 12,
+      "col": 3
+    },
+    {
+      "id": {
+        "value": "scoped",
+        "pos": {
+          "file": "testdata/golden/g4_permissions.yml",
+          "line": 17,
+          "col": 3
+        }
+      },
+      "runs_on": [
+        {
+          "value": "ubuntu-latest",
+          "pos": {
+            "file": "testdata/golden/g4_permissions.yml",
+            "line": 18,
+            "col": 14
+          }
+        }
+      ],
+      "permissions": {
+        "scopes": [
+          {
+            "key": "actions",
+            "value": {
+              "value": "read",
+              "pos": {
+                "file": "testdata/golden/g4_permissions.yml",
+                "line": 21,
+                "col": 16
+              }
+            }
+          },
+          {
+            "key": "contents",
+            "value": {
+              "value": "write",
+              "pos": {
+                "file": "testdata/golden/g4_permissions.yml",
+                "line": 20,
+                "col": 17
+              }
+            }
+          }
+        ],
+        "file": "testdata/golden/g4_permissions.yml",
+        "line": 19,
+        "col": 5
+      },
+      "steps": [
+        {
+          "index": 0,
+          "run": {
+            "value": "echo scoped",
+            "pos": {
+              "file": "testdata/golden/g4_permissions.yml",
+              "line": 23,
+              "col": 14
+            }
+          },
+          "file": "testdata/golden/g4_permissions.yml",
+          "line": 23,
+          "col": 9
+        }
+      ],
+      "file": "testdata/golden/g4_permissions.yml",
+      "line": 17,
+      "col": 3
+    }
+  ]
+}

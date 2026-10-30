@@ -1,0 +1,9 @@
+name: A
+runs:
+  using: composite
+  steps:
+    - name: Outer
+      run: echo outer
+      shell: bash
+    - name: Nested
+      uses: ./.github/actions/B
