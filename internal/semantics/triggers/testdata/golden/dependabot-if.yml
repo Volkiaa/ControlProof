@@ -1,0 +1,14 @@
+name: Dependabot publish
+on:
+  workflow_run:
+    workflows: [Build]
+    types: [completed]
+permissions: {}
+jobs:
+  publish:
+    if: github.actor == 'dependabot[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Note
+        if: github.actor == 'dependabot[bot]'
+        run: echo noted

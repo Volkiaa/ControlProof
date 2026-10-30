@@ -1,0 +1,12 @@
+name: Reusable
+on:
+  workflow_call:
+    inputs:
+      target:
+        type: string
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7

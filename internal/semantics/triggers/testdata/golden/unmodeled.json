@@ -1,0 +1,31 @@
+{
+  "workflow": "testdata/golden/unmodeled.yml",
+  "name": "Nightly release",
+  "trust": "trusted-definition",
+  "triggers": [
+    {
+      "event": "schedule",
+      "pos": {
+        "file": "testdata/golden/unmodeled.yml",
+        "line": 3,
+        "col": 3
+      },
+      "modeled": false,
+      "attacker_control": "unmodeled"
+    },
+    {
+      "event": "release",
+      "pos": {
+        "file": "testdata/golden/unmodeled.yml",
+        "line": 5,
+        "col": 3
+      },
+      "modeled": false,
+      "attacker_control": "unmodeled"
+    }
+  ],
+  "unmodeled": [
+    "release",
+    "schedule"
+  ]
+}

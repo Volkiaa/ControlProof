@@ -1,0 +1,28 @@
+{
+  "workflow": "testdata/golden/dependabot-if.yml",
+  "name": "Dependabot publish",
+  "trust": "trusted-definition",
+  "triggers": [
+    {
+      "event": "workflow_run",
+      "pos": {
+        "file": "testdata/golden/dependabot-if.yml",
+        "line": 3,
+        "col": 3
+      },
+      "modeled": true,
+      "attacker_control": "upstream-dependent"
+    }
+  ],
+  "prerequisites": [
+    {
+      "setting": "dependabot_event",
+      "description": "Dependabot-triggered runs are treated as trusted",
+      "pos": {
+        "file": "testdata/golden/dependabot-if.yml",
+        "line": 9,
+        "col": 9
+      }
+    }
+  ]
+}

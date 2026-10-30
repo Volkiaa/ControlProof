@@ -1,0 +1,23 @@
+{
+  "workflow": "testdata/golden/pull_request.yml",
+  "name": "Pull request",
+  "trust": "fork-definition-controlled",
+  "triggers": [
+    {
+      "event": "pull_request",
+      "pos": {
+        "file": "testdata/golden/pull_request.yml",
+        "line": 3,
+        "col": 3
+      },
+      "modeled": true,
+      "attacker_control": "fork-definition"
+    }
+  ],
+  "prerequisites": [
+    {
+      "setting": "fork_pr_workflow_approval",
+      "description": "fork pull request workflow runs are not held for maintainer approval (repository/organization fork PR approval policy)"
+    }
+  ]
+}

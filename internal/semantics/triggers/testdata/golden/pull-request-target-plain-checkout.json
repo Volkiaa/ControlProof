@@ -1,0 +1,17 @@
+{
+  "workflow": "testdata/golden/pull-request-target-plain-checkout.yml",
+  "name": "Base checkout",
+  "trust": "trusted-definition",
+  "triggers": [
+    {
+      "event": "pull_request_target",
+      "pos": {
+        "file": "testdata/golden/pull-request-target-plain-checkout.yml",
+        "line": 3,
+        "col": 3
+      },
+      "modeled": true,
+      "attacker_control": "event-fields"
+    }
+  ]
+}

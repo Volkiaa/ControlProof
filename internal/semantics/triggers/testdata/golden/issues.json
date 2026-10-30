@@ -1,0 +1,17 @@
+{
+  "workflow": "testdata/golden/issues.yml",
+  "name": "Issues",
+  "trust": "trusted-definition",
+  "triggers": [
+    {
+      "event": "issues",
+      "pos": {
+        "file": "testdata/golden/issues.yml",
+        "line": 3,
+        "col": 3
+      },
+      "modeled": true,
+      "attacker_control": "event-fields"
+    }
+  ]
+}

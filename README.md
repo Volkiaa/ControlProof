@@ -14,9 +14,12 @@ Requires Go 1.26 or newer. The workflow parser uses `github.com/rhysd/actionlint
 go build ./cmd/controlproof
 ./controlproof version
 ./controlproof debug ir .
+./controlproof debug semantics .
 ```
 
 `debug ir [path]` prints the typed workflow IR as JSON (`controlproof-ir/0`), including parse diagnostics and inlined local composite actions and reusable workflows. It exits 2 when any workflow produced a parse or inline error.
+
+`debug semantics [--policy FILE] [path]` prints the trigger model and attacker-control classification per workflow as JSON (`controlproof-semantics/0`): every `on:` event with whether it is modeled and its `attacker_control`, the workflow trust class (`fork-definition-controlled`, `pr-head-builder`, `trusted-definition` or `unknown`), PR-head checkouts, unmodeled triggers, unknown reasons and the repository settings a finding would depend on. `--policy` loads `.controlproof.yaml` and reports its SHA-256 in the output; without it the built-in `unknown` repo profile applies.
 
 `scan` is not implemented yet: it prints `controlproof: scan is not implemented yet` and exits with status 2, so an unfinished scanner never reads as "no findings".
 

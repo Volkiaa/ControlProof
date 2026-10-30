@@ -1,0 +1,17 @@
+{
+  "workflow": "testdata/golden/workflow_call.yml",
+  "name": "Reusable",
+  "trust": "trusted-definition",
+  "triggers": [
+    {
+      "event": "workflow_call",
+      "pos": {
+        "file": "testdata/golden/workflow_call.yml",
+        "line": 3,
+        "col": 3
+      },
+      "modeled": true,
+      "attacker_control": "caller-dependent"
+    }
+  ]
+}

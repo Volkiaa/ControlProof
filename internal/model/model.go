@@ -103,6 +103,12 @@ type LocalAction struct {
 	Unresolved string `json:"unresolved,omitempty"`
 }
 
+type Prerequisite struct {
+	Setting     string `json:"setting"`
+	Description string `json:"description"`
+	Pos         *Pos   `json:"pos,omitempty"`
+}
+
 type Diag struct {
 	Pos
 	Kind    string `json:"kind"`

@@ -1,0 +1,17 @@
+{
+  "workflow": "testdata/golden/pull_request_target.yml",
+  "name": "Pull request target",
+  "trust": "trusted-definition",
+  "triggers": [
+    {
+      "event": "pull_request_target",
+      "pos": {
+        "file": "testdata/golden/pull_request_target.yml",
+        "line": 3,
+        "col": 3
+      },
+      "modeled": true,
+      "attacker_control": "event-fields"
+    }
+  ]
+}

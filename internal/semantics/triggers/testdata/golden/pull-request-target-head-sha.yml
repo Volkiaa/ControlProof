@@ -1,0 +1,14 @@
+name: Build pull request head
+on:
+  pull_request_target:
+    types: [labeled]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout pull request head
+        uses: actions/checkout@v7
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+      - name: Build
+        run: ./scripts/build.sh
